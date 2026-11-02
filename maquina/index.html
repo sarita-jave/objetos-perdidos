@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Máquina Punto de Entrega</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: la pantalla de un quiosco físico, una sola columna centrada; diseño oscuro a propósito porque imita el aparato */
+:root{--bg:#0a1120;--shell:#1d2840;--shell-2:#2c3a5c;--screen:#0b1426;--ink:#dfeaff;--muted:#9fb0d0;--sun:#ffc629;--sun-ink:#14213d;--ok:#5fd394;--bad:#ff8a80;--line:rgba(255,255,255,.14);
+--display:"Bricolage Grotesque",Figtree,system-ui,sans-serif;--body:Figtree,system-ui,sans-serif;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.5 var(--body)}
+.wrap{max-width:560px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 40px;display:grid;gap:16px}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.machine{background:var(--shell);border-radius:26px;padding:18px;display:grid;gap:14px;box-shadow:inset 0 -8px 0 rgba(0,0,0,.3),0 20px 40px rgba(0,0,0,.35)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{font:700 .78rem var(--body);letter-spacing:.14em;text-transform:uppercase}
+.brand small{display:block;font-weight:500;letter-spacing:.06em;color:var(--muted);text-transform:none;font-size:.82rem;margin-top:2px}
+.led{width:12px;height:12px;border-radius:50%;background:var(--shell-2);flex:none}.led.on{background:var(--ok);box-shadow:0 0 12px var(--ok)}
+.hours{font-size:.85rem;color:var(--muted);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.hours b{color:var(--ink);font-weight:600}
+.screen{background:var(--screen);border:4px solid var(--shell-2);border-radius:16px;padding:22px 18px;min-height:300px;display:grid;gap:12px;align-content:center;text-align:center}
+.screen h1{font:700 clamp(1.4rem,5vw,1.8rem)/1.15 var(--display);margin:0;letter-spacing:-.01em;text-wrap:balance}
+.screen p{margin:0;color:var(--muted)}
+.screen p b{color:var(--ink)}
+form{display:grid;gap:10px;justify-items:center}
+input{font:600 1.25rem ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;text-align:center;width:min(100%,300px);padding:12px;border-radius:10px;border:2px solid var(--shell-2);background:#06101f;color:var(--ink)}
+input::placeholder{color:#55627c}
+.btn{font:700 1rem var(--body);background:var(--sun);color:var(--sun-ink);border:0;border-radius:10px;padding:12px 20px;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.err{color:var(--bad);font-weight:600;margin:0}
+.big{font:800 clamp(1.6rem,7vw,2.3rem) ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em;color:var(--sun);background:#06101f;border-radius:12px;padding:10px 16px;justify-self:center}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:6px;text-align:left;justify-self:center}
+.checks li{padding-left:26px;position:relative;opacity:.4}.checks li.y{opacity:1}
+.checks li::before{content:"○";position:absolute;left:0}.checks li.y::before{content:"✓";color:var(--ok);font-weight:800}
+.reader{display:flex;align-items:center;gap:10px;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.reader span{width:56px;height:12px;border-radius:4px;background:var(--shell-2)}
+.reader.on span{background:var(--sun);box-shadow:0 0 12px var(--sun)}
+.comps{display:grid;grid-template-columns:repeat(12,1fr);gap:6px}
+.comp{border-radius:6px;background:var(--shell-2);display:grid;place-items:center;font:600 .78rem var(--body);border:1.5px solid var(--line)}
+.comp.P{grid-column:span 3;height:42px}.comp.M{grid-column:span 4;height:58px}.comp.G{grid-column:span 6;height:78px}
+.comp.busy{background:repeating-linear-gradient(45deg,var(--shell-2) 0 6px,rgba(255,255,255,.1) 6px 12px);color:var(--muted)}
+.comp.open{background:var(--sun);color:var(--sun-ink);border-color:var(--sun)}
+@media(prefers-reduced-motion:no-preference){.comp.open{animation:pulse 1s ease-in-out infinite alternate}@keyframes pulse{to{box-shadow:0 0 0 5px rgba(255,198,41,.35)}}}
+.legend{display:flex;gap:14px;font-size:.78rem;color:var(--muted);margin:0;flex-wrap:wrap}
+.lg{display:inline-block;width:12px;height:12px;border-radius:3px;background:var(--shell-2);border:1px solid var(--line);margin-right:5px;vertical-align:-2px}
+.lg.busy{background:repeating-linear-gradient(45deg,var(--shell-2) 0 3px,rgba(255,255,255,.3) 3px 6px)}.lg.open{background:var(--sun)}
+.foot{font-size:.85rem;color:var(--muted);display:grid;gap:6px}
+.foot p{margin:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="machine" role="group" aria-label="Máquina del punto de entrega">
+<div class="top"><div class="brand">Punto de entrega · Objetos Perdidos<small>Pontificia Universidad Javeriana Cali</small></div><span class="led" id="led" aria-hidden="true"></span></div>
+<div class="hours" id="hours"></div>
+<div class="screen" id="screen" aria-live="polite"></div>
+<div class="reader" id="reader"><span></span>Lector QR</div>
+<div class="comps" id="comps"></div>
+<p class="legend"><span><i class="lg"></i>Libre</span><span><i class="lg busy"></i>Ocupado</span><span><i class="lg open"></i>Abierto</span></p>
+</div>
+<div class="foot">
+<p>Simulación de la pantalla de la máquina. En la máquina real el lector escanea el QR; aquí se escribe o pega el código que aparece debajo del QR en la web.</p>
+<p>El personal de la oficina abre la máquina con su credencial de trabajo para retirar los objetos.</p>
+</div>
+</div>
+
+<script>
+// misma firma que usa la web para crear y verificar códigos
+const H=s=>{let h=2166136261;for(const ch of s){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)>>>0;}return h.toString(36).toUpperCase().padStart(7,"0").slice(-6);};
+const CATN={E:"Electrónicos",A:"Accesorios",P:"Prendas",D:"Documentos",U:"Útiles académicos",O:"Otros"};
+const TAMN={P:"pequeño",M:"mediano",G:"grande"};
+const COMPS=["P1","P2","P3","P4","M1","M2","M3","G1","G2"];
+const busy=new Set(["P2","G1"]); // ocupados con depósitos anteriores
+const used=new Set(),tries={};
+let st="idle",cur=null,checks=0,err="";
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function officeOpen(){const p=new Intl.DateTimeFormat("en-GB",{timeZone:"America/Bogota",hour:"2-digit",minute:"2-digit",hour12:false}).format(new Date()).split(":");const t=(+p[0]%24)*60+(+p[1]);return (t>=420&&t<720)||(t>=840&&t<1020);}
+function parse(raw){const m=raw.trim().toUpperCase().replace(/\s+/g,"").match(/^([EAPDUO])([PMG])-([A-Z0-9]{4})-([A-Z0-9]{2})$/);
+if(!m)return {e:"Ese código no es un QR de depósito. Revisa el código que aparece debajo del QR en la web."};
+const [, c, z, r, k]=m;if(H(c+z+r).slice(0,2)!==k)return {e:"El QR no es válido. Genera uno nuevo en la web."};
+const tok=`${c}${z}-${r}-${k}`;if(used.has(tok))return {e:"Este QR ya se usó. Genera uno nuevo en la web."};
+return {tok,c,z};}
+const free=z=>COMPS.find(k=>k[0]===z&&!busy.has(k));
+function render(){const open=officeOpen();
+$("#hours").innerHTML=open?`<b>La oficina está abierta ahora.</b> Entrega el objeto directamente en la oficina.`:`<b>Oficina cerrada.</b> Recibimos objetos hasta las 7:00 a. m.`;
+$("#led").className="led"+(st==="open"?" on":"");$("#reader").className="reader"+(st==="idle"?" on":"");
+let h;
+if(st==="summary"){const comp=free(cur.z);cur.comp=comp;
+h=comp?`<h1>¿Es correcto?</h1><p><b>${CATN[cur.c]}</b> · compartimento ${TAMN[cur.z]} ${comp}</p><div class="row"><button class="btn" data-a="confirm">Confirmar</button><button class="btn ghost" data-a="cancel">Cancelar</button></div>`
+:`<h1>No hay espacio</h1><p>No quedan compartimentos de tamaño ${TAMN[cur.z]}. Lleva el objeto al punto de la entrada principal y entrégaselo a los guardias.</p><button class="btn ghost" data-a="cancel" style="justify-self:center">Volver</button>`;}
+else if(st==="open")h=`<h1>Compartimento ${cur.comp} abierto</h1><p>Deja el objeto adentro y cierra la puerta.</p><div class="row"><button class="btn" data-a="close1">Dejé el objeto y cerré</button><button class="btn ghost" data-a="close0">Cerré sin dejar nada</button></div>`;
+else if(st==="checking")h=`<h1>Verificando el depósito</h1><ul class="checks">${["Puerta cerrada","Peso registrado","Objeto detectado","Foto interna tomada"].map((t,i)=>`<li class="${i<checks?"y":""}">${t}</li>`).join("")}</ul>`;
+else if(st==="done")h=`<h1>Depósito registrado</h1><p>Código de confirmación</p><div class="big" id="conf">${cur.conf}</div><p>Escríbelo en la web de Objetos Perdidos para ver tus puntos pendientes. La oficina valida el depósito cuando abre.</p><button class="btn ghost" data-a="end" style="justify-self:center">Terminar</button>`;
+else if(st==="empty"){const again=(tries[cur.tok]||0)<1;h=`<h1>No detectamos el objeto</h1><p>${again?"Puedes escanear el mismo QR una vez más.":"Este QR ya no es válido. Genera uno nuevo en la web."}</p><div class="row">${again?`<button class="btn" data-a="retry">Escanear de nuevo</button>`:""}<button class="btn ghost" data-a="end">Terminar</button></div>`;}
+else h=`<h1>Escanea tu QR de depósito</h1><p>Genera el QR en la web de Objetos Perdidos y acércalo al lector.</p><form id="f"><input id="code" aria-label="Código del QR" placeholder="EM-K7Q2-3F" autocomplete="off" spellcheck="false"><button class="btn">Escanear</button></form>${err?`<p class="err" role="alert">${esc(err)}</p>`:""}`;
+$("#screen").innerHTML=h;
+$("#comps").innerHTML=COMPS.map(k=>`<div class="comp ${k[0]} ${cur&&k===cur.comp&&(st==="open"||st==="checking")?"open":busy.has(k)?"busy":""}">${k}</div>`).join("");
+const f=$("#f");if(f){f.onsubmit=e=>{e.preventDefault();const r=parse($("#code").value);if(r.e){err=r.e;render();$("#code").focus();return;}err="";cur=r;st="summary";render();};}}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-a]");if(!b)return;const a=b.dataset.a;
+if(a==="confirm"){st="open";render();}
+else if(a==="cancel"||a==="end"){st="idle";cur=null;render();}
+else if(a==="retry"){tries[cur.tok]=(tries[cur.tok]||0)+1;st="summary";render();}
+else if(a==="close0"){st="checking";checks=1;render();setTimeout(()=>{st="empty";if((tries[cur.tok]||0)>=1)used.add(cur.tok);render();},900);}
+else if(a==="close1"){st="checking";checks=0;render();const tick=()=>{checks++;render();if(checks<4)return setTimeout(tick,450);
+setTimeout(()=>{busy.add(cur.comp);used.add(cur.tok);cur.conf=`${cur.comp}-${H(cur.tok+"|"+cur.comp)}`;st="done";render();},400);};setTimeout(tick,450);}});
+render();setInterval(()=>{if(st==="idle"&&!$("#code")?.value)render();},60000);
+</script>
+</body>
+</html>

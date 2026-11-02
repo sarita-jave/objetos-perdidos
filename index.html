@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Objetos Perdidos · Javeriana Cali</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+/* Layout: banda azul institucional arriba, contenido en columna de 1080px; tarjetas tipo marketplace; panel del personal como herramienta densa */
+:root{--bg:#f5f7fb;--surface:#fff;--ink:#14213d;--muted:#55627c;--line:#d9e0ee;--blue:#00407a;--blue-ink:#fff;--sun:#ffc629;--sun-ink:#14213d;--ok:#1a7f4b;--warn:#a35f00;--bad:#b42318;--done:#5b6477;--soft:#e8eefa;--onblue:#ffc629;
+--display:"Bricolage Grotesque",Figtree,system-ui,sans-serif;--body:Figtree,system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 var(--body)}
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0 0 .5em;letter-spacing:-.02em;text-wrap:balance}
+h1{font-size:clamp(2.1rem,6vw,3.8rem);font-weight:800}h2{font-size:clamp(1.5rem,3.5vw,2.1rem);font-weight:700}h3{font-size:1.12rem;font-weight:700}
+.h1s{font-size:clamp(1.8rem,4vw,2.6rem)}
+p{margin:0 0 1em;max-width:64ch}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--blue);color:var(--blue-ink)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--blue);z-index:30}
+.bar{display:flex;align-items:center;gap:12px 16px;min-height:60px;flex-wrap:wrap;padding-block:8px}
+.brand{font:800 1.1rem var(--display);color:inherit;text-decoration:none;margin-right:auto;display:flex;align-items:center;gap:10px}
+.brand i{width:30px;height:30px;border-radius:8px;background:var(--sun);display:grid;place-items:center;font-style:normal}
+nav{display:flex;gap:2px;flex-wrap:wrap}
+nav a{color:inherit;text-decoration:none;padding:7px 11px;border-radius:8px;font-weight:600;font-size:.93rem}
+nav a[aria-current="page"]{background:var(--sun);color:var(--sun-ink)}
+nav a:hover:not([aria-current]){background:rgba(255,255,255,.16)}
+.menu-btn{display:none;align-items:center;gap:8px;font:600 .95rem var(--body);color:var(--blue-ink);background:transparent;border:2px solid var(--blue-ink);border-radius:10px;padding:7px 12px;cursor:pointer}
+.burger,.burger::before,.burger::after{display:block;width:16px;height:2px;background:currentColor;border-radius:2px;position:relative}
+.burger::before,.burger::after{content:"";position:absolute;left:0}.burger::before{top:-5px}.burger::after{top:5px}
+#top.open .burger{background:transparent}#top.open .burger::before{top:0;transform:rotate(45deg)}#top.open .burger::after{top:0;transform:rotate(-45deg)}
+#login{max-width:46vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(max-width:900px){
+.bar{flex-wrap:nowrap;gap:10px}
+.brand{font-size:1rem;min-width:0}
+.menu-btn{display:inline-flex;order:2}
+#login{order:3}
+nav{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:4px;background:var(--blue);padding-block:8px 18px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));box-shadow:0 14px 24px rgba(10,20,40,.25);max-height:calc(100dvh - 70px);overflow-y:auto}
+#top.open nav{display:flex}
+nav a{padding:13px 14px;font-size:1.02rem;border-radius:10px}
+.ptabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.ptabs button{white-space:nowrap;flex:none}
+.chips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}.chip{flex:none}
+.hero{padding-block:32px 52px}
+}
+@media(max-width:420px){.brand i{display:none}.menu-btn{padding:7px 10px}}
+.btn{font:600 1rem var(--body);border:2px solid var(--blue);background:var(--blue);color:var(--blue-ink);padding:10px 18px;border-radius:10px;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
+.btn.sun{background:var(--sun);border-color:var(--sun);color:var(--sun-ink)}
+.btn.ghost{background:transparent;color:var(--blue)}
+.btn.bad{background:transparent;border-color:var(--bad);color:var(--bad)}
+.btn.sm{padding:6px 13px;font-size:.9rem}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+header .btn.sm{border-color:var(--blue-ink);background:transparent;color:var(--blue-ink)}
+.view{padding-block:32px 64px}
+.hero{background:var(--blue);color:var(--blue-ink);padding-block:44px 60px;margin-top:-32px}
+.hero p{font-size:1.12rem;opacity:.92}
+.sbox{display:flex;gap:8px;max-width:620px;margin-top:22px;flex-wrap:wrap}
+.sbox input{flex:1 1 240px;font-size:1.05rem;padding:13px 16px;border-radius:10px;border:2px solid transparent;background:#fff;color:#14213d}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.hero .btn.ghost{color:var(--blue-ink);border-color:var(--blue-ink)}
+.ways{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:-30px}
+.way{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.way .ic{font-size:1.7rem}.way p{color:var(--muted);margin-bottom:12px}
+.sec{margin-top:44px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;color:inherit;text-decoration:none;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--blue)}
+@media(prefers-reduced-motion:no-preference){.card:hover{transform:translateY(-2px)}}
+.ph{height:118px;display:grid;place-items:center;font-size:3rem;background:var(--soft)}
+.ph.big{height:auto;aspect-ratio:4/3;font-size:6rem;border-radius:14px;max-width:100%}
+.ph.sm{width:52px;height:52px;font-size:1.6rem;border-radius:10px;flex:none}
+.cb{padding:14px 16px 16px;display:flex;flex-direction:column;gap:5px;flex:1}
+.cb h3{margin:0}.cb p{margin:0;color:var(--muted);font-size:.93rem}
+.cb .go{margin-top:auto;padding-top:6px;font-weight:600;color:var(--blue);font-size:.92rem}
+.meta{font-size:.86rem;color:var(--muted)}
+.pill{display:inline-block;font-size:.8rem;font-weight:700;padding:2px 10px;border-radius:99px;border:1.5px solid currentColor;align-self:flex-start;white-space:nowrap}
+.pill.disponible,.pill.aprobada,.pill.alta{color:var(--ok)}
+.pill.porrecoger{color:var(--blue)}
+.pill.revision,.pill.media{color:var(--warn)}
+.pill.denegada,.pill.baja{color:var(--bad)}
+.pill.entregado{color:var(--done)}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 8px}
+input,select,textarea{font:inherit;padding:10px 12px;border-radius:10px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);width:100%}
+.filters input{flex:1 1 240px;width:auto}.filters select{flex:0 1 220px;width:auto}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.chip{border:1.5px solid var(--line);background:var(--surface);color:var(--ink);padding:6px 14px;border-radius:99px;cursor:pointer;font:500 .9rem var(--body)}
+.chip[aria-pressed="true"]{background:var(--blue);color:var(--blue-ink);border-color:var(--blue)}
+.empty{padding:32px;text-align:center;border:2px dashed var(--line);border-radius:14px;color:var(--muted);grid-column:1/-1}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;counter-reset:s;padding:0;list-style:none;margin:0}
+.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--sun);color:var(--sun-ink);font-weight:800;margin-bottom:8px}
+.steps b{display:block;margin-bottom:4px}.steps span{color:var(--muted);font-size:.93rem}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;min-width:0}
+.box ul{margin:0;padding-left:20px;color:var(--muted)}
+.tabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.tabs>button{flex:1 1 180px}
+form{display:grid;gap:14px;max-width:640px}
+label{display:grid;gap:5px;font-weight:600;font-size:.95rem}
+label small{font-weight:400;color:var(--muted)}
+label.chk{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.9rem;color:var(--muted)}
+label.chk input{width:auto;margin-top:4px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:560px){.row{grid-template-columns:1fr}}
+.done{background:var(--surface);border:2px solid var(--ok);border-radius:14px;padding:22px;max-width:680px}
+.note{font-size:.9rem;color:var(--muted);background:var(--soft);padding:12px 14px;border-radius:10px}
+.note b{color:var(--ink)}
+/* detalle */
+.back{display:inline-block;margin-bottom:18px;font-weight:600;text-decoration:none}
+.detail{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:28px;align-items:start}
+@media(max-width:760px){.detail{grid-template-columns:1fr}}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0 0 18px}
+.kv dt{color:var(--muted);font-size:.9rem}.kv dd{margin:0;font-weight:500;min-width:0}
+.cta{display:grid;gap:10px;margin-top:18px}
+/* mis solicitudes */
+.stack{display:grid;gap:14px}
+.req{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:14px}
+.req-h{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.req-h>div:nth-child(2){flex:1;min-width:0}.req-h h3{margin:0}
+.track{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.track li{border-top:4px solid var(--line);padding-top:6px;font-size:.85rem;color:var(--muted)}
+.track li.on{border-color:var(--blue);color:var(--ink);font-weight:600}
+.track li.ok{border-color:var(--ok)}.track li.no{border-color:var(--bad)}
+.res{border-radius:10px;padding:12px 14px;background:var(--soft);font-size:.95rem}
+.res p{margin:0}.res p+p{margin-top:6px}
+.code{font:700 1.15rem var(--display);letter-spacing:.06em;color:var(--blue)}
+/* panel */
+.ptabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:1.5px solid var(--line);margin:18px 0 20px}
+.ptabs button{background:none;border:0;border-bottom:3px solid transparent;padding:10px 12px;font:600 .95rem var(--body);color:var(--muted);cursor:pointer;margin-bottom:-1.5px}
+.ptabs button[aria-selected="true"]{color:var(--ink);border-color:var(--blue)}
+.ptabs .n{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 6px;border-radius:99px;background:var(--sun);color:var(--sun-ink);font-size:.78rem;margin-left:6px}
+.grp{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:18px}
+.grp-h{display:flex;gap:14px;padding:16px 18px;background:var(--soft);align-items:flex-start}
+.grp-h>div:last-child{min-width:0}.grp-h h3{margin:0 0 2px}
+.priv{margin:8px 0 0;font-size:.92rem}
+.claim{padding:16px 18px;border-top:1px solid var(--line);display:grid;gap:12px}
+.cmp{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:18px}
+@media(max-width:700px){.cmp{grid-template-columns:1fr}}
+.lbl{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 8px}
+.ai{border:1.5px dashed var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:8px;align-content:start}
+.fx{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:.9rem}
+.fx li{padding-left:22px;position:relative}
+.fx li::before{position:absolute;left:0;font-weight:800}
+.fx li.y::before{content:"✓";color:var(--ok)}.fx li.n::before{content:"✕";color:var(--bad)}
+.acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.acts select{width:auto;flex:1 1 260px}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:.93rem}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:middle}
+th{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:700}
+tr:last-child td{border-bottom:0}
+td.num{font-variant-numeric:tabular-nums}
+.aviso{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
+.aviso>div:nth-child(2){flex:1 1 260px;min-width:0}
+fieldset.tsel{border:0;padding:0;margin:0;min-width:0;display:grid;gap:5px}
+fieldset.tsel legend{font-weight:600;font-size:.95rem;padding:0;margin-bottom:5px}
+fieldset.tsel legend small{font-weight:400;color:var(--muted)}
+.tsel-row{display:flex;gap:6px;align-items:center}.tsel-row select{flex:1 1 0;min-width:0;width:auto}
+.err{color:var(--bad);font-weight:600;margin:0;font-size:.92rem}
+.docf{margin-top:10px;max-width:none}
+.mails{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.mails li{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.mails span{font-weight:600;user-select:all;overflow-wrap:anywhere;min-width:0}
+.hours{font:700 1.2rem/1.5 var(--display);font-variant-numeric:tabular-nums;margin:0 0 12px}
+/* punto nocturno */
+.night{background:var(--blue);color:var(--blue-ink);border-radius:18px;padding:28px;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px;align-items:center}
+@media(max-width:700px){.night{grid-template-columns:1fr}}
+.night h2{margin-bottom:.3em}.night p{opacity:.92}
+.night .lbl{color:inherit;opacity:.8}
+.night .btn.ghost{color:var(--blue-ink);border-color:var(--blue-ink)}
+.night-pts{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;align-items:baseline}
+.night-pts b{font:800 2.4rem/1 var(--display);color:var(--onblue);font-variant-numeric:tabular-nums}
+.pn-head{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:24px;align-items:start;margin-bottom:22px}
+@media(max-width:760px){.pn-head{grid-template-columns:1fr}}
+.status{border-radius:14px;padding:16px 18px;display:grid;gap:4px;border:2px solid var(--line);background:var(--surface)}
+.status.off{border-color:var(--blue)}.status.on{border-color:var(--ok)}
+.status b{font-family:var(--display);font-size:1.15rem}
+.pn-steps li{padding:14px}
+.pn-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:20px;align-items:start;margin-top:20px}
+@media(max-width:820px){.pn-grid{grid-template-columns:1fr}}
+.qrwrap{display:grid;justify-items:center;gap:8px;text-align:center;padding:4px 0 14px}
+#qrbox{background:#fff;padding:12px;border-radius:12px;line-height:0}
+#qrbox img,#qrbox canvas{max-width:100%}
+.timer{font:700 1.7rem var(--display);font-variant-numeric:tabular-nums}
+.tok{font:600 .95rem ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em}
+.copyrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
+.free{display:flex;gap:8px;flex-wrap:wrap}
+.free span{background:var(--soft);border-radius:10px;padding:8px 12px;font-size:.92rem}
+.free b{font:800 1.3rem var(--display);margin-right:4px;font-variant-numeric:tabular-nums}
+/* beneficios */
+.wallet{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:18px 0 6px}
+.wallet>div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:grid;gap:2px}
+.wallet>div:first-child{border:2px solid var(--blue)}
+.wallet .lbl{margin:0}
+.big{font:800 2.2rem/1.1 var(--display);font-variant-numeric:tabular-nums}
+.earn{display:flex;gap:10px 14px;flex-wrap:wrap;align-items:center;margin:16px 0 4px;font-size:.93rem}
+.earn span{background:var(--soft);padding:6px 12px;border-radius:99px}
+.bcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:6px}
+.bcard h3{margin:0}.bcard .meta,.bcard .lbl{margin:0}
+.bfoot{margin-top:auto;padding-top:10px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.pts{font:800 1.2rem var(--display);color:var(--blue);font-variant-numeric:tabular-nums}
+.coupon{display:flex;gap:16px;align-items:center;background:var(--surface);border:1.5px dashed var(--blue);border-radius:14px;padding:14px 16px;flex-wrap:wrap}
+.coupon>div:last-child{flex:1 1 220px;min-width:0}.coupon h3{margin:0 0 4px}
+.cqr{background:#fff;padding:6px;border-radius:8px;line-height:0;width:108px;height:108px;flex:none}
+.cqr img,.cqr canvas{width:96px;height:96px}
+.hist table{min-width:540px}
+td.pos{color:var(--ok);font-weight:700}td.neg{color:var(--bad);font-weight:700}
+.h2s{font-size:1.35rem;margin-top:32px}
+/* dialog, chat, toast */
+dialog{border:none;border-radius:16px;padding:0;max-width:580px;width:calc(100% - 28px);background:var(--surface);color:var(--ink);max-height:90vh}
+dialog::backdrop{background:rgba(5,10,25,.6)}
+.dh{display:flex;justify-content:space-between;align-items:start;gap:10px;padding:20px 22px 0}
+.db{padding:12px 22px 22px}
+.x{background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--ink);line-height:1;padding:4px 8px}
+.chat{border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden;min-width:0}
+.msgs{padding:14px;display:grid;gap:8px;min-height:130px;max-height:280px;overflow:auto;align-content:start}
+.m{padding:9px 13px;border-radius:12px;max-width:85%;font-size:.95rem}
+.m.b{background:var(--soft)}.m.u{background:var(--blue);color:var(--blue-ink);justify-self:end}
+.qs{display:flex;gap:8px;flex-wrap:wrap;padding:10px 14px;border-top:1px solid var(--line)}
+#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:12px;font-weight:600;z-index:50;max-width:calc(100% - 32px);box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.proto{background:var(--sun);color:var(--sun-ink);font-size:.86rem;font-weight:600;padding-block:8px;text-align:center}
+footer{background:var(--surface);border-top:1px solid var(--line);padding-block:22px;color:var(--muted);font-size:.9rem}
+@media(prefers-reduced-motion:no-preference){main>section:not([hidden]){animation:in .22s ease-out}@keyframes in{from{opacity:0}to{opacity:1}}}
+</style>
+</head>
+<body>
+<header class="top" id="top"><div class="wrap bar">
+<a class="brand" href="#inicio"><i aria-hidden="true">🔎</i>Objetos Perdidos</a>
+<button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="mainnav"><span class="burger" aria-hidden="true"></span>Menú</button>
+<nav aria-label="Principal" id="mainnav">
+<a href="#inicio" data-v="inicio">Inicio</a><a href="#objetos" data-v="objetos">Objetos</a><a href="#reportar" data-v="reportar">Reportar</a><a href="#punto-nocturno" data-v="punto-nocturno">Punto nocturno</a><a href="#beneficios" data-v="beneficios">Beneficios</a><a href="#mis-solicitudes" data-v="mis-solicitudes" id="nav-mis">Mis solicitudes</a><a href="#panel" data-v="panel" id="nav-panel" hidden>Panel del personal</a><a href="#ubicaciones" data-v="ubicaciones">Ubicaciones</a><a href="#contacto" data-v="contacto">Contacto</a>
+</nav>
+<button class="btn sm" id="login">Ingresar</button>
+</div></header>
+
+<div class="proto"><div class="wrap">Prototipo académico de una propuesta de diseño. No es un sitio oficial de la universidad y los datos son de ejemplo.</div></div>
+<main>
+<!-- INICIO -->
+<section class="view" id="v-inicio" hidden>
+<div class="hero"><div class="wrap">
+<h1>¿Perdiste algo en el campus? Empieza a buscarlo aquí.</h1>
+<p>Revisa los objetos que llegaron a la oficina de Objetos Perdidos, reclama el tuyo desde la web y ve a recogerlo solo cuando tu solicitud esté aprobada.</p>
+<form class="sbox" id="hsearch" role="search"><input type="search" id="hq" placeholder="Ej. audífonos, carné, termo" aria-label="Buscar un objeto"><button class="btn sun">Buscar</button></form>
+<div class="hero-cta"><a class="btn sun" href="#reportar" data-tab="encontre">Encontré un objeto</a><a class="btn ghost" href="#reportar" data-tab="perdi">Perdí un objeto</a></div>
+</div></div>
+<div class="wrap">
+<div class="ways">
+<div class="way"><div class="ic" aria-hidden="true">📦</div><h3>Ver objetos encontrados</h3><p>Publicaciones al día con categoría, lugar y estado.</p><a class="btn sm" href="#objetos">Ver listado</a></div>
+<div class="way"><div class="ic" aria-hidden="true">🙋</div><h3>Seguir mis solicitudes</h3><p>Mira si tu reclamo fue aprobado antes de ir a la oficina.</p><a class="btn sm" href="#mis-solicitudes">Mis solicitudes</a></div>
+<div class="way"><div class="ic" aria-hidden="true">📍</div><h3>Entregar lo que encontré</h3><p>Déjalo en un punto de recolección y avísanos aquí.</p><a class="btn sm" href="#ubicaciones">Ver puntos</a></div>
+</div>
+<div class="sec night"><div><p class="lbl">Cuando la oficina está cerrada</p><h2>¿Encontraste algo fuera de horario?</h2><p>Déjalo en el punto de entrega nocturno, junto a la oficina. Generas un QR en la web, la máquina abre un compartimento y ganas puntos cuando la oficina valida el depósito.</p><div class="acts"><a class="btn sun" href="#punto-nocturno">Usar el punto nocturno</a><a class="btn ghost" href="#beneficios">Ver beneficios</a></div></div>
+<div class="night-pts"><b>+10</b><span>puntos por depósito validado</span><b>+5</b><span>si el dueño recupera el objeto</span></div></div>
+<div class="sec"><h2>Llegaron hace poco</h2><div class="grid" id="recent"></div><p style="margin-top:16px"><a href="#objetos">Ver todos los objetos →</a></p></div>
+<div class="sec"><h2>Cómo recuperas tu objeto</h2>
+<ol class="steps">
+<li><b>Busca</b><span>Filtra por categoría o palabra clave y abre la publicación.</span></li>
+<li><b>Reclama</b><span>Ingresa con tu correo de la Javeriana y describe rasgos que no aparecen en la publicación.</span></li>
+<li><b>Revisión</b><span>El sistema compara tu descripción con el registro de la oficina y el personal decide.</span></li>
+<li><b>Recoge</b><span>Con la solicitud aprobada registra tu código estudiantil o documento, y ve a la oficina con él y tu código de retiro.</span></li>
+</ol></div>
+</div>
+</section>
+
+<!-- LISTADO -->
+<section class="view" id="v-objetos" hidden><div class="wrap">
+<h1 class="h1s">Objetos encontrados</h1>
+<p style="color:var(--muted)">Cada publicación es un objeto que ya está en la oficina. Mostramos solo datos generales: los rasgos distintivos se usan para comprobar quién es el dueño.</p>
+<div class="filters">
+<input type="search" id="q" placeholder="Buscar por palabra clave" aria-label="Buscar por palabra clave">
+<select id="st" aria-label="Estado"><option value="">Todos los estados</option><option value="disponible">Disponible</option><option value="porrecoger">Por recoger</option><option value="entregado">Entregado</option></select>
+</div>
+<div class="chips" id="chips" role="group" aria-label="Categorías"></div>
+<p class="meta" id="count" aria-live="polite"></p>
+<div class="grid" id="list"></div>
+<p class="meta" style="margin-top:16px">Los objetos entregados salen del listado 7 días después de la entrega.</p>
+</div></section>
+
+<!-- DETALLE -->
+<section class="view" id="v-objeto" hidden><div class="wrap" id="detail"></div></section>
+
+<!-- REPORTAR -->
+<section class="view" id="v-reportar" hidden><div class="wrap">
+<h1 class="h1s">Reportar un objeto</h1>
+<div class="tabs" role="tablist">
+<button class="btn" role="tab" id="t-encontre" aria-selected="true">Encontré un objeto</button>
+<button class="btn ghost" role="tab" id="t-perdi" aria-selected="false">Perdí un objeto</button>
+</div>
+<div id="rf"></div>
+</div></section>
+
+<!-- PUNTO NOCTURNO -->
+<section class="view" id="v-punto-nocturno" hidden><div class="wrap" id="pn"></div></section>
+
+<!-- BENEFICIOS -->
+<section class="view" id="v-beneficios" hidden><div class="wrap" id="ben"></div></section>
+
+<!-- MIS SOLICITUDES -->
+<section class="view" id="v-mis-solicitudes" hidden><div class="wrap" id="mis"></div></section>
+
+<!-- PANEL -->
+<section class="view" id="v-panel" hidden><div class="wrap" id="panel"></div></section>
+
+<!-- UBICACIONES -->
+<section class="view" id="v-ubicaciones" hidden><div class="wrap">
+<h1 class="h1s">Ubicaciones</h1>
+<div class="two">
+<div class="box"><h2 style="font-size:1.35rem">Puntos de recolección</h2><p>Si encontraste algo, déjalo en uno de estos puntos y repórtalo en la sección Reportar. El personal lo lleva a la oficina y lo publica cuando lo recibe.</p><ul><li>Punto 1 (por definir con la oficina)</li><li>Punto 2 (por definir con la oficina)</li><li>Punto 3 (por definir con la oficina)</li></ul></div>
+<div class="box"><h2 style="font-size:1.35rem">Punto principal de entrega</h2><p><b>Oficina de Objetos Perdidos</b>, ubicación por confirmar.</p><p>Aquí se guardan los objetos y se entregan a quien tenga una solicitud aprobada. Lleva tu carné o documento de identidad y tu código de retiro.</p></div>
+<div class="box"><h2 style="font-size:1.35rem">Punto de entrega nocturno</h2><p>Máquina con compartimentos de tres tamaños junto a la oficina de Objetos Perdidos, en un lugar con cámara de seguridad y acceso de noche. Recibe objetos cuando la oficina está cerrada.</p><p>Si el objeto no cabe en la máquina, llévalo al punto de la entrada principal y entrégaselo a los guardias.</p><a class="btn sm" href="#punto-nocturno">Cómo usarla</a></div>
+</div>
+<p class="note" style="margin-top:14px">Los puntos de recolección y la dirección exacta se completan con los datos oficiales de la oficina.</p>
+</div></section>
+
+<!-- CONTACTO -->
+<section class="view" id="v-contacto" hidden><div class="wrap">
+<h1 class="h1s">Contacto</h1>
+<div class="two">
+<div class="box"><h3>Oficina de Objetos Perdidos</h3>
+<p class="lbl" style="margin-top:14px">Correo</p>
+<ul class="mails"><li><span>dircom@javerianacali.edu.co</span><button class="btn sm ghost" data-copy="dircom@javerianacali.edu.co">Copiar</button></li><li><span>dsuarez@javerianacali.edu.co</span><button class="btn sm ghost" data-copy="dsuarez@javerianacali.edu.co">Copiar</button></li></ul>
+<p class="lbl" style="margin-top:16px">Horario de atención</p>
+<p class="hours" style="margin:0">7:00 a. m. – 12:00 m.<br>2:00 p. m. – 5:00 p. m.</p></div>
+<div class="chat"><div class="msgs" id="msgs" aria-live="polite"><div class="m b">Hola, soy el asistente de Objetos Perdidos. ¿En qué te ayudo?</div></div>
+<div class="qs" id="qs"></div></div>
+</div>
+</div></section>
+</main>
+
+<footer><div class="wrap">Plataforma de Objetos Perdidos · Pontificia Universidad Javeriana Cali · Prototipo con datos de ejemplo; el ingreso es simulado.</div></footer>
+
+<dialog id="dlg" aria-labelledby="dt"><div class="dh"><h2 id="dt" style="font-size:1.35rem"></h2><button class="x" id="dx" aria-label="Cerrar">×</button></div><div class="db" id="db"></div></dialog>
+<div id="toast" role="status" hidden></div>
+
+<script>
+const TODAY="2026-10-28";
+const CATS={"Electrónicos":"🎧","Accesorios":"⌚","Prendas":"🧥","Documentos":"🪪","Útiles académicos":"📓","Otros":"🎒"};
+const PUB={disponible:"Disponible",porrecoger:"Por recoger",entregado:"Entregado"};
+const CST={revision:"En revisión",aprobada:"Aprobada",denegada:"No aprobada"};
+const MOTIVOS=["La descripción no corresponde al objeto registrado.","La información no es suficiente para comprobar que el objeto es tuyo.","El objeto que describes no está registrado en la oficina."];
+const ASIGNADO="El objeto se entregó a otra solicitud que comprobó la propiedad.";
+const DOMAIN="@javerianacali.edu.co";
+// En producción el rol sale del directorio institucional. En el prototipo, esta lista simula las cuentas con rol de trabajo en la oficina.
+const STAFF=["personal.objetos@javerianacali.edu.co"];
+const DOCS=["Código estudiantil","Cédula de ciudadanía","Tarjeta de identidad","Cédula de extranjería","Pasaporte"];
+
+// d = lo que se publica; priv = rasgos que solo ve el personal
+let objs=[
+{id:1,n:"Audífonos inalámbricos",c:"Electrónicos",d:"Audífonos negros con estuche.",l:"Biblioteca, segundo piso",f:"2026-10-26",s:"disponible",priv:"Estuche con rayón en la tapa y sticker de un planeta; el audífono izquierdo tiene la goma gastada."},
+{id:2,n:"Carné estudiantil",c:"Documentos",d:"Carné institucional con cordón.",l:"Cafetería central",f:"2026-10-26",s:"disponible",priv:"Cordón azul con llavero de la universidad. Nombre y código visibles solo para el personal."},
+{id:9,n:"Paraguas plegable",c:"Otros",d:"Paraguas oscuro plegable.",l:"Entrada principal",f:"2026-10-27",s:"disponible",priv:"Negro con mango de madera, una varilla doblada.",dep:3},
+{id:3,n:"Termo metálico",c:"Otros",d:"Termo azul de tamaño mediano.",l:"Bloque de aulas",f:"2026-10-25",s:"porrecoger",priv:"750 ml, calcomanías de montaña y de un gato, abolladura en la base."},
+{id:4,n:"Chaqueta con capucha",c:"Prendas",d:"Chaqueta gris.",l:"Auditorio",f:"2026-10-24",s:"disponible",priv:"Talla M, marca deportiva, recibo de parqueadero en el bolsillo."},
+{id:5,n:"Calculadora científica",c:"Útiles académicos",d:"Calculadora científica con funda.",l:"Laboratorio de cómputo",f:"2026-10-23",s:"disponible",priv:"Funda negra, iniciales J.B. grabadas atrás, marca en la tapa."},
+{id:6,n:"Reloj de pulsera",c:"Accesorios",d:"Reloj plateado.",l:"Zona deportiva",f:"2026-10-22",s:"disponible",priv:"Correa metálica, esfera azul, grabado en el reverso."},
+{id:7,n:"Cuaderno argollado",c:"Útiles académicos",d:"Cuaderno de pasta de color.",l:"Sin información",f:"2026-10-20",s:"entregado",ent:"2026-10-27",priv:"Pasta roja, apuntes de cálculo, nombre en la primera hoja."},
+{id:8,n:"Llaves con llavero",c:"Accesorios",d:"Juego de llaves.",l:"Parqueadero",f:"2026-10-19",s:"disponible",priv:"Tres llaves, llavero de peluche de oso café."}];
+let claims=[
+{id:1,oid:1,user:"laura.gomez",owner:"laura.gomez",lugar:"Biblioteca, segundo piso",fecha:"2026-10-26",hora:"10:30",rasgos:"El estuche está rayado en la tapa y tiene un sticker de planeta. La goma del izquierdo está gastada.",fotos:1,st:"revision",env:"2026-10-27"},
+{id:2,oid:1,user:"andres.pardo",owner:"andres.pardo",lugar:"Cafetería",fecha:"2026-10-20",hora:"",rasgos:"Audífonos negros con estuche, inalámbricos.",fotos:0,st:"revision",env:"2026-10-27"},
+{id:3,oid:4,user:"estudiante.ejemplo",owner:null,lugar:"Auditorio",fecha:"2026-10-24",hora:"16:00",rasgos:"Talla M, marca deportiva. En el bolsillo dejé un recibo de parqueadero.",fotos:0,st:"revision",env:"2026-10-27"},
+{id:4,oid:3,user:"estudiante.ejemplo",owner:null,lugar:"Bloque de aulas, salón 204",fecha:"2026-10-25",hora:"09:00",rasgos:"Tiene calcomanías de una montaña y un gato, y una abolladura en la base.",fotos:1,st:"aprobada",code:"OP-3175",env:"2026-10-25"},
+{id:5,oid:8,user:"estudiante.ejemplo",owner:null,lugar:"Biblioteca",fecha:"2026-10-10",hora:"",rasgos:"Unas llaves.",fotos:0,st:"denegada",motivo:MOTIVOS[1],env:"2026-10-20"}];
+let avisos=[{id:1,c:"Electrónicos",d:"Cargador de portátil negro con cable largo.",l:"Sala de estudio, bloque B",e:"Punto de recolección de la biblioteca",f:"2026-10-28",quien:"juan.castro"}];
+let lost=[
+{id:1,c:"Útiles académicos",d:"Calculadora científica con mis iniciales grabadas atrás.",l:"Laboratorio de cómputo",f:"2026-10-22",owner:null},
+{id:2,c:"Otros",d:"Botella de agua verde con tapa negra.",l:"Gimnasio",f:"2026-10-21",owner:null}];
+const handle=e=>e.split("@")[0];
+const isMine=x=>user?.role==="comunidad"&&x.owner===user.handle;
+const known=new Set();
+let seq=100,user=null,cat="",rtab="encontre",ptab="solicitudes",prefill=null,afterLogin=null;
+
+const $=s=>document.querySelector(s);
+let cur=(()=>{try{return location.hash.slice(1)||"inicio";}catch(e){return "inicio";}})();
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fd=iso=>iso?new Date(iso+"T12:00").toLocaleDateString("es-CO",{day:"numeric",month:"short"}):"—";
+const days=(a,b)=>Math.round((new Date(b+"T12:00")-new Date(a+"T12:00"))/864e5);
+const obj=id=>objs.find(o=>o.id===id);
+const norm=s=>s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
+const STOP=new Set(["con","una","uno","unos","unas","los","las","del","que","por","para","tiene","esta","este","sus","mis","dejé","deje","the","mas","muy","son"]);
+const stem=w=>w.replace(/(es|s)$/,"").replace(/(ado|ada|on)$/,"");
+const toks=s=>[...new Set(norm(s).split(/[^a-z0-9]+/).filter(w=>w.length>2&&!STOP.has(w)).map(stem))];
+// solo cuentan los rasgos privados: repetir lo publicado no prueba nada
+function score(c,o){const P=new Set(toks(o.priv)),Pub=new Set(toks(o.n+" "+o.d)),A=toks(c.rasgos);const hit=A.filter(w=>P.has(w)&&!Pub.has(w));
+const r=Math.min(1,hit.length/Math.max(A.length,5));const L=toks(c.lugar).some(w=>toks(o.l).includes(w));const dd=days(c.fecha,o.f);const F=dd>=0&&dd<=7;
+return {s:.6*r+(L?.25:0)+(F?.15:0),n:hit.length,l:L,f:F};}
+const lostMatches=r=>objs.filter(o=>o.s==="disponible"&&o.c===r.c&&toks(r.d).some(w=>toks(o.n+" "+o.d+" "+o.priv).includes(w)));
+function toast(t){const e=$("#toast");e.textContent=t;e.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>e.hidden=true,3200);}
+const dlg=$("#dlg");$("#dx").onclick=()=>dlg.close();
+function openDlg(t,h){$("#dt").textContent=t;$("#db").innerHTML=h;if(!dlg.open)dlg.showModal();}
+
+// ---------- listado ----------
+const visible=o=>!(o.s==="entregado"&&days(o.ent,TODAY)>7);
+const card=o=>`<a class="card" href="#objeto-${o.id}"><div class="ph" aria-hidden="true">${CATS[o.c]}</div><div class="cb"><span class="pill ${o.s}">${PUB[o.s]}</span><h3>${esc(o.n)}</h3><p>${esc(o.d)}</p><span class="meta">${esc(o.l)} · ${fd(o.f)}</span><span class="go">${o.s==="disponible"?"Ver y reclamar →":"Ver publicación →"}</span></div></a>`;
+function renderList(){const q=norm($("#q").value.trim()),st=$("#st").value;
+const r=objs.filter(o=>visible(o)&&(!cat||o.c===cat)&&(!st||o.s===st)&&(!q||norm(o.n+o.d+o.l+o.c).includes(q)));
+$("#count").textContent=r.length+(r.length===1?" objeto":" objetos");
+$("#list").innerHTML=r.length?r.map(card).join(""):`<div class="empty">No hay objetos con esos filtros. Prueba con otra palabra o <a href="#reportar" data-tab="perdi">reporta que perdiste algo</a> y te avisamos si llega uno parecido.</div>`;
+$("#recent").innerHTML=objs.filter(o=>o.s==="disponible").sort((a,b)=>b.f.localeCompare(a.f)).slice(0,4).map(card).join("");}
+function renderChips(){$("#chips").innerHTML=["",...Object.keys(CATS)].map(c=>`<button class="chip" aria-pressed="${cat===c}" data-cat="${c}">${c||"Todas"}</button>`).join("");}
+$("#q").addEventListener("input",renderList);$("#st").addEventListener("input",renderList);
+$("#hsearch").addEventListener("submit",e=>{e.preventDefault();$("#q").value=$("#hq").value;go("objetos");renderList();});
+
+// ---------- detalle ----------
+function renderDetail(id){const o=obj(id);if(!o){$("#detail").innerHTML=`<div class="empty">Esta publicación ya no existe. <a href="#objetos">Volver al listado</a></div>`;return;}
+const mine=claims.find(c=>c.oid===id&&isMine(c));let act;
+if(user?.role==="personal")act=`<p class="note">Estás como personal de la oficina. Revisa las solicitudes de este objeto en el <a href="#panel">panel</a>.</p>`;
+else if(o.s==="entregado")act=`<p class="note">Este objeto ya fue entregado a su dueño.</p>`;
+else if(mine)act=`<p class="note">Ya enviaste una solicitud por este objeto: <b>${CST[mine.st]}</b>.</p><a class="btn" href="#mis-solicitudes">Ver mi solicitud</a>`;
+else if(o.s==="porrecoger")act=`<p class="note">Ya hay una solicitud aprobada para este objeto y está esperando que lo recojan.</p>`;
+else if(!user)act=`<button class="btn sun" data-loginfor="${id}">Ingresa para reclamar</button><p class="meta">Para reclamar ingresa con tu correo de la Javeriana.</p>`;
+else if(o.dep&&deposits.find(x=>x.id===o.dep)?.owner===user.handle)act=`<p class="note">Tú entregaste este objeto en el punto nocturno. Si en realidad es tuyo, escribe a la oficina: reclamarlo anula los puntos de ese depósito.</p>`;
+else act=`<button class="btn sun" data-claim="${id}">Reclamar este objeto</button>`;
+$("#detail").innerHTML=`<a class="back" href="#objetos">← Volver al listado</a>
+<div class="detail"><div class="ph big" aria-hidden="true">${CATS[o.c]}</div>
+<div><span class="pill ${o.s}">${PUB[o.s]}</span><h1 class="h1s" style="margin-top:10px">${esc(o.n)}</h1><p style="font-size:1.08rem">${esc(o.d)}</p>
+<dl class="kv"><dt>Categoría</dt><dd>${o.c}</dd><dt>Encontrado en</dt><dd>${esc(o.l)}</dd><dt>Registrado</dt><dd>${fd(o.f)}</dd><dt>Referencia</dt><dd>OBJ-${String(o.id).padStart(4,"0")}</dd></dl>
+<p class="note"><b>¿Por qué hay tan pocos detalles?</b> No publicamos marcas, contenido, grabados ni stickers. Si el objeto es tuyo, esos rasgos son los que te pediremos para comprobarlo.</p>
+<div class="cta">${act}</div></div></div>`;}
+
+// ---------- reclamo ----------
+const fld=(l,n,t="text",x="",req=true,v="")=>`<label>${l}${x?`<small>${x}</small>`:""}${t==="area"?`<textarea id="${n}" name="${n}" rows="3" ${req?"required":""}>${esc(v)}</textarea>`:`<input id="${n}" name="${n}" type="${t}" ${req?"required":""} value="${esc(v)}" ${t==="date"?`max="${TODAY}"`:""}>`}</label>`;
+const MINS=["00","05","10","15","20","25","30","35","40","45","50","55"];
+const timeFld=(l,n,req=false)=>`<fieldset class="tsel"><legend>${l}${req?"":" <small>Opcional</small>"}</legend><div class="tsel-row"><select id="${n}-hh" data-t="${n}" aria-label="Hora" ${req?"required":""}><option value="">Hora</option>${[12,1,2,3,4,5,6,7,8,9,10,11].map(h=>`<option value="${h}">${h}</option>`).join("")}</select><span aria-hidden="true">:</span><select id="${n}-mm" data-t="${n}" aria-label="Minutos">${MINS.map(m=>`<option>${m}</option>`).join("")}</select><select id="${n}-ap" data-t="${n}" aria-label="a. m. o p. m."><option value="am">a. m.</option><option value="pm">p. m.</option></select></div><input type="hidden" id="${n}" value=""></fieldset>`;
+document.addEventListener("change",e=>{const t=e.target.dataset?.t;if(!t)return;const h=$("#"+t+"-hh").value;
+$("#"+t).value=h?String(+h%12+($("#"+t+"-ap").value==="pm"?12:0)).padStart(2,"0")+":"+$("#"+t+"-mm").value:"";});
+const fileFld=(l,n,x,multi)=>`<label>${l}<small>${x}</small><input id="${n}" name="${n}" type="file" accept="image/*" ${multi?"multiple":""}></label>`;
+function claim(id){const o=obj(id);
+openDlg("Reclamar: "+o.n,`<p class="meta">Ingresaste como <b>${esc(user.email)}</b>. Describe el objeto con detalles que no aparecen en la publicación.</p>
+<form id="cf" style="max-width:none">
+${fld("Rasgos que solo tú conoces","c-r","area","Marca, rayones, stickers, grabados, contenido, accesorios")}
+${fld("¿Dónde crees que lo perdiste?","c-l")}
+<div class="row">${fld("Fecha del extravío","c-f","date")}${timeFld("Hora aproximada","c-h")}</div>
+${fileFld("Fotos tuyas con el objeto","c-p","Opcional. Por ejemplo, una foto donde se vea que lo usabas.",true)}
+<label class="chk"><input type="checkbox" id="c-ok" required>Autorizo el uso de estos datos solo para verificar esta solicitud, según la política de tratamiento de datos de la universidad.</label>
+<button class="btn sun">Enviar solicitud</button></form>`);
+$("#cf").addEventListener("submit",ev=>{ev.preventDefault();
+claims.push({id:++seq,oid:id,user:user.handle,owner:user.handle,lugar:$("#c-l").value,fecha:$("#c-f").value,hora:$("#c-h").value,rasgos:$("#c-r").value,fotos:$("#c-p").files.length,st:"revision",env:TODAY});
+$("#db").innerHTML=`<div role="status"><h3>Solicitud enviada</h3><p>Tu descripción se compara con el registro de la oficina y el personal la revisa. Verás la respuesta en Mis solicitudes antes de ir a la oficina.</p><div class="acts"><a class="btn" href="#mis-solicitudes" id="go-mis">Ver mis solicitudes</a><button class="btn ghost" id="cl-ok">Cerrar</button></div></div>`;
+$("#go-mis").onclick=()=>dlg.close();$("#cl-ok").onclick=()=>dlg.close();renderDetail(id);});}
+
+// ---------- reportar ----------
+const catSel=(n,v)=>`<label>Tipo de objeto<select id="${n}" name="${n}" required><option value="">Elige una categoría</option>${Object.keys(CATS).map(c=>`<option ${c===v?"selected":""}>${c}</option>`).join("")}</select></label>`;
+function renderReport(){const f=rtab==="encontre";
+["encontre","perdi"].forEach(k=>{const b=$("#t-"+k);b.setAttribute("aria-selected",k===rtab);b.className="btn"+(k===rtab?"":" ghost");});
+if(!f&&!user){$("#rf").innerHTML=`<div class="box" style="max-width:640px"><h3>Ingresa para reportar una pérdida</h3><p>Así podemos avisarte por tu correo institucional cuando llegue un objeto parecido.</p><button class="btn sun" data-login>Ingresar</button></div>`;return;}
+if(!f&&user.role==="personal"){$("#rf").innerHTML=`<p class="note">Los reportes de pérdida los hace la comunidad. Para registrar un objeto recibido usa el <a href="#panel">panel del personal</a>.</p>`;return;}
+$("#rf").innerHTML=`${f?`<p class="note" style="max-width:640px;margin-bottom:16px">Primero deja el objeto en un punto de recolección o en la oficina. Este aviso le dice al personal qué esperar; el objeto se publica cuando lo reciben. <b>¿La oficina está cerrada?</b> Usa el <a href="#punto-nocturno">punto de entrega nocturno</a> y gana puntos.</p>`:""}
+<form id="rep">${catSel("r-c")}${fld("Descripción del objeto","r-d","area",f?"Lo general: qué es y de qué color. Los detalles los registra la oficina.":"Color, marca y rasgos particulares. Esto no se publica.")}
+${fld(f?"¿Dónde lo encontraste?":"¿Dónde pudo haberse perdido?","r-l")}
+<div class="row">${fld("Fecha","r-f","date")}${timeFld("Hora aproximada","r-h")}</div>
+${f?fld("¿Dónde lo dejaste?","r-e","text","Punto de recolección u oficina"):""}
+${fileFld("Fotografía","r-p","Opcional",false)}
+<button class="btn sun" style="justify-self:start">${f?"Enviar aviso de objeto encontrado":"Registrar objeto perdido"}</button></form>`;
+$("#rep").addEventListener("submit",ev=>{ev.preventDefault();const v=k=>$("#r-"+k).value;
+if(f){avisos.push({id:++seq,c:v("c"),d:v("d"),l:v("l"),e:v("e"),f:v("f"),quien:user?.handle||"Persona sin ingresar"});
+$("#rf").innerHTML=`<div class="done" role="status"><h2 style="font-size:1.35rem">Gracias por entregar lo que encontraste</h2><p>El personal de la oficina recibirá el objeto en el punto que indicaste y lo publicará cuando lo tenga.</p><button class="btn" id="again">Hacer otro reporte</button></div>`;}
+else{const r={id:++seq,c:v("c"),d:v("d"),l:v("l"),f:v("f"),owner:user.handle};lost.push(r);const m=lostMatches(r);
+$("#rf").innerHTML=`<div class="done" role="status"><h2 style="font-size:1.35rem">Registramos tu objeto perdido</h2>${m.length?`<p>Ya hay ${m.length===1?"un objeto parecido":m.length+" objetos parecidos"} en la oficina. Revísalo y, si es tuyo, reclámalo.</p><div class="grid" style="margin-bottom:16px">${m.map(card).join("")}</div>`:`<p>Por ahora no hay objetos parecidos. Te avisaremos a tu correo institucional si llega uno, y puedes ver el reporte en Mis solicitudes.</p>`}<button class="btn" id="again">Hacer otro reporte</button></div>`;}
+$("#again").onclick=renderReport;});}
+$("#t-encontre").onclick=()=>{rtab="encontre";renderReport();};$("#t-perdi").onclick=()=>{rtab="perdi";renderReport();};
+
+// ---------- mis solicitudes ----------
+function track(c){const s=c.st;return `<ol class="track"><li class="on ok">Enviada · ${fd(c.env)}</li><li class="on ${s==="revision"?"":"ok"}">En revisión</li><li class="${s==="revision"?"":"on "+(s==="aprobada"?"ok":"no")}">${s==="revision"?"Respuesta":CST[s]}</li></ol>`;}
+function renderMis(){const el=$("#mis");
+if(!user){el.innerHTML=`<h1 class="h1s">Mis solicitudes</h1><div class="box" style="max-width:640px"><p>Ingresa con tu correo de la Javeriana para ver tus reclamos y tus reportes de pérdida.</p><button class="btn sun" data-login>Ingresar</button></div>`;return;}
+if(user.role==="personal"){el.innerHTML=`<h1 class="h1s">Mis solicitudes</h1><p class="note">Estás como personal de la oficina. Las solicitudes de la comunidad están en el <a href="#panel">panel</a>.</p>`;return;}
+const mc=claims.filter(isMine).sort((a,b)=>b.env.localeCompare(a.env)),ml=lost.filter(isMine);
+el.innerHTML=`<h1 class="h1s">Mis solicitudes</h1><p style="color:var(--muted)">Aquí ves el estado de tus reclamos. Ve a la oficina solo cuando una solicitud esté aprobada.</p>
+<h2 style="font-size:1.35rem;margin-top:24px">Reclamos</h2><div class="stack">${mc.length?mc.map(c=>{const o=obj(c.oid);
+const res=c.st==="aprobada"?(c.doc?`<div class="res"><p><b>Tu objeto te espera en la oficina.</b> Presenta tu carné o documento y este código de retiro:</p><p class="code">${c.code}</p><p class="meta">Se entrega solo al titular del ${c.doc.t.toLowerCase()} terminado en ${esc(c.doc.n.slice(-4))}.</p></div>`
+:`<div class="res"><p><b>Comprobamos que el objeto es tuyo.</b> Para recibir el código de retiro, registra tu código estudiantil o tu número de documento. En la oficina se compara con el documento que presentes.</p>
+<form class="docf" data-docfor="${c.id}" novalidate><div class="row"><label>Tipo<select id="dt-${c.id}">${DOCS.map(x=>`<option>${x}</option>`).join("")}</select></label><label>Número<input id="dn-${c.id}" inputmode="numeric" autocomplete="off" required></label></div><p class="err" id="de-${c.id}" role="alert" hidden></p><button class="btn sun" style="justify-self:start">Confirmar y ver código de retiro</button></form></div>`)
+:c.st==="denegada"?`<div class="res"><p><b>Motivo:</b> ${esc(c.motivo)}</p><p class="meta">Si crees que hay un error, escribe a la oficina desde Contacto.</p></div>`
+:`<div class="res"><p>La oficina está revisando tu descripción. Te avisaremos al correo institucional cuando haya respuesta.</p></div>`;
+return `<article class="req"><div class="req-h"><div class="ph sm" aria-hidden="true">${CATS[o.c]}</div><div><h3><a href="#objeto-${o.id}" style="color:inherit">${esc(o.n)}</a></h3><span class="meta">OBJ-${String(o.id).padStart(4,"0")} · ${esc(o.l)}</span></div><span class="pill ${c.st==="aprobada"&&!c.doc?"revision":c.st}">${c.st==="aprobada"&&!c.doc?"Aprobada · falta tu documento":CST[c.st]}</span></div>${track(c)}${res}</article>`;}).join(""):`<div class="empty">Aún no has reclamado ningún objeto. <a href="#objetos">Busca en el listado</a>.</div>`}</div>
+<h2 style="font-size:1.35rem;margin-top:32px">Objetos que reporté como perdidos</h2><div class="stack">${ml.length?ml.map(r=>{const m=lostMatches(r);
+return `<article class="req"><div class="req-h"><div class="ph sm" aria-hidden="true">${CATS[r.c]}</div><div><h3>${esc(r.d)}</h3><span class="meta">${r.c} · ${esc(r.l)} · ${fd(r.f)}</span></div></div>${m.length?`<div class="res"><p><b>${m.length===1?"Llegó un objeto parecido":"Llegaron "+m.length+" objetos parecidos"}:</b> ${m.map(o=>`<a href="#objeto-${o.id}">${esc(o.n)}</a>`).join(", ")}</p></div>`:`<div class="res"><p>Sin coincidencias por ahora. Te avisamos si llega algo parecido.</p></div>`}</article>`;}).join(""):`<div class="empty">No tienes reportes de pérdida.</div>`}</div>`;}
+
+// ---------- panel del personal ----------
+function claimRow(c,o){const r=score(c,o);const lv=r.s>=.6?["alta","Coincidencia alta"]:r.s>=.35?["media","Coincidencia media"]:["baja","Coincidencia baja"];
+return `<article class="claim"><div class="cmp"><div><p class="lbl">Describe ${esc(c.user)} · ${fd(c.env)}</p><dl class="kv" style="margin:0"><dt>Rasgos</dt><dd>${esc(c.rasgos)}</dd><dt>Dónde lo perdió</dt><dd>${esc(c.lugar)}</dd><dt>Cuándo</dt><dd>${fd(c.fecha)}${c.hora?" · "+esc(c.hora):""}</dd><dt>Fotos</dt><dd>${c.fotos?c.fotos+" adjunta"+(c.fotos>1?"s":""):"No adjuntó"}</dd></dl></div>
+<div class="ai"><span class="pill ${lv[0]}">${lv[1]}</span><ul class="fx"><li class="${r.n?"y":"n"}">${r.n} ${r.n===1?"rasgo coincide":"rasgos coinciden"} con el registro</li><li class="${r.l?"y":"n"}">Lugar ${r.l?"compatible":"distinto"}</li><li class="${r.f?"y":"n"}">Fecha ${r.f?"compatible":"no compatible"}</li></ul><p class="meta" style="margin:0">Sugerencia automática. Decide el personal.</p></div></div>
+<div class="acts" id="ac-${c.id}"><button class="btn sm" data-approve="${c.id}">Aprobar</button><button class="btn sm bad" data-deny="${c.id}">Denegar</button></div></article>`;}
+function pSolicitudes(){const pend=claims.filter(c=>c.st==="revision");if(!pend.length)return `<div class="empty">No hay solicitudes pendientes.</div>`;
+const g={};pend.forEach(c=>(g[c.oid]??=[]).push(c));
+return `<p class="meta">Las solicitudes de cada objeto aparecen ordenadas de mayor a menor coincidencia.</p>`+Object.entries(g).map(([id,cs])=>{const o=obj(+id);cs.sort((a,b)=>score(b,o).s-score(a,o).s);
+return `<section class="grp"><div class="grp-h"><div class="ph sm" aria-hidden="true">${CATS[o.c]}</div><div><h3>${esc(o.n)} <span class="meta">OBJ-${String(o.id).padStart(4,"0")}</span></h3><p class="meta" style="margin:0">${cs.length} ${cs.length>1?"solicitudes":"solicitud"} · Encontrado en ${esc(o.l)} · Recibido ${fd(o.f)}</p><p class="priv"><b>Registro privado:</b> ${esc(o.priv)}</p></div></div>${cs.map(c=>claimRow(c,o)).join("")}</section>`;}).join("");}
+function pAvisos(){return avisos.length?`<p class="meta">Avisos de la comunidad sobre objetos que dejaron en puntos de recolección. Al recibir uno, regístralo para publicarlo.</p><div class="stack">${avisos.map(a=>`<article class="aviso"><div class="ph sm" aria-hidden="true">${CATS[a.c]||"🎒"}</div><div><h3 style="margin:0 0 4px">${esc(a.d)}</h3><p class="meta" style="margin:0">Encontrado en ${esc(a.l)} · ${fd(a.f)}<br>Dejado en: ${esc(a.e)} · Avisó ${esc(a.quien)}</p></div><button class="btn sm" data-recv="${a.id}">Recibido: registrar</button></article>`).join("")}</div>`:`<div class="empty">No hay avisos por recibir.</div>`;}
+function pInventario(){const rows=[...objs].sort((a,b)=>b.f.localeCompare(a.f)).map(o=>{const n=claims.filter(c=>c.oid===o.id&&c.st==="revision").length,ap=claims.find(c=>c.oid===o.id&&c.st==="aprobada");
+return `<tr><td><a href="#objeto-${o.id}">${esc(o.n)}</a><br><span class="meta">OBJ-${String(o.id).padStart(4,"0")}</span></td><td>${o.c}</td><td class="num">${fd(o.f)}</td><td><span class="pill ${o.s}">${PUB[o.s]}</span></td><td class="num">${n||"—"}</td><td>${o.s==="porrecoger"?(ap?.doc?`<span class="meta">Verifica: ${ap.doc.t} ${esc(ap.doc.n)}<br>Código ${ap.code}</span><br><button class="btn sm" data-deliver="${o.id}" style="margin-top:6px">Marcar entregado</button>`:`<span class="meta">Esperando que ${esc(ap?.user||"")} registre su documento</span>`):o.s==="entregado"?`<span class="meta">${fd(o.ent)}</span>`:""}</td></tr>`;}).join("");
+return `<div class="tbl"><table><thead><tr><th>Objeto</th><th>Categoría</th><th>Recibido</th><th>Estado</th><th>Pendientes</th><th>Entrega</th></tr></thead><tbody>${rows}</tbody></table></div>`;}
+function pRegistrar(){const p=prefill||{};
+return `${p.d?`<p class="note" style="max-width:640px;margin-bottom:16px">Datos tomados ${p.depId?"del depósito de "+esc(p.quien)+" en el punto nocturno":"del aviso de "+esc(p.quien)}. Revísalos con el objeto en la mano.</p>`:""}<form id="rg">${catSel("g-c",p.c)}
+${fld("Nombre para la publicación","g-n","text","Genérico: “Audífonos inalámbricos”, no la marca",true,"")}
+${fld("Descripción pública","g-d","area","Solo color y tipo. Lo que cualquiera vería de lejos.",true,"")}
+${fld("Rasgos privados","g-p","area","Marca, contenido, grabados, daños, nombres. Nunca se publican; sirven para verificar reclamos.",true,p.d||"")}
+<div class="row">${fld("Lugar donde se encontró","g-l","text","Si se conoce",false,p.l||"")}${fld("Fecha de recepción","g-f","date","",true,TODAY)}</div>
+${fileFld("Fotografía","g-ph","Se publica recortada o desenfocada si muestra datos personales",false)}
+<button class="btn sun" style="justify-self:start">Registrar y publicar</button></form>`;}
+function renderPanel(){const el=$("#panel");
+if(user?.role!=="personal"){el.innerHTML=`<h1 class="h1s">Panel del personal</h1><div class="box" style="max-width:640px"><p>Esta sección es solo para el personal de la oficina de Objetos Perdidos.</p><button class="btn sun" data-login="personal">Ingresar como personal</button></div>`;return;}
+const cnt={solicitudes:claims.filter(c=>c.st==="revision").length,depositos:deposits.filter(d=>d.st==="pendiente").length,avisos:avisos.length,inventario:0,registrar:0};
+const T={solicitudes:"Solicitudes",depositos:"Depósitos por validar",avisos:"Avisos por recibir",inventario:"Inventario",registrar:"Registrar objeto"};
+el.innerHTML=`<h1 class="h1s">Panel del personal</h1><div class="ptabs" role="tablist">${Object.keys(T).map(k=>`<button role="tab" aria-selected="${ptab===k}" data-ptab="${k}">${T[k]}${cnt[k]?`<span class="n">${cnt[k]}</span>`:""}</button>`).join("")}</div><div id="pbody">${{solicitudes:pSolicitudes,depositos:pDepositos,avisos:pAvisos,inventario:pInventario,registrar:pRegistrar}[ptab]()}</div>`;
+if(ptab==="registrar")$("#rg").addEventListener("submit",ev=>{ev.preventDefault();const v=k=>$("#g-"+k).value;
+const o={id:++seq,n:v("n"),c:v("c"),d:v("d"),priv:v("p"),l:v("l")||"Sin información",f:v("f"),s:"disponible"};objs.push(o);
+if(prefill?.depId){o.dep=prefill.depId;const dd=deposits.find(x=>x.id===prefill.depId);if(dd)dd.obj=o.id;}
+if(prefill){avisos=avisos.filter(a=>a.id!==prefill.id);prefill=null;}
+const m=lost.filter(r=>lostMatches(r).includes(o));renderList();
+$("#pbody").innerHTML=`<div class="done" role="status"><h2 style="font-size:1.35rem">Objeto publicado</h2><p>${esc(o.n)} ya aparece en el listado con la referencia OBJ-${String(o.id).padStart(4,"0")}.</p>${m.length?`<p><b>Coincide con ${m.length===1?"un reporte de pérdida":m.length+" reportes de pérdida"}.</b> Se notificó a ${m.length===1?"la persona":"las personas"} que lo reportaron.</p>`:""}<div class="acts"><a class="btn" href="#objeto-${o.id}">Ver publicación</a><button class="btn ghost" data-ptab="registrar">Registrar otro</button></div></div>`;});}
+function approve(id){const c=claims.find(x=>x.id===id),o=obj(c.oid);c.st="aprobada";c.code="OP-"+(1000+Math.floor(Math.random()*9000));o.s="porrecoger";
+let k=0;claims.forEach(x=>{if(x.oid===o.id&&x.st==="revision"){x.st="denegada";x.motivo=ASIGNADO;k++;}});
+renderPanel();renderList();toast(`Aprobada. Se pidió a ${c.user} registrar su documento para recibir el código${k?` y se cerraron ${k} solicitud${k>1?"es":""} más`:""}.`);}
+
+// ---------- punto nocturno ----------
+const PTS_DEP=10,PTS_BONO=5,LIM_SEM=4000,VENCE_MESES=3;
+// el tamaño del compartimento sale de la categoría
+const TAM={"Documentos":"P","Accesorios":"P","Electrónicos":"M","Útiles académicos":"M","Otros":"M","Prendas":"G"};
+const TAMN={P:"Pequeño",M:"Mediano",G:"Grande"},PESO={P:"0,2 kg",M:"0,5 kg",G:"0,8 kg"};
+const COMPS=["P1","P2","P3","P4","M1","M2","M3","G1","G2"];
+const DST={pendiente:["revision","Pendiente de validación"],validado:["aprobada","Validado"],rechazado:["denegada","Rechazado"],vacio:["denegada","Compartimento vacío"]};
+const DMOT=["No es un objeto perdido (basura, botella vacía o papeles sueltos).","El objeto no coincide con el reporte.","El objeto no se puede recibir (alimento, líquido u objeto peligroso)."];
+let deposits=[
+{id:1,c:"Prendas",d:"Gorra azul",l:"Cancha múltiple",f:"2026-10-27",h:"19:40",comp:"G1",peso:PESO.G,st:"pendiente",owner:null,user:"estudiante.ejemplo"},
+{id:2,c:"Documentos",d:"Billetera café",l:"Plazoleta central",f:"2026-10-27",h:"21:15",comp:"P2",peso:PESO.P,st:"pendiente",owner:"maria.lopez",user:"maria.lopez"},
+{id:3,c:"Otros",d:"Paraguas oscuro plegable",l:"Entrada principal",f:"2026-10-26",h:"18:20",comp:"M1",peso:PESO.M,st:"validado",owner:null,user:"estudiante.ejemplo",obj:9}];
+let ledger=[
+{owner:null,f:"2026-10-01",t:"Saldo de ejemplo para probar el canje",p:200,st:"disponible"},
+{owner:null,f:"2026-10-27",t:"Depósito validado · Paraguas oscuro plegable",p:10,st:"disponible",dep:3},
+{owner:null,f:"2026-10-27",t:"Depósito · Gorra azul",p:10,st:"pendiente",dep:1},
+{owner:"maria.lopez",f:"2026-10-27",t:"Depósito · Billetera café",p:10,st:"pendiente",dep:2}];
+let coupons=[],dep=null,mscreen="idle",checks=0,bcat="",bconfirm=null;
+const addD=(iso,n)=>{const x=new Date(iso+"T12:00");x.setDate(x.getDate()+n);return x.toISOString().slice(0,10);};
+const addM=(iso,n)=>{const x=new Date(iso+"T12:00");x.setMonth(x.getMonth()+n);return x.toISOString().slice(0,10);};
+const rnd=n=>Array.from({length:n},()=>"ABCDEFGHJKMNPQRSTUVWXYZ23456789"[Math.floor(Math.random()*31)]).join("");
+const fmt=n=>n.toLocaleString("es-CO");
+function saldo(){const L=ledger.filter(isMine),sum=a=>a.reduce((t,e)=>t+e.p,0);
+const av=sum(L.filter(e=>e.st==="disponible"&&addM(e.f,VENCE_MESES)>=TODAY))+sum(L.filter(e=>e.st==="canje"));
+return {av:Math.max(0,av),pe:sum(L.filter(e=>e.st==="pendiente")),wk:sum(L.filter(e=>e.p>0&&(e.st==="disponible"||e.st==="pendiente")&&days(e.f,TODAY)<7))};}
+function officeOpen(){const pt=new Intl.DateTimeFormat("en-GB",{timeZone:"America/Bogota",hour:"2-digit",minute:"2-digit",hour12:false}).format(new Date()).split(":");const t=(+pt[0]%24)*60+(+pt[1]);return (t>=420&&t<720)||(t>=840&&t<1020);}
+const freeComp=z=>COMPS.filter(k=>k[0]===z).find(k=>!deposits.some(x=>x.st==="pendiente"&&x.comp===k));
+const mmss=()=>{const r=Math.max(0,dep.exp-Date.now());return String(Math.floor(r/6e4)).padStart(2,"0")+":"+String(Math.floor(r/1e3)%60).padStart(2,"0");};
+function qr(el,text,size){if(!el)return;el.innerHTML="";try{new QRCode(el,{text,width:size,height:size,colorDark:"#14213d",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.M});}catch(e){el.style.lineHeight="1.4";el.textContent=text;}}
+
+function renderPN(){const open=officeOpen();
+$("#pn").innerHTML=`<div class="pn-head"><div><p class="lbl">Cuando la oficina está cerrada</p><h1 class="h1s">Punto de entrega nocturno</h1><p>Deja lo que encontraste en la máquina junto a la oficina de Objetos Perdidos. Cuando la oficina confirme el depósito, ganas puntos para canjear por beneficios.</p></div>
+<div class="status ${open?"on":"off"}"><b>${open?"La oficina está abierta ahora":"La oficina está cerrada ahora"}</b><span>${open?"Entrega el objeto directamente en la oficina. La máquina recibe objetos fuera del horario de atención.":"Usa la máquina. La oficina valida los depósitos cuando vuelve a abrir."}</span><span class="meta">Atención: 7:00 a. m. – 12:00 m. y 2:00 p. m. – 5:00 p. m.</span></div></div>
+<ol class="steps pn-steps"><li><b>Describe el objeto</b><span>Categoría, lugar, fecha y una foto.</span></li><li><b>Recibe tu QR</b><span>Sirve una vez y vence a los 15 minutos.</span></li><li><b>Escanéalo en la máquina</b><span>Se abre un compartimento del tamaño del objeto.</span></li><li><b>Deposita y cierra</b><span>La máquina verifica puerta, peso, objeto y foto.</span></li><li><b>Gana puntos</b><span>Se confirman cuando la oficina valida el depósito.</span></li></ol>
+${open?`<p class="note" style="margin-top:16px">Prototipo: puedes probar el flujo aunque la oficina esté abierta.</p>`:""}
+<div class="pn-grid"><div class="box" id="pn-left"></div><div class="box" id="pn-go"></div></div>
+<div class="two" style="margin-top:20px"><div class="box"><h3>Antes de depositar</h3><ul><li>No se reciben alimentos, líquidos ni objetos peligrosos.</li><li>Si el objeto no cabe, llévalo al punto de la entrada principal y entrégaselo a los guardias.</li><li>Si depositas algo que es tuyo para luego reclamarlo, se anulan los puntos.</li></ul></div>
+<div class="box"><h3>Tus puntos</h3><ul><li>+${PTS_DEP} cuando la oficina valida el depósito.</li><li>+${PTS_BONO} cuando el dueño recupera el objeto.</li><li>Máximo ${fmt(LIM_SEM)} puntos por semana; vencen a los ${VENCE_MESES} meses.</li></ul><a class="btn sm" href="#beneficios" style="margin-top:12px">Ver beneficios</a></div></div>
+<h2 class="h2s">Mis depósitos</h2><div id="pn-mine"></div>`;
+renderLeft();renderMyDeps();}
+
+// la página de la máquina usa la misma firma para leer el QR y generar la confirmación
+const CL={"Electrónicos":"E","Accesorios":"A","Prendas":"P","Documentos":"D","Útiles académicos":"U","Otros":"O"};
+const H=s=>{let h=2166136261;for(const ch of s){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)>>>0;}return h.toString(36).toUpperCase().padStart(7,"0").slice(-6);};
+function renderGo(){const el=$("#pn-go");if(!el)return;const n=z=>COMPS.filter(k=>k[0]===z&&!deposits.some(x=>x.st==="pendiente"&&x.comp===k)).length;
+el.innerHTML=`<p class="lbl">${dep?.stage==="qr"?"Ahora":"Después de generar el QR"}</p><h2 style="font-size:1.35rem">Ve a la máquina</h2><p>Está junto a la oficina de Objetos Perdidos. Acerca tu QR al lector, confirma el resumen y deja el objeto en el compartimento que se abre. Al terminar, la máquina te muestra un código de confirmación.</p>
+<p class="lbl" style="margin-top:14px">Compartimentos libres ahora</p><div class="free"><span><b>${n("P")}</b>pequeños</span><span><b>${n("M")}</b>medianos</span><span><b>${n("G")}</b>grandes</span></div>`;}
+function renderLeft(){renderGo();const el=$("#pn-left");if(!el)return;
+if(!user){el.innerHTML=`<h2 style="font-size:1.35rem">Genera tu QR de depósito</h2><p>Ingresa con tu correo de la Javeriana. Los puntos quedan en tu cuenta.</p><button class="btn sun" data-login>Ingresar</button>`;return;}
+if(user.role==="personal"){el.innerHTML=`<h2 style="font-size:1.35rem">Personal de la oficina</h2><p>El personal abre la máquina con su credencial de trabajo y valida los depósitos en el panel.</p><a class="btn" href="#panel">Ir a depósitos por validar</a>`;return;}
+const st=dep?.stage;
+if(!dep){el.innerHTML=`<h2 style="font-size:1.35rem">Describe lo que encontraste</h2><form id="df" style="max-width:none">${catSel("d-c")}<p class="meta" id="d-size" style="margin:-6px 0 0">El tamaño del compartimento se asigna según la categoría.</p>
+${fld("Descripción general","d-d","area","Qué es y de qué color. Los detalles los registra la oficina.")}
+${fld("¿Dónde lo encontraste?","d-l")}
+<div class="row">${fld("Fecha","d-f","date","",true,TODAY)}${timeFld("Hora aproximada","d-h",true)}</div>
+<label>Foto del objeto<small>Obligatoria. El personal la compara con el objeto al validar.</small><input id="d-p" type="file" accept="image/*" required></label>
+<label class="chk"><input type="checkbox" id="d-ok" required>No es alimento, líquido ni un objeto peligroso.</label>
+<p class="err" id="d-err" role="alert" hidden></p>
+<button class="btn sun" style="justify-self:start">Generar QR de depósito</button></form>`;
+$("#d-c").onchange=e=>{const z=TAM[e.target.value];$("#d-size").textContent=z?`Se abrirá un compartimento ${TAMN[z].toLowerCase()}.`:"El tamaño del compartimento se asigna según la categoría.";};
+$("#df").addEventListener("submit",ev=>{ev.preventDefault();const v=k=>$("#d-"+k).value,c=v("c"),z=TAM[c];
+if(!freeComp(z)){const er=$("#d-err");er.textContent=`No hay compartimentos ${TAMN[z].toLowerCase()}s libres. Lleva el objeto al punto de la entrada principal y entrégaselo a los guardias.`;er.hidden=false;return;}
+const r=rnd(4);dep={stage:"qr",data:{c,d:v("d"),l:v("l"),f:v("f"),h:v("h")},size:z,token:`${CL[c]}${z}-${r}-${H(CL[c]+z+r).slice(0,2)}`,exp:Date.now()+15*6e4};renderLeft();});return;}
+if(st==="done"){el.innerHTML=`<div role="status"><h2 style="font-size:1.35rem">Depósito registrado</h2><p>Dejaste <b>${esc(dep.data.d)}</b> en el compartimento ${dep.comp}. Tienes <b>+${dep.pts} puntos pendientes</b>${dep.pts?"":" porque alcanzaste el límite semanal"}; se confirman cuando la oficina valide el depósito, desde las 7:00 a. m.</p><div class="acts"><a class="btn" href="#beneficios">Ver mis puntos</a><button class="btn ghost" data-pnnew>Hacer otro depósito</button></div></div>`;return;}
+if(st==="expired"){el.innerHTML=`<h2 style="font-size:1.35rem">Tu QR venció</h2><p>Pasaron 15 minutos sin usarlo. Genera un QR nuevo para depositar.</p><button class="btn sun" data-pnnew>Generar un QR nuevo</button>`;return;}
+el.innerHTML=`<h2 style="font-size:1.35rem">Tu QR de depósito</h2><div class="qrwrap"><div id="qrbox" role="img" aria-label="Código QR de depósito ${dep.token}"></div><div class="copyrow"><span class="tok">${dep.token}</span><button class="btn sm ghost" data-copy="${dep.token}">Copiar código</button></div><span class="timer" id="qrt">${mmss()}</span><span class="meta">Vence a los 15 minutos y sirve una sola vez.</span></div>
+<dl class="kv"><dt>Objeto</dt><dd>${esc(dep.data.c)} · ${esc(dep.data.d)}</dd><dt>Encontrado en</dt><dd>${esc(dep.data.l)}</dd><dt>Compartimento</dt><dd>${TAMN[dep.size]}; la máquina asigna el número</dd></dl>
+<form id="cfm" style="max-width:none"><label>Código de confirmación<small>Aparece en la pantalla de la máquina cuando registra el depósito.</small><input id="cf-code" placeholder="${dep.size}1-XXXXXX" autocomplete="off" spellcheck="false" required></label><p class="err" id="cf-err" role="alert" hidden></p><div class="acts"><button class="btn sun">Confirmar depósito</button><button type="button" class="btn ghost" data-pncancel>Cancelar</button></div></form>`;
+qr($("#qrbox"),"OPJC-DEP:"+dep.token,176);
+$("#cfm").addEventListener("submit",ev=>{ev.preventDefault();const raw=$("#cf-code").value.trim().toUpperCase().replace(/\s+/g,""),m=raw.match(/^([PMG][1-4])-([A-Z0-9]{6})$/),er=$("#cf-err");
+if(!m||m[1][0]!==dep.size||H(dep.token+"|"+m[1])!==m[2]){er.textContent="Ese código no corresponde a este QR. Revisa la pantalla de la máquina.";er.hidden=false;return;}
+const pts=saldo().wk+PTS_DEP>LIM_SEM?0:PTS_DEP,x={id:++seq,...dep.data,comp:m[1],peso:PESO[dep.size],st:"pendiente",owner:user.handle,user:user.handle};
+deposits.push(x);ledger.push({owner:user.handle,f:TODAY,t:"Depósito · "+x.d,p:pts,st:"pendiente",dep:x.id});dep.comp=m[1];dep.pts=pts;dep.stage="done";renderLeft();renderMyDeps();});}
+
+function renderMyDeps(){const el=$("#pn-mine");if(!el)return;
+if(user?.role!=="comunidad"){el.innerHTML=`<p class="meta">${user?"Los depósitos los hace la comunidad.":"Ingresa para ver tus depósitos."}</p>`;return;}
+const m=deposits.filter(isMine).sort((a,b)=>b.id-a.id);
+el.innerHTML=m.length?`<div class="stack">${m.map(x=>{const [k,t]=DST[x.st],e=ledger.find(l=>l.dep===x.id);return `<article class="aviso"><div class="ph sm" aria-hidden="true">${CATS[x.c]}</div><div><h3 style="margin:0 0 4px">${esc(x.d)}</h3><p class="meta" style="margin:0">Compartimento ${x.comp} · ${esc(x.l)} · ${fd(x.f)}${x.motivo?"<br>Motivo: "+esc(x.motivo):""}</p></div><span class="pill ${k}">${t}${e&&e.p&&x.st!=="rechazado"&&x.st!=="vacio"?" · +"+e.p:""}</span></article>`;}).join("")}</div>`:`<div class="empty">Aún no has depositado objetos.</div>`;}
+setInterval(()=>{if(!dep||dep.stage!=="qr")return;
+if(Date.now()>=dep.exp){dep.stage="expired";renderLeft();return;}const t=$("#qrt");if(t)t.textContent=mmss();},1000);
+
+// ---------- beneficios ----------
+const BEN=[
+{id:1,n:"Entrada a una exposición universitaria",cat:"Entretenimiento y cultura",pts:100,cond:"Sujeto a cupos de la exposición",en:"Cultura"},
+{id:2,n:"Cupo para una actividad cultural",cat:"Entretenimiento y cultura",pts:120,cond:"Sujeto a cupos",en:"Cultura"},
+{id:3,n:"Participación en talleres creativos",cat:"Entretenimiento y cultura",pts:150,cond:"Sujeto a cupos del taller",en:"Cultura"},
+{id:4,n:"Reserva preferencial de espacios de estudio",cat:"Beneficios universitarios",pts:80,cond:"Una reserva por canje",en:"Biblioteca"},
+{id:5,n:"Acceso a actividades especiales",cat:"Beneficios universitarios",pts:120,cond:"Sujeto a cupos",en:"la dependencia que organiza la actividad"},
+{id:6,n:"Participación en sorteos universitarios",cat:"Beneficios universitarios",pts:40,cond:"Una participación por canje",en:"la dependencia que organiza el sorteo"},
+{id:7,n:"Beneficios en eventos de la facultad",cat:"Beneficios universitarios",pts:100,cond:"Según lo que defina cada facultad",en:"tu facultad"},
+{id:8,n:"Exoneración de multa en la biblioteca",cat:"Beneficios universitarios",pts:400,cond:"Máximo 2; solo retrasos de 5 a 15 minutos en devolver un artículo",en:"Biblioteca",max:2},
+{id:9,n:"Una sesión de actividad física",cat:"Bienestar y deporte",pts:80,cond:"Sujeto a cupos",en:"Bienestar"},
+{id:10,n:"Acceso a una clase grupal",cat:"Bienestar y deporte",pts:100,cond:"Sujeto a cupos",en:"Bienestar"},
+{id:11,n:"Invitación a una actividad deportiva",cat:"Bienestar y deporte",pts:120,cond:"Sujeto a cupos",en:"Bienestar"}];
+const BCAT={"Entretenimiento y cultura":"🎭","Beneficios universitarios":"🎓","Bienestar y deporte":"🏃"};
+function benCard(b,me,s){const used=me?coupons.filter(c=>isMine(c)&&c.b===b.id).length:0;let btn;
+if(!user)btn=`<button class="btn sm ghost" data-login>Ingresa para canjear</button>`;
+else if(!me)btn="";
+else if(b.max&&used>=b.max)btn=`<button class="btn sm ghost" disabled>Ya usaste los ${b.max}</button>`;
+else if(s.av<b.pts)btn=`<button class="btn sm ghost" disabled>Te faltan ${fmt(b.pts-s.av)}</button>`;
+else if(bconfirm===b.id)btn=`<div class="acts"><button class="btn sm sun" data-redeem="${b.id}">Confirmar canje</button><button class="btn sm ghost" data-bcancel>Cancelar</button></div>`;
+else btn=`<button class="btn sm" data-bask="${b.id}">Canjear</button>`;
+return `<article class="bcard"><p class="lbl"><span aria-hidden="true">${BCAT[b.cat]}</span> ${b.cat}</p><h3>${b.n}</h3><p class="meta">${b.cond}${b.max&&me?` · usadas ${used} de ${b.max}`:""}</p><div class="bfoot"><span class="pts">${fmt(b.pts)} pts</span>${btn}</div></article>`;}
+function renderBen(){const me=user?.role==="comunidad",s=me?saldo():null,mc=me?coupons.filter(isMine).sort((a,b)=>b.id-a.id):[],ml=me?ledger.filter(isMine).slice().reverse().sort((a,b)=>b.f.localeCompare(a.f)):[];
+const est=e=>e.st==="disponible"?(addM(e.f,VENCE_MESES)<TODAY?"Vencido":"Disponible · vence "+fd(addM(e.f,VENCE_MESES))):e.st==="pendiente"?"Pendiente de validación":e.st==="canje"?"Canjeado":"Anulado";
+$("#ben").innerHTML=`<h1 class="h1s">Beneficios</h1><p style="color:var(--muted)">Canjea los puntos que ganas al entregar objetos en el punto de entrega nocturno.</p>
+${me?`<div class="wallet"><div><p class="lbl">Disponibles</p><b class="big">${fmt(s.av)}</b><span class="meta">puntos para canjear</span></div><div><p class="lbl">Pendientes</p><b class="big">${fmt(s.pe)}</b><span class="meta">se confirman cuando la oficina valida</span></div><div><p class="lbl">Esta semana</p><b class="big">${fmt(s.wk)}</b><span class="meta">de ${fmt(LIM_SEM)} permitidos</span></div></div><p class="meta">Los puntos vencen ${VENCE_MESES} meses después de acreditarse.</p>`
+:user?`<p class="note">Estás como personal de la oficina. Los puntos son para estudiantes y docentes.</p>`:`<div class="box" style="max-width:640px;margin-top:16px"><p>Ingresa con tu correo de la Javeriana para ver tus puntos y canjear beneficios.</p><button class="btn sun" data-login>Ingresar</button></div>`}
+<div class="earn"><span><b>+${PTS_DEP}</b> por depósito validado</span><span><b>+${PTS_BONO}</b> cuando el dueño recupera el objeto</span><a href="#punto-nocturno">Cómo ganar puntos →</a></div>
+<h2 class="h2s">Catálogo</h2><div class="chips" role="group" aria-label="Categorías de beneficios">${["",...Object.keys(BCAT)].map(c=>`<button class="chip" aria-pressed="${bcat===c}" data-bcat="${c}">${c||"Todos"}</button>`).join("")}</div>
+<div class="grid">${BEN.filter(b=>!bcat||b.cat===bcat).map(b=>benCard(b,me,s)).join("")}</div>
+${me?`<h2 class="h2s">Mis cupones</h2>${mc.length?`<div class="stack">${mc.map(c=>{const b=BEN.find(x=>x.id===c.b);return `<article class="coupon"><div class="cqr" data-code="${c.code}" role="img" aria-label="Código QR del cupón ${c.code}"></div><div><h3>${b.n}</h3><p class="tok" style="margin:0 0 4px">${c.code}</p><p class="meta" style="margin:0">Válido hasta el ${fd(c.hasta)} · Preséntalo en ${b.en}, que lo marca como usado.</p></div></article>`;}).join("")}</div>`:`<div class="empty">Aún no has canjeado beneficios.</div>`}
+<h2 class="h2s">Historial de puntos</h2><div class="tbl hist"><table><thead><tr><th>Fecha</th><th>Movimiento</th><th>Puntos</th><th>Estado</th></tr></thead><tbody>${ml.map(e=>`<tr><td class="num">${fd(e.f)}</td><td>${esc(e.t)}</td><td class="num ${e.p<0?"neg":e.st==="anulado"?"":"pos"}">${e.p>0?"+":e.p<0?"−":""}${fmt(Math.abs(e.p))}</td><td>${est(e)}</td></tr>`).join("")}</tbody></table></div>`:""}`;
+document.querySelectorAll(".cqr").forEach(d=>qr(d,"OPJC-BEN:"+d.dataset.code,96));}
+function redeem(id){const b=BEN.find(x=>x.id===id),s=saldo();if(s.av<b.pts)return;
+const c={id:++seq,owner:user.handle,b:id,code:"BEN-"+rnd(4),f:TODAY,hasta:addD(TODAY,30)};coupons.push(c);
+ledger.push({owner:user.handle,f:TODAY,t:"Canje · "+b.n,p:-b.pts,st:"canje"});bconfirm=null;renderBen();toast(`Canjeaste ${b.n}. Tu cupón es ${c.code}.`);}
+
+function pDepositos(){const pend=deposits.filter(x=>x.st==="pendiente");if(!pend.length)return `<div class="empty">No hay depósitos por validar.</div>`;
+return `<p class="meta">Objetos que llegaron a la máquina con la oficina cerrada. Ábrela con tu credencial y valida cada uno con el objeto en la mano.</p><div class="stack">${pend.map(x=>`<article class="req"><div class="req-h"><div class="ph sm" aria-hidden="true">${CATS[x.c]}</div><div><h3>${esc(x.d)}</h3><span class="meta">Compartimento ${x.comp} · ${x.c} · depositó ${esc(x.user)} el ${fd(x.f)}${x.h?" a las "+esc(x.h):""}</span></div><span class="pill revision">Pendiente</span></div>
+<div class="cmp"><div><p class="lbl">Reporte del estudiante</p><dl class="kv" style="margin:0"><dt>Encontrado en</dt><dd>${esc(x.l)}</dd><dt>Descripción</dt><dd>${esc(x.d)}</dd><dt>Foto</dt><dd>Adjunta</dd></dl></div>
+<div class="ai"><p class="lbl" style="margin:0">Evidencia de la máquina</p><ul class="fx"><li class="y">Puerta abierta y cerrada</li><li class="y">Peso: ${x.peso}</li><li class="y">Objeto detectado</li><li class="y">Foto interna tomada</li></ul></div></div>
+<div class="acts" id="dv-${x.id}"><button class="btn sm" data-dval="${x.id}">Válido: registrar objeto</button><button class="btn sm bad" data-drej="${x.id}">Rechazar</button><button class="btn sm ghost" data-dempty="${x.id}">Compartimento vacío</button></div></article>`).join("")}</div>`;}
+
+// ---------- ingreso ----------
+function setUser(u){user=u;dep=null;mscreen="idle";bconfirm=null;$("#login").textContent=u?u.handle+" · Salir":"Ingresar";
+$("#nav-panel").hidden=u?.role!=="personal";$("#nav-mis").hidden=u?.role==="personal";
+if(u?.role==="personal"&&cur==="mis-solicitudes")go("panel");else route();}
+$("#login").onclick=()=>{if(user){setUser(null);toast("Cerraste sesión.");}else loginDlg();};
+function loginDlg(mode="comunidad"){const st=mode==="personal";
+openDlg("Ingresar",`<div class="ptabs" role="tablist" style="margin-top:0"><button role="tab" aria-selected="${!st}" data-lmode="comunidad">Estudiantes y docentes</button><button role="tab" aria-selected="${st}" data-lmode="personal">Personal de la oficina</button></div>
+<form id="lf" style="max-width:none" novalidate>
+<label>${st?"Correo institucional de trabajo":"Correo de la Javeriana"}<input id="l-u" type="email" autocomplete="username" placeholder="usuario@javerianacali.edu.co" required></label>
+<label>Contraseña<input id="l-p" type="password" autocomplete="current-password" required></label>
+<p class="err" id="l-err" role="alert" hidden></p>
+<button class="btn sun">Ingresar</button>
+<p class="meta" style="margin:0">${st?"Solo cuentas con rol de trabajo en la oficina de Objetos Perdidos. Las cuentas de estudiantes no tienen acceso.":"Usa el correo y la contraseña de tu cuenta Javeriana. La primera vez que ingresas se crea tu perfil en la plataforma."}</p>
+<p class="note" style="margin:0"><b>Prototipo: no escribas tu contraseña real.</b> Cualquier texto sirve; no se envía ni se guarda.${st?" Cuenta de prueba: <b>personal.objetos@javerianacali.edu.co</b>":""}</p></form>`);
+$("#l-u").focus();
+$("#lf").addEventListener("submit",ev=>{ev.preventDefault();const em=$("#l-u").value.trim().toLowerCase(),pw=$("#l-p").value,err=$("#l-err");
+const fail=m=>{err.textContent=m;err.hidden=false;};
+if(!/^[a-z0-9._%+-]+@javerianacali\.edu\.co$/.test(em))return fail("Usa tu correo de la Javeriana, el que termina en "+DOMAIN+".");
+if(!pw)return fail("Escribe tu contraseña.");
+if(st&&!STAFF.includes(em))return fail("Esta cuenta no tiene rol de trabajo en la oficina. Si eres estudiante o docente, ingresa en la otra pestaña.");
+if(!st&&STAFF.includes(em))return fail("Esta es una cuenta del personal. Ingresa en la pestaña Personal de la oficina.");
+dlg.close();doLogin(st?"personal":"comunidad",em);});}
+function doLogin(role,email){const h=handle(email),first=!known.has(email);known.add(email);
+if(role==="comunidad"){[...claims,...lost,...deposits,...ledger].forEach(x=>{if(x.owner===null){x.owner=h;if("user" in x)x.user=h;}});}
+setUser({role,email,handle:h});
+if(role==="personal"&&cur!=="panel"&&!cur.startsWith("objeto"))go("panel");
+if(afterLogin&&role==="comunidad"){const f=afterLogin;afterLogin=null;f();}else afterLogin=null;
+toast(role==="personal"?"Ingresaste como personal de la oficina.":first?"Bienvenido. Creamos tu perfil con "+email+".":"Ingresaste como "+email+".");}
+
+// ---------- clics ----------
+document.addEventListener("click",e=>{const t=e.target.closest("[data-cat],[data-claim],[data-tab],[data-login],[data-loginfor],[data-lmode],[data-copy],[data-ptab],[data-approve],[data-deny],[data-denyok],[data-denyno],[data-deliver],[data-recv],[data-pncancel],[data-pnnew],[data-bcat],[data-bask],[data-bcancel],[data-redeem],[data-dval],[data-drej],[data-drejok],[data-dempty]");if(!t)return;const d=t.dataset;
+if("cat" in d){cat=d.cat;renderChips();renderList();}
+else if(d.claim)claim(+d.claim);
+else if(d.tab){rtab=d.tab;if(cur==="reportar")renderReport();}
+else if("login" in d)loginDlg(d.login||"comunidad");
+else if(d.lmode)loginDlg(d.lmode);
+else if(d.copy){navigator.clipboard?.writeText(d.copy).then(()=>toast("Copiado."),()=>toast("Selecciona el correo para copiarlo.")) ?? toast("Selecciona el correo para copiarlo.");}
+else if(d.loginfor){const id=+d.loginfor;afterLogin=()=>claim(id);loginDlg("comunidad");}
+else if(d.ptab){ptab=d.ptab;if(ptab!=="registrar")prefill=null;renderPanel();}
+else if(d.approve)approve(+d.approve);
+else if(d.deny)$("#ac-"+d.deny).innerHTML=`<select id="mot-${d.deny}" aria-label="Motivo del rechazo">${MOTIVOS.map(m=>`<option>${m}</option>`).join("")}</select><button class="btn sm bad" data-denyok="${d.deny}">Confirmar rechazo</button><button class="btn sm ghost" data-denyno="${d.deny}">Cancelar</button>`;
+else if(d.denyno)renderPanel();
+else if(d.denyok){const c=claims.find(x=>x.id===+d.denyok);c.st="denegada";c.motivo=$("#mot-"+c.id).value;renderPanel();toast(`Solicitud denegada. Se notificó a ${c.user} con el motivo.`);}
+else if(d.deliver){const o=obj(+d.deliver);o.s="entregado";o.ent=TODAY;const dd=o.dep&&deposits.find(x=>x.id===o.dep);
+if(dd)ledger.push({owner:dd.owner,f:TODAY,t:"Bono por devolución · "+o.n,p:PTS_BONO,st:"disponible"});
+renderPanel();renderList();toast(o.n+" marcado como entregado."+(dd?` ${dd.user} recibe +${PTS_BONO} puntos de bono.`:""));}
+else if(d.recv){prefill=avisos.find(a=>a.id===+d.recv);ptab="registrar";renderPanel();}
+else if("pncancel" in d||"pnnew" in d){dep=null;renderLeft();}
+else if("bcat" in d){bcat=d.bcat;renderBen();}
+else if(d.bask){bconfirm=+d.bask;renderBen();}
+else if("bcancel" in d){bconfirm=null;renderBen();}
+else if(d.redeem)redeem(+d.redeem);
+else if(d.dval){const x=deposits.find(y=>y.id===+d.dval);x.st="validado";const e=ledger.find(l=>l.dep===x.id);if(e){e.st="disponible";e.t="Depósito validado · "+x.d;}
+prefill={c:x.c,d:x.d,l:x.l,quien:x.user,depId:x.id};ptab="registrar";renderPanel();toast(`Depósito válido: ${x.user} recibe +${e?e.p:PTS_DEP} puntos. Registra el objeto para publicarlo.`);}
+else if(d.drej)$("#dv-"+d.drej).innerHTML=`<select id="dm-${d.drej}" aria-label="Motivo del rechazo">${DMOT.map(m=>`<option>${m}</option>`).join("")}</select><button class="btn sm bad" data-drejok="${d.drej}">Confirmar rechazo</button><button class="btn sm ghost" data-denyno="1">Cancelar</button>`;
+else if(d.drejok||d.dempty){const x=deposits.find(y=>y.id===+(d.drejok||d.dempty));x.st=d.drejok?"rechazado":"vacio";x.motivo=d.drejok?$("#dm-"+x.id).value:"El compartimento estaba vacío.";const e=ledger.find(l=>l.dep===x.id);if(e)e.st="anulado";
+renderPanel();toast(`Depósito ${d.drejok?"rechazado":"marcado como vacío"}. Se avisó a ${x.user} y no recibe puntos.`);}});
+
+document.addEventListener("submit",e=>{const f=e.target.closest("[data-docfor]");if(!f)return;e.preventDefault();
+const c=claims.find(x=>x.id===+f.dataset.docfor),t=$("#dt-"+c.id).value,n=$("#dn-"+c.id).value.replace(/[\s.-]/g,""),err=$("#de-"+c.id);
+const ok=t==="Pasaporte"?/^[A-Za-z0-9]{5,12}$/.test(n):/^\d{5,12}$/.test(n);
+if(!ok){err.textContent=t==="Pasaporte"?"Escribe el número de pasaporte, entre 5 y 12 letras o dígitos.":"Escribe solo números, entre 5 y 12 dígitos.";err.hidden=false;return;}
+c.doc={t,n:n.toUpperCase()};renderMis();toast("Documento registrado. Ya tienes tu código de retiro.");});
+
+// ---------- rutas ----------
+const VIEWS=["inicio","objetos","objeto","reportar","punto-nocturno","beneficios","mis-solicitudes","panel","ubicaciones","contacto"];
+function route(){let h=cur,m=h.match(/^objeto-(\d+)$/),v=m?"objeto":VIEWS.includes(h)?h:"inicio";
+VIEWS.forEach(x=>$("#v-"+x).hidden=x!==v);const navv=v==="objeto"?"objetos":v;
+document.querySelectorAll("nav a").forEach(a=>a.dataset.v===navv?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
+if(v==="objeto")renderDetail(+m[1]);if(v==="reportar")renderReport();if(v==="mis-solicitudes")renderMis();if(v==="panel")renderPanel();if(v==="punto-nocturno")renderPN();if(v==="beneficios")renderBen();}
+function closeMenu(){$("#top").classList.remove("open");$("#menu-btn").setAttribute("aria-expanded","false");}
+function go(h){h=h||"inicio";if(dlg.open)dlg.close();closeMenu();const changed=h!==cur;cur=h;
+try{if(location.hash.slice(1)!==h)location.hash=h;}catch(e){}
+route();if(changed){try{window.scrollTo(0,0);}catch(e){}}}
+window.addEventListener("hashchange",()=>{const h=location.hash.slice(1)||"inicio";if(h!==cur)go(h);});
+document.addEventListener("click",e=>{const a=e.target.closest('a[href^="#"]');if(!a||e.ctrlKey||e.metaKey||e.shiftKey)return;e.preventDefault();go(a.getAttribute("href").slice(1));},true);
+$("#menu-btn").onclick=()=>{const o=$("#top").classList.toggle("open");$("#menu-btn").setAttribute("aria-expanded",String(o));};
+document.addEventListener("click",e=>{if(!e.target.closest("#top"))closeMenu();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeMenu();});
+
+// ---------- chat ----------
+const FAQ={"¿Cómo reclamo un objeto?":"Abre la publicación en Objetos encontrados, ingresa con tu correo de la Javeriana y pulsa “Reclamar este objeto”. Describe rasgos que no aparecen en la publicación.","¿Por qué no veo todos los detalles?":"La oficina guarda en privado las marcas, el contenido y los grabados. Así solo el dueño real puede describirlos.","¿Cuánto demora la respuesta?":"El tiempo lo define la oficina. Verás el resultado en Mis solicitudes y te llegará un aviso al correo institucional.","¿Cómo gano puntos?":"Cuando la oficina está cerrada, entrega el objeto en el punto de entrega nocturno. Ganas 10 puntos cuando la oficina valida el depósito y 5 más si el dueño lo recupera.","¿Y si el objeto no cabe en la máquina?":"Llévalo al punto de la entrada principal y entrégaselo a los guardias.","¿Cuál es el horario?":"La oficina atiende de 7:00 a. m. a 12:00 m. y de 2:00 p. m. a 5:00 p. m.","¿Qué llevo a la oficina?":"Tu carné o el documento que registraste al aprobarse tu solicitud, y tu código de retiro.","¿Y si me niegan la solicitud?":"Verás el motivo general. Si crees que hay un error, escribe a dircom@javerianacali.edu.co o dsuarez@javerianacali.edu.co."};
+$("#qs").innerHTML=Object.keys(FAQ).map(q=>`<button class="chip">${q}</button>`).join("");
+$("#qs").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;const m=$("#msgs");
+m.insertAdjacentHTML("beforeend",`<div class="m u">${b.textContent}</div><div class="m b">${FAQ[b.textContent]}</div>`);m.scrollTop=m.scrollHeight;};
+
+renderChips();renderList();route();
+</script>
+</body>
+</html>
