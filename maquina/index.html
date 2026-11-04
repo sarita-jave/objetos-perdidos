@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* Layout: la pantalla de un quiosco físico, una sola columna centrada; diseño oscuro a propósito porque imita el aparato */
-:root{--bg:#0a1120;--shell:#1d2840;--shell-2:#2c3a5c;--screen:#0b1426;--ink:#dfeaff;--muted:#9fb0d0;--sun:#ffc629;--sun-ink:#14213d;--ok:#5fd394;--bad:#ff8a80;--line:rgba(255,255,255,.14);
+:root{--bg:#0b1422;--shell:#172a46;--shell-2:#263f66;--screen:#0a1220;--ink:#e3e9f2;--muted:#9eabc0;--sun:#f8cd00;--sun-ink:#141c2b;--ok:#6fbf95;--bad:#e59a92;--line:rgba(255,255,255,.14);
 --display:"Plus Jakarta Sans",system-ui,sans-serif;--body:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;color-scheme:dark}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.5 var(--body)}
@@ -47,7 +47,7 @@ input::placeholder{color:#55627c}
 .comp.P{grid-column:span 3;height:42px}.comp.M{grid-column:span 4;height:58px}.comp.G{grid-column:span 6;height:78px}
 .comp.busy{background:repeating-linear-gradient(45deg,var(--shell-2) 0 6px,rgba(255,255,255,.1) 6px 12px);color:var(--muted)}
 .comp.open{background:var(--sun);color:var(--sun-ink);border-color:var(--sun)}
-@media(prefers-reduced-motion:no-preference){.comp.open{animation:pulse 1s ease-in-out infinite alternate}@keyframes pulse{to{box-shadow:0 0 0 5px rgba(255,198,41,.35)}}}
+@media(prefers-reduced-motion:no-preference){.comp.open{animation:pulse 1s ease-in-out infinite alternate}@keyframes pulse{to{box-shadow:0 0 0 5px rgba(248,205,0,.35)}}}
 .legend{display:flex;gap:14px;font-size:.78rem;color:var(--muted);margin:0;flex-wrap:wrap}
 .lg{display:inline-block;width:12px;height:12px;border-radius:3px;background:var(--shell-2);border:1px solid var(--line);margin-right:5px;vertical-align:-2px}
 .lg.busy{background:repeating-linear-gradient(45deg,var(--shell-2) 0 3px,rgba(255,255,255,.3) 3px 6px)}.lg.open{background:var(--sun)}

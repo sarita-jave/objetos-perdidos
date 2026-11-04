@@ -8,28 +8,29 @@
 <title>Objetos Perdidos · Javeriana Cali</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
 /* Layout: banda azul institucional arriba, contenido en columna de 1080px; tarjetas tipo marketplace; panel del personal como herramienta densa */
-:root{--bg:#f5f7fb;--surface:#fff;--ink:#14213d;--muted:#55627c;--line:#d9e0ee;--blue:#00407a;--blue-ink:#fff;--sun:#ffc629;--sun-ink:#14213d;--ok:#1a7f4b;--warn:#a35f00;--bad:#b42318;--done:#5b6477;--soft:#e8eefa;--onblue:#ffc629;
---display:"Bricolage Grotesque",Figtree,system-ui,sans-serif;--body:Figtree,system-ui,sans-serif;color-scheme:light}
+:root{--bg:#f1f3f6;--surface:#fff;--ink:#141c2b;--muted:#4f5a6b;--line:#d4dae3;--blue:#1f3e6c;--blue-ink:#fff;--accent:#2c5697;--sun:#f8cd00;--sun-ink:#141c2b;--ok:#2f6b4f;--warn:#8a5a0b;--bad:#9b2c2c;--done:#5a6372;--soft:#e4e9f0;--onblue:#f8cd00;
+--display:"Plus Jakarta Sans",system-ui,sans-serif;--body:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;color-scheme:light}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 var(--body)}
-h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0 0 .5em;letter-spacing:-.02em;text-wrap:balance}
-h1{font-size:clamp(2.1rem,6vw,3.8rem);font-weight:800}h2{font-size:clamp(1.5rem,3.5vw,2.1rem);font-weight:700}h3{font-size:1.12rem;font-weight:700}
+h1,h2,h3{font-family:var(--display);line-height:1.15;margin:0 0 .5em;letter-spacing:-.015em;text-wrap:balance}
+h1{font-size:clamp(2rem,5.5vw,3.4rem);font-weight:800}h2{font-size:clamp(1.5rem,3.5vw,2.1rem);font-weight:700}h3{font-size:1.12rem;font-weight:700}
 .h1s{font-size:clamp(1.8rem,4vw,2.6rem)}
 p{margin:0 0 1em;max-width:64ch}
-a{color:var(--blue)}
+a{color:var(--accent)}
 :focus-visible{outline:3px solid var(--sun);outline-offset:2px}
 .wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--blue);color:var(--blue-ink)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--blue);z-index:30}
-.bar{display:flex;align-items:center;gap:12px 16px;min-height:60px;flex-wrap:wrap;padding-block:8px}
+header.top .wrap{max-width:1200px}
+.bar{display:flex;align-items:center;gap:12px 14px;min-height:60px;flex-wrap:wrap;padding-block:8px}
 .brand{font:800 1.1rem var(--display);color:inherit;text-decoration:none;margin-right:auto;display:flex;align-items:center;gap:10px}
 .brand i{width:30px;height:30px;border-radius:8px;background:var(--sun);display:grid;place-items:center;font-style:normal}
 nav{display:flex;gap:2px;flex-wrap:wrap}
-nav a{color:inherit;text-decoration:none;padding:7px 11px;border-radius:8px;font-weight:600;font-size:.93rem}
+nav a{color:inherit;text-decoration:none;padding:7px 10px;border-radius:8px;font-weight:600;font-size:.9rem;white-space:nowrap}
 nav a[aria-current="page"]{background:var(--sun);color:var(--sun-ink)}
 nav a:hover:not([aria-current]){background:rgba(255,255,255,.16)}
 .menu-btn{display:none;align-items:center;gap:8px;font:600 .95rem var(--body);color:var(--blue-ink);background:transparent;border:2px solid var(--blue-ink);border-radius:10px;padding:7px 12px;cursor:pointer}
@@ -37,12 +38,12 @@ nav a:hover:not([aria-current]){background:rgba(255,255,255,.16)}
 .burger::before,.burger::after{content:"";position:absolute;left:0}.burger::before{top:-5px}.burger::after{top:5px}
 #top.open .burger{background:transparent}#top.open .burger::before{top:0;transform:rotate(45deg)}#top.open .burger::after{top:0;transform:rotate(-45deg)}
 #login{max-width:46vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-@media(max-width:900px){
+@media(max-width:1140px){
 .bar{flex-wrap:nowrap;gap:10px}
 .brand{font-size:1rem;min-width:0}
 .menu-btn{display:inline-flex;order:2}
 #login{order:3}
-nav{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:4px;background:var(--blue);padding-block:8px 18px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));box-shadow:0 14px 24px rgba(10,20,40,.25);max-height:calc(100dvh - 70px);overflow-y:auto}
+nav{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:4px;background:var(--blue);padding-block:8px 18px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));box-shadow:0 14px 24px rgba(12,22,40,.28);max-height:calc(100dvh - 70px);overflow-y:auto}
 #top.open nav{display:flex}
 nav a{padding:13px 14px;font-size:1.02rem;border-radius:10px}
 .ptabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.ptabs button{white-space:nowrap;flex:none}
@@ -61,7 +62,7 @@ header .btn.sm{border-color:var(--blue-ink);background:transparent;color:var(--b
 .hero{background:var(--blue);color:var(--blue-ink);padding-block:44px 60px;margin-top:-32px}
 .hero p{font-size:1.12rem;opacity:.92}
 .sbox{display:flex;gap:8px;max-width:620px;margin-top:22px;flex-wrap:wrap}
-.sbox input{flex:1 1 240px;font-size:1.05rem;padding:13px 16px;border-radius:10px;border:2px solid transparent;background:#fff;color:#14213d}
+.sbox input{flex:1 1 240px;font-size:1.05rem;padding:13px 16px;border-radius:10px;border:2px solid transparent;background:var(--surface);color:var(--ink)}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
 .hero .btn.ghost{color:var(--blue-ink);border-color:var(--blue-ink)}
 .ways{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:-30px}
@@ -129,7 +130,7 @@ label.chk input{width:auto;margin-top:4px}
 .track li.ok{border-color:var(--ok)}.track li.no{border-color:var(--bad)}
 .res{border-radius:10px;padding:12px 14px;background:var(--soft);font-size:.95rem}
 .res p{margin:0}.res p+p{margin-top:6px}
-.code{font:700 1.15rem var(--display);letter-spacing:.06em;color:var(--blue)}
+.code{font:600 1.15rem var(--mono);letter-spacing:.06em;color:var(--blue)}
 /* panel */
 .ptabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:1.5px solid var(--line);margin:18px 0 20px}
 .ptabs button{background:none;border:0;border-bottom:3px solid transparent;padding:10px 12px;font:600 .95rem var(--body);color:var(--muted);cursor:pointer;margin-bottom:-1.5px}
@@ -187,13 +188,8 @@ fieldset.tsel legend small{font-weight:400;color:var(--muted)}
 .qrwrap{display:grid;justify-items:center;gap:8px;text-align:center;padding:4px 0 14px}
 #qrbox{background:#fff;padding:12px;border-radius:12px;line-height:0}
 #qrbox img,#qrbox canvas{max-width:100%}
-.timer{font:700 1.7rem var(--display);font-variant-numeric:tabular-nums}
-.tok{font:600 .95rem ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em}
-/* punto nocturno: tipografía más formal */
-#v-punto-nocturno{--display:"Plus Jakarta Sans",Figtree,system-ui,sans-serif;--body:"Plus Jakarta Sans",Figtree,system-ui,sans-serif;font-family:var(--body)}
-#v-punto-nocturno h1,#v-punto-nocturno h2,#v-punto-nocturno h3{letter-spacing:-.015em;font-weight:700}
-#v-punto-nocturno .tok{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace}
-#v-punto-nocturno .timer{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-weight:600}
+.timer{font:600 1.7rem var(--mono);font-variant-numeric:tabular-nums}
+.tok{font:600 .95rem var(--mono);letter-spacing:.06em}
 .copyrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
 .free{display:flex;gap:8px;flex-wrap:wrap}
 .free span{background:var(--soft);border-radius:10px;padding:8px 12px;font-size:.92rem}
@@ -551,7 +547,7 @@ return {av:Math.max(0,av),pe:sum(L.filter(e=>e.st==="pendiente")),wk:sum(L.filte
 function officeOpen(){const pt=new Intl.DateTimeFormat("en-GB",{timeZone:"America/Bogota",hour:"2-digit",minute:"2-digit",hour12:false}).format(new Date()).split(":");const t=(+pt[0]%24)*60+(+pt[1]);return (t>=420&&t<720)||(t>=840&&t<1020);}
 const freeComp=z=>COMPS.filter(k=>k[0]===z).find(k=>!deposits.some(x=>x.st==="pendiente"&&x.comp===k));
 const mmss=()=>{const r=Math.max(0,dep.exp-Date.now());return String(Math.floor(r/6e4)).padStart(2,"0")+":"+String(Math.floor(r/1e3)%60).padStart(2,"0");};
-function qr(el,text,size){if(!el)return;el.innerHTML="";try{new QRCode(el,{text,width:size,height:size,colorDark:"#14213d",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.M});}catch(e){el.style.lineHeight="1.4";el.textContent=text;}}
+function qr(el,text,size){if(!el)return;el.innerHTML="";try{new QRCode(el,{text,width:size,height:size,colorDark:"#141c2b",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.M});}catch(e){el.style.lineHeight="1.4";el.textContent=text;}}
 
 function renderPN(){const open=officeOpen();
 $("#pn").innerHTML=`<div class="pn-head"><div><p class="lbl">Cuando la oficina está cerrada</p><h1 class="h1s">Punto de entrega nocturno</h1><p>Deja lo que encontraste en la máquina junto a la oficina de Objetos Perdidos. Cuando la oficina confirme el depósito, ganas puntos para canjear por beneficios.</p></div>
