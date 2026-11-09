@@ -232,6 +232,26 @@ dialog::backdrop{background:rgba(5,10,25,.6)}
 .qs{display:flex;gap:8px;flex-wrap:wrap;padding:10px 14px;border-top:1px solid var(--line)}
 #toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:12px;font-weight:600;z-index:50;max-width:calc(100% - 32px);box-shadow:0 8px 24px rgba(0,0,0,.25)}
 
+/* Mapa del campus: entra completo y se acerca hasta la oficina del Edificio Lagos */
+.campus{position:relative;overflow:hidden;border-radius:22px;aspect-ratio:2400/1428;background:#efe9df;margin:12px 0 26px;box-shadow:0 14px 40px rgba(20,20,26,.12)}
+.cmap{position:absolute;inset:0;transform-origin:0 0;transition:transform 2.4s cubic-bezier(.65,0,.15,1)}
+.cmap img{width:100%;height:100%;display:block}
+.campus.zoom .cmap{transform:translate(-118.64%,-47.89%) scale(2.8)}
+.cpin{position:absolute;left:60.23%;top:34.96%;width:0;height:0;transition:left 2.4s cubic-bezier(.65,0,.15,1),top 2.4s cubic-bezier(.65,0,.15,1);z-index:2}
+.campus.zoom .cpin{left:50%;top:50%}
+.cpin i{position:absolute;left:-11px;top:-11px;width:22px;height:22px;border-radius:50%;background:var(--red);border:4px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.35);box-sizing:border-box}
+.cpin::before{content:"";position:absolute;left:-1.5px;bottom:11px;width:3px;height:0;background:var(--red);transition:height .8s ease 1.9s}
+.cpin::after{content:"";position:absolute;left:-24px;top:-24px;width:48px;height:48px;border-radius:50%;border:3px solid var(--red);opacity:0}
+.campus.zoom .cpin::before{height:70px}
+.ccard{position:absolute;left:20px;bottom:20px;max-width:min(380px,calc(100% - 40px));background:rgba(43,43,48,.92);color:#fff;border-radius:16px;padding:14px 18px;display:flex;flex-direction:column;gap:2px;opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;z-index:3}
+.campus.zoom .ccard{opacity:1;transform:none;transition-delay:2.2s}
+.ccard .lbl{color:var(--sun);margin:0}.ccard b{font:800 1.6rem/1.05 var(--display);text-transform:uppercase}.ccard span{font-size:.92rem;color:#d6d6da}
+.ctools{position:absolute;right:16px;top:16px;display:flex;background:#fff;border-radius:999px;padding:4px;gap:4px;box-shadow:0 4px 14px rgba(0,0,0,.18);z-index:3}
+.ctools button{border:0;background:transparent;color:var(--blue);font:700 .95rem var(--display);letter-spacing:.06em;text-transform:uppercase;padding:7px 14px;border-radius:999px;cursor:pointer}
+.ctools button[aria-pressed="true"]{background:var(--blue);color:#fff}
+@media(max-width:600px){.campus{border-radius:16px}.ccard{left:10px;right:10px;bottom:10px;max-width:none;padding:9px 12px;border-radius:12px}.ccard b{font-size:1.15rem}.ccard span{font-size:.78rem}.ccard .lbl{display:none}.ctools{right:8px;top:8px;padding:3px}.ctools button{padding:5px 9px;font-size:.8rem}.campus.zoom .cpin::before{height:40px}}
+@media(prefers-reduced-motion:no-preference){.campus.zoom .cpin::after{animation:pinPulse 1.8s ease-out 2.4s infinite}@keyframes pinPulse{from{transform:scale(.4);opacity:.9}to{transform:scale(1.6);opacity:0}}}
+@media(prefers-reduced-motion:reduce){.cmap,.cpin,.ccard{transition:none!important}}
 /* ===== Sistema radial ===== */
 .brand .bt{display:flex;flex-direction:column;line-height:1;font:800 1.2rem var(--display);letter-spacing:.05em;text-transform:uppercase}
 .brand small{font:600 .7rem var(--body);letter-spacing:.12em;color:#bdbdc3;margin-top:3px}
@@ -481,7 +501,14 @@ footer{background:var(--blue);color:#cfcfd4;padding-block:26px;font-size:.9rem;p
 
 <!-- UBICACIONES -->
 <section class="view" id="v-ubicaciones" hidden><div class="wrap">
+<p class="kick">Pontificia Universidad Javeriana Cali</p>
 <h1 class="h1s">Ubicaciones</h1>
+<div class="campus" id="campus">
+<div class="cmap"><img src="img/campus.jpg" alt="Vista aérea del campus de la Javeriana Cali con la oficina de Objetos Perdidos marcada en la entrada del Edificio Lagos" width="2400" height="1428"></div>
+<span class="cpin" aria-hidden="true"><i></i></span>
+<div class="ccard"><p class="lbl">Aquí estamos</p><b>Oficina de Objetos Perdidos</b><span>Entrada del Edificio Lagos · 7:00 a. m. – 12:00 m. y 2:00 p. m. – 5:00 p. m.</span></div>
+<div class="ctools" role="group" aria-label="Vista del mapa"><button type="button" data-cz="1" aria-pressed="false">Oficina</button><button type="button" data-cz="0" aria-pressed="true">Todo el campus</button></div>
+</div>
 <div class="two">
 <div class="box"><h2 style="font-size:1.35rem">Punto principal de entrega</h2><p><b>Oficina de Objetos Perdidos</b>, entrada del Edificio Lagos.</p><p>Aquí se guardan los objetos y se entregan a quien tenga una solicitud aprobada. Lleva tu carné o documento de identidad y tu código de retiro.</p></div>
 <div class="box"><h2 style="font-size:1.35rem">Máquina de entrega fuera de horario</h2><p>Máquina con compartimentos de tres tamaños junto a la oficina de Objetos Perdidos, en un lugar con cámara de seguridad y acceso de noche. Recibe objetos cuando la oficina está cerrada.</p><p>Si el objeto no cabe en la máquina, llévalo al punto de la entrada principal y entrégaselo a los guardias.</p><a class="btn sm" href="#fuera-de-horario">Cómo usarla</a></div>
@@ -959,6 +986,12 @@ else if(d.wnav){wsel=(wsel+(+d.wnav)+6)%6;updateWheel();}
 else if(d.case){caso=d.case;updateCases();}
 else if(d.vmode){vmode=d.vmode;document.querySelectorAll("[data-vmode]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.vmode===vmode));renderList();}});
 initWheel();initCases();
+
+// ---------- mapa del campus ----------
+let campusTouched=false;
+function campusZoom(on){const c=$("#campus");if(!c)return;c.classList.toggle("zoom",on);document.querySelectorAll("[data-cz]").forEach(b=>b.setAttribute("aria-pressed",String((b.dataset.cz==="1")===on)));}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-cz]");if(!b)return;campusTouched=true;campusZoom(b.dataset.cz==="1");});
+try{new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting&&!campusTouched){setTimeout(()=>{if(!campusTouched)campusZoom(true);},500);}else if(!en.isIntersecting&&!campusTouched){campusZoom(false);}});},{threshold:.45}).observe($("#campus"));}catch(e){campusZoom(true);}
 
 // ---------- chat ----------
 const FAQ={"¿Cómo reclamo un objeto?":"Abre la publicación en Objetos encontrados, ingresa con tu correo de la Javeriana y pulsa “Reclamar este objeto”. Describe rasgos que no aparecen en la publicación.","¿Por qué no veo todos los detalles?":"La oficina guarda en privado las marcas, el contenido y los grabados. Así solo el dueño real puede describirlos.","¿Cuánto demora la respuesta?":"El tiempo lo define la oficina. Verás el resultado en Mis solicitudes y te llegará un aviso al correo institucional.","¿Cómo gano puntos?":"Cuando la oficina está cerrada, entrega el objeto en la máquina junto a la oficina. Ganas 10 puntos cuando la oficina valida el depósito y 5 más si el dueño lo recupera.","¿Y si el objeto no cabe en la máquina?":"Llévalo al punto de la entrada principal y entrégaselo a los guardias.","¿Cuál es el horario?":"La oficina atiende de 7:00 a. m. a 12:00 m. y de 2:00 p. m. a 5:00 p. m.","¿Qué llevo a la oficina?":"Tu carné o el documento que registraste al aprobarse tu solicitud, y tu código de retiro.","¿Y si me niegan la solicitud?":"Verás el motivo general. Si crees que hay un error, escribe a dircom@javerianacali.edu.co o dsuarez@javerianacali.edu.co."};
