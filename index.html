@@ -202,10 +202,16 @@ fieldset.tsel legend small{font-weight:400;color:var(--muted)}
 .big{font:800 2.2rem/1.1 var(--display);font-variant-numeric:tabular-nums}
 .earn{display:flex;gap:10px 14px;flex-wrap:wrap;align-items:center;margin:16px 0 4px;font-size:.93rem}
 .earn span{background:var(--soft);padding:6px 12px;border-radius:99px}
-.bcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:6px}
+.bcard{position:relative;background:var(--surface);border-radius:18px;border-top:7px solid var(--c);padding:18px 18px 16px;display:flex;flex-direction:column;gap:8px;box-shadow:0 6px 20px rgba(20,20,26,.07);transition:transform .2s ease,box-shadow .2s ease}
+.bcard:hover{transform:translateY(-4px) rotate(-.6deg);box-shadow:0 14px 30px rgba(20,20,26,.13)}
+.btop{display:flex;align-items:center;gap:12px}
+.bico{flex:none;width:46px;height:46px;border-radius:50%;background:var(--c);color:#fff;display:grid;place-items:center}
+.bcard h3{font:800 1.5rem/1.05 var(--display);text-transform:uppercase;color:var(--blue)}
 .bcard h3{margin:0}.bcard .meta,.bcard .lbl{margin:0}
-.bfoot{margin-top:auto;padding-top:10px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
-.pts{font:800 1.2rem var(--display);color:var(--blue);font-variant-numeric:tabular-nums}
+.bfoot{position:relative;margin-top:auto;padding-top:14px;border-top:2px dashed var(--line);display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.bfoot::before,.bfoot::after{content:"";position:absolute;top:-12px;width:22px;height:22px;border-radius:50%;background:var(--bg)}
+.bfoot::before{left:-30px}.bfoot::after{right:-30px}
+.pts{font:800 1.7rem var(--display);color:var(--blue);font-variant-numeric:tabular-nums}
 .coupon{display:flex;gap:16px;align-items:center;background:var(--surface);border:1.5px dashed var(--blue);border-radius:14px;padding:14px 16px;flex-wrap:wrap}
 .coupon>div:last-child{flex:1 1 220px;min-width:0}.coupon h3{margin:0 0 4px}
 .cqr{background:#fff;padding:6px;border-radius:8px;line-height:0;width:108px;height:108px;flex:none}
@@ -369,7 +375,7 @@ footer{background:var(--blue);color:#cfcfd4;padding-block:26px;font-size:.9rem;p
 <a class="brand" href="#inicio"><svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#45454a" stroke="#6a6a70"/><circle cx="20" cy="20" r="14" fill="#e3e3e6"/><circle cx="20" cy="20" r="9" fill="#fff"/><circle cx="20" cy="20" r="6" fill="#c0413b"/></svg><span class="bt">Objetos Perdidos<small>Javeriana Cali</small></span></a>
 <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="mainnav"><span class="burger" aria-hidden="true"></span>Menú</button>
 <nav aria-label="Principal" id="mainnav">
-<a href="#objetos" data-v="objetos">Objetos</a><a href="#reportar" data-v="reportar">Reportar</a><a href="#punto-nocturno" data-v="punto-nocturno">Punto nocturno</a><a href="#beneficios" data-v="beneficios">Beneficios</a><a href="#mis-solicitudes" data-v="mis-solicitudes" id="nav-mis">Mis solicitudes</a><a href="#panel" data-v="panel" id="nav-panel" hidden>Panel del personal</a><a href="#ubicaciones" data-v="ubicaciones">Ubicaciones</a><a href="#contacto" data-v="contacto">Contacto</a>
+<a href="#objetos" data-v="objetos">Objetos</a><a href="#reportar" data-v="reportar">Reportar</a><a href="#fuera-de-horario" data-v="fuera-de-horario">Fuera de horario</a><a href="#beneficios" data-v="beneficios">Beneficios</a><a href="#mis-solicitudes" data-v="mis-solicitudes" id="nav-mis">Mis solicitudes</a><a href="#panel" data-v="panel" id="nav-panel" hidden>Panel del personal</a><a href="#ubicaciones" data-v="ubicaciones">Ubicaciones</a><a href="#contacto" data-v="contacto">Contacto</a>
 </nav>
 <button class="btn sm" id="login">Ingresar</button>
 </div></header>
@@ -409,7 +415,7 @@ footer{background:var(--blue);color:#cfcfd4;padding-block:26px;font-size:.9rem;p
 <div class="facts rise">
 <div><b style="font-size:2.5rem">30–35</b>personas consultan al día</div>
 <div><b>Entrada del Edificio Lagos</b>dónde queda la oficina</div>
-<div style="grid-column:1/-1"><b>7:00 a. m. – 12:00 m. · 2:00 p. m. – 5:00 p. m.</b>horario de atención; fuera de él funciona el punto nocturno</div>
+<div style="grid-column:1/-1"><b>7:00 a. m. – 12:00 m. · 2:00 p. m. – 5:00 p. m.</b>horario de atención; fuera de él recibe la máquina de entrega</div>
 </div>
 </div></section>
 
@@ -461,8 +467,8 @@ footer{background:var(--blue);color:#cfcfd4;padding-block:26px;font-size:.9rem;p
 <div id="rf"></div>
 </div></section>
 
-<!-- PUNTO NOCTURNO -->
-<section class="view" id="v-punto-nocturno" hidden><div class="wrap" id="pn"></div></section>
+<!-- CUANDO CIERRA LA OFICINA -->
+<section class="view" id="v-fuera-de-horario" hidden><div class="wrap" id="pn"></div></section>
 
 <!-- BENEFICIOS -->
 <section class="view" id="v-beneficios" hidden><div class="wrap" id="ben"></div></section>
@@ -478,7 +484,7 @@ footer{background:var(--blue);color:#cfcfd4;padding-block:26px;font-size:.9rem;p
 <h1 class="h1s">Ubicaciones</h1>
 <div class="two">
 <div class="box"><h2 style="font-size:1.35rem">Punto principal de entrega</h2><p><b>Oficina de Objetos Perdidos</b>, entrada del Edificio Lagos.</p><p>Aquí se guardan los objetos y se entregan a quien tenga una solicitud aprobada. Lleva tu carné o documento de identidad y tu código de retiro.</p></div>
-<div class="box"><h2 style="font-size:1.35rem">Punto de entrega nocturno</h2><p>Máquina con compartimentos de tres tamaños junto a la oficina de Objetos Perdidos, en un lugar con cámara de seguridad y acceso de noche. Recibe objetos cuando la oficina está cerrada.</p><p>Si el objeto no cabe en la máquina, llévalo al punto de la entrada principal y entrégaselo a los guardias.</p><a class="btn sm" href="#punto-nocturno">Cómo usarla</a></div>
+<div class="box"><h2 style="font-size:1.35rem">Máquina de entrega fuera de horario</h2><p>Máquina con compartimentos de tres tamaños junto a la oficina de Objetos Perdidos, en un lugar con cámara de seguridad y acceso de noche. Recibe objetos cuando la oficina está cerrada.</p><p>Si el objeto no cabe en la máquina, llévalo al punto de la entrada principal y entrégaselo a los guardias.</p><a class="btn sm" href="#fuera-de-horario">Cómo usarla</a></div>
 </div>
 
 </div></section>
@@ -508,7 +514,7 @@ const TODAY="2026-10-28";
 const CATS={"Electrónicos":"🎧","Accesorios":"⌚","Prendas":"🧥","Documentos":"🪪","Útiles académicos":"📓","Otros":"🎒"};
 const CC={"Electrónicos":"#3762a8","Accesorios":"#2e9c98","Prendas":"#6a58c2","Documentos":"#c0413b","Útiles académicos":"#3e9f5f","Otros":"#e2b41c"};
 const CD={"Electrónicos":"#274b85","Accesorios":"#1e6f6c","Prendas":"#4a3c96","Documentos":"#a8342e","Útiles académicos":"#2a6e41","Otros":"#7d6200"};
-const BCOL={"Entretenimiento y cultura":"#6a58c2","Beneficios universitarios":"#c0413b","Bienestar y deporte":"#3e9f5f"};
+const BCOL={"Comida y antojos":"#e8862a","Campus":"#2e9c98","Académico":"#c0413b","Bienestar y cultura":"#6a58c2"};
 let vmode="rueda",wsel=0,caso="perdi";
 const PUB={disponible:"Disponible",porrecoger:"Por recoger",entregado:"Entregado"};
 const CST={revision:"En revisión",aprobada:"Aprobada",denegada:"No aprobada"};
@@ -585,7 +591,7 @@ else if(o.s==="entregado")act=`<p class="note">Este objeto ya fue entregado a su
 else if(mine)act=`<p class="note">Ya enviaste una solicitud por este objeto: <b>${CST[mine.st]}</b>.</p><a class="btn" href="#mis-solicitudes">Ver mi solicitud</a>`;
 else if(o.s==="porrecoger")act=`<p class="note">Ya hay una solicitud aprobada para este objeto y está esperando que lo recojan.</p>`;
 else if(!user)act=`<button class="btn sun" data-loginfor="${id}">Ingresa para reclamar</button><p class="meta">Para reclamar ingresa con tu correo de la Javeriana.</p>`;
-else if(o.dep&&deposits.find(x=>x.id===o.dep)?.owner===user.handle)act=`<p class="note">Tú entregaste este objeto en el punto nocturno. Si en realidad es tuyo, escribe a la oficina: reclamarlo anula los puntos de ese depósito.</p>`;
+else if(o.dep&&deposits.find(x=>x.id===o.dep)?.owner===user.handle)act=`<p class="note">Tú entregaste este objeto en la máquina de entrega. Si en realidad es tuyo, escribe a la oficina: reclamarlo anula los puntos de ese depósito.</p>`;
 else act=`<button class="btn sun" data-claim="${id}">Reclamar este objeto</button>`;
 $("#detail").innerHTML=`<a class="back" href="#objetos">← Volver al listado</a>
 <div class="detail"><div class="ph big" aria-hidden="true" style="--c:${CC[o.c]||"#7a7a82"}"></div>
@@ -621,7 +627,7 @@ function renderReport(){const f=rtab==="encontre";
 ["encontre","perdi"].forEach(k=>{const b=$("#t-"+k);b.setAttribute("aria-selected",k===rtab);b.className="btn"+(k===rtab?"":" ghost");});
 if(!f&&!user){$("#rf").innerHTML=`<div class="box" style="max-width:640px"><h3>Ingresa para reportar una pérdida</h3><p>Así podemos avisarte por tu correo institucional cuando llegue un objeto parecido.</p><button class="btn sun" data-login>Ingresar</button></div>`;return;}
 if(!f&&user.role==="personal"){$("#rf").innerHTML=`<p class="note">Los reportes de pérdida los hace la comunidad. Para registrar un objeto recibido usa el <a href="#panel">panel del personal</a>.</p>`;return;}
-$("#rf").innerHTML=`${f?`<p class="note" style="max-width:640px;margin-bottom:16px">Primero deja el objeto en un punto de recolección o en la oficina. Este aviso le dice al personal qué esperar; el objeto se publica cuando lo reciben. <b>¿La oficina está cerrada?</b> Usa el <a href="#punto-nocturno">punto de entrega nocturno</a> y gana puntos.</p>`:""}
+$("#rf").innerHTML=`${f?`<p class="note" style="max-width:640px;margin-bottom:16px">Primero deja el objeto en un punto de recolección o en la oficina. Este aviso le dice al personal qué esperar; el objeto se publica cuando lo reciben. <b>¿La oficina está cerrada?</b> Usa la <a href="#fuera-de-horario">máquina de entrega fuera de horario</a> y gana puntos.</p>`:""}
 <form id="rep">${catSel("r-c")}${fld("Descripción del objeto","r-d","area",f?"Lo general: qué es y de qué color. Los detalles los registra la oficina.":"Color, marca y rasgos particulares. Esto no se publica.")}
 ${fld(f?"¿Dónde lo encontraste?":"¿Dónde pudo haberse perdido?","r-l")}
 <div class="row">${fld("Fecha","r-f","date")}${timeFld("Hora aproximada","r-h")}</div>
@@ -667,7 +673,7 @@ function pInventario(){const rows=[...objs].sort((a,b)=>b.f.localeCompare(a.f)).
 return `<tr><td><a href="#objeto-${o.id}">${esc(o.n)}</a><br><span class="meta">OBJ-${String(o.id).padStart(4,"0")}</span></td><td>${o.c}</td><td class="num">${fd(o.f)}</td><td><span class="pill ${o.s}">${PUB[o.s]}</span></td><td class="num">${n||"—"}</td><td>${o.s==="porrecoger"?(ap?.doc?`<span class="meta">Verifica: ${ap.doc.t} ${esc(ap.doc.n)}<br>Código ${ap.code}</span><br><button class="btn sm" data-deliver="${o.id}" style="margin-top:6px">Marcar entregado</button>`:`<span class="meta">Esperando que ${esc(ap?.user||"")} registre su documento</span>`):o.s==="entregado"?`<span class="meta">${fd(o.ent)}</span>`:""}</td></tr>`;}).join("");
 return `<div class="tbl"><table><thead><tr><th>Objeto</th><th>Categoría</th><th>Recibido</th><th>Estado</th><th>Pendientes</th><th>Entrega</th></tr></thead><tbody>${rows}</tbody></table></div>`;}
 function pRegistrar(){const p=prefill||{};
-return `${p.d?`<p class="note" style="max-width:640px;margin-bottom:16px">Datos tomados ${p.depId?"del depósito de "+esc(p.quien)+" en el punto nocturno":"del aviso de "+esc(p.quien)}. Revísalos con el objeto en la mano.</p>`:""}<form id="rg">${catSel("g-c",p.c)}
+return `${p.d?`<p class="note" style="max-width:640px;margin-bottom:16px">Datos tomados ${p.depId?"del depósito de "+esc(p.quien)+" en la máquina de entrega":"del aviso de "+esc(p.quien)}. Revísalos con el objeto en la mano.</p>`:""}<form id="rg">${catSel("g-c",p.c)}
 ${fld("Nombre para la publicación","g-n","text","Genérico: “Audífonos inalámbricos”, no la marca",true,"")}
 ${fld("Descripción pública","g-d","area","Solo color y tipo. Lo que cualquiera vería de lejos.",true,"")}
 ${fld("Rasgos privados","g-p","area","Marca, contenido, grabados, daños, nombres. Nunca se publican; sirven para verificar reclamos.",true,p.d||"")}
@@ -720,7 +726,7 @@ const mmss=()=>{const r=Math.max(0,dep.exp-Date.now());return String(Math.floor(
 function qr(el,text,size){if(!el)return;el.innerHTML="";try{new QRCode(el,{text,width:size,height:size,colorDark:"#141c2b",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.M});}catch(e){el.style.lineHeight="1.4";el.textContent=text;}}
 
 function renderPN(){const open=officeOpen();
-$("#pn").innerHTML=`<div class="pn-head"><div><p class="lbl">Cuando la oficina está cerrada</p><h1 class="h1s">Punto de entrega nocturno</h1><p>Deja lo que encontraste en la máquina junto a la oficina de Objetos Perdidos. Cuando la oficina confirme el depósito, ganas puntos para canjear por beneficios.</p></div>
+$("#pn").innerHTML=`<div class="pn-head"><div><p class="lbl">Entrega fuera de horario</p><h1 class="h1s">Cuando cierra la oficina</h1><p>Deja lo que encontraste en la máquina junto a la oficina de Objetos Perdidos. Cuando la oficina confirme el depósito, ganas puntos para canjear por beneficios.</p></div>
 <div class="status ${open?"on":"off"}"><b>${open?"La oficina está abierta ahora":"La oficina está cerrada ahora"}</b><span>${open?"Entrega el objeto directamente en la oficina. La máquina recibe objetos fuera del horario de atención.":"Usa la máquina. La oficina valida los depósitos cuando vuelve a abrir."}</span><span class="meta">Atención: 7:00 a. m. – 12:00 m. y 2:00 p. m. – 5:00 p. m.</span></div></div>
 <ol class="steps pn-steps"><li><b>Describe el objeto</b><span>Categoría, lugar, fecha y una foto.</span></li><li><b>Recibe tu QR</b><span>Sirve una vez y vence a los 15 minutos.</span></li><li><b>Escanéalo en la máquina</b><span>Se abre un compartimento del tamaño del objeto.</span></li><li><b>Deposita y cierra</b><span>La máquina verifica puerta, peso, objeto y foto.</span></li><li><b>Gana puntos</b><span>Se confirman cuando la oficina valida el depósito.</span></li></ol>
 ${open?`<p class="note" style="margin-top:16px">Prototipo: puedes probar el flujo aunque la oficina esté abierta.</p>`:""}
@@ -772,18 +778,19 @@ if(Date.now()>=dep.exp){dep.stage="expired";renderLeft();return;}const t=$("#qrt
 
 // ---------- beneficios ----------
 const BEN=[
-{id:1,n:"Entrada a una exposición universitaria",cat:"Entretenimiento y cultura",pts:100,cond:"Sujeto a cupos de la exposición",en:"Cultura"},
-{id:2,n:"Cupo para una actividad cultural",cat:"Entretenimiento y cultura",pts:120,cond:"Sujeto a cupos",en:"Cultura"},
-{id:3,n:"Participación en talleres creativos",cat:"Entretenimiento y cultura",pts:150,cond:"Sujeto a cupos del taller",en:"Cultura"},
-{id:4,n:"Reserva preferencial de espacios de estudio",cat:"Beneficios universitarios",pts:80,cond:"Una reserva por canje",en:"Biblioteca"},
-{id:5,n:"Acceso a actividades especiales",cat:"Beneficios universitarios",pts:120,cond:"Sujeto a cupos",en:"la dependencia que organiza la actividad"},
-{id:6,n:"Participación en sorteos universitarios",cat:"Beneficios universitarios",pts:40,cond:"Una participación por canje",en:"la dependencia que organiza el sorteo"},
-{id:7,n:"Beneficios en eventos de la facultad",cat:"Beneficios universitarios",pts:100,cond:"Según lo que defina cada facultad",en:"tu facultad"},
-{id:8,n:"Exoneración de multa en la biblioteca",cat:"Beneficios universitarios",pts:400,cond:"Máximo 2; solo retrasos de 5 a 15 minutos en devolver un artículo",en:"Biblioteca",max:2},
-{id:9,n:"Una sesión de actividad física",cat:"Bienestar y deporte",pts:80,cond:"Sujeto a cupos",en:"Bienestar"},
-{id:10,n:"Acceso a una clase grupal",cat:"Bienestar y deporte",pts:100,cond:"Sujeto a cupos",en:"Bienestar"},
-{id:11,n:"Invitación a una actividad deportiva",cat:"Bienestar y deporte",pts:120,cond:"Sujeto a cupos",en:"Bienestar"}];
-const BCAT={"Entretenimiento y cultura":"🎭","Beneficios universitarios":"🎓","Bienestar y deporte":"🏃"};
+{id:1,n:"Tinto o aromática gratis",cat:"Comida y antojos",pts:30,cond:"En cualquier cafetería del campus",en:"Cualquier cafetería del campus",ic:"M5 8h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5zM16 10h2a2 2 0 0 1 0 4h-2M8 3v2M11 3v2"},
+{id:2,n:"Algo gratis de la máquina expendedora",cat:"Comida y antojos",pts:40,cond:"Un producto a tu elección en las máquinas del campus",en:"La máquina expendedora (escanea el cupón)",ic:"M5 3h14v18H5zM8 7h8M8 11h8M14 17h2"},
+{id:3,n:"2x1 en helado Ventolini",cat:"Comida y antojos",pts:60,cond:"Lleva a alguien: el segundo helado va por cuenta del cupón",en:"El punto de Ventolini del campus",ic:"M8 10a4 4 0 1 1 8 0M7 10h10l-5 11z"},
+{id:4,n:"10% de descuento en la Mercatería",cat:"Campus",pts:80,cond:"En una compra",en:"La Mercatería",ic:"M3 12V4h8l10 10-8 8zM7.5 8.5h.01"},
+{id:5,n:"20 impresiones gratis",cat:"Campus",pts:50,cond:"Blanco y negro, en las salas de impresión",en:"La sala de impresión",ic:"M7 9V3h10v6M7 17H4v-7h16v7h-3M7 14h10v7H7z"},
+{id:6,n:"1 día gratis de parqueadero",cat:"Campus",pts:120,cond:"Carro o moto, un día hábil",en:"La entrada del parqueadero",ic:"M6 3h12v18H6zM10 17V7h3a3 3 0 0 1 0 6h-3"},
+{id:7,n:"Locker por una semana",cat:"Campus",pts:90,cond:"Sujeto a disponibilidad",en:"Bienestar",ic:"M5 3h14v18H5zM12 3v18M9 10v2M15 10v2"},
+{id:8,n:"+0,5 en un examen",cat:"Académico",pts:300,cond:"En un parcial de una materia cuyo docente participe en el programa. Uno por semestre",en:"Tu docente, antes del parcial",max:1,ic:"M4 20h4L19 9l-4-4L4 16zM14 6l4 4"},
+{id:9,n:"Exoneración de multa en la biblioteca",cat:"Académico",pts:150,cond:"Máximo 2; solo retrasos de 5 a 15 minutos en devolver un artículo",en:"La Biblioteca",max:2,ic:"M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19V5"},
+{id:10,n:"Préstamo de libros extendido",cat:"Académico",pts:70,cond:"Una semana más en un préstamo",en:"La Biblioteca",ic:"M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18zM12 7v5l3 2"},
+{id:11,n:"Entrada a un evento cultural",cat:"Bienestar y cultura",pts:100,cond:"Exposiciones, conciertos y talleres, sujeto a cupos",en:"Cultura",ic:"M3 8a2 2 0 0 0 0 4v4h18v-4a2 2 0 0 1 0-4V4H3z"},
+{id:12,n:"Clase grupal en el gimnasio",cat:"Bienestar y cultura",pts:80,cond:"Sujeto a cupos",en:"Bienestar",ic:"M6 7v10M18 7v10M3 10v4M21 10v4M6 12h12"}];
+const BCAT={"Comida y antojos":1,"Campus":1,"Académico":1,"Bienestar y cultura":1};
 function benCard(b,me,s){const used=me?coupons.filter(c=>isMine(c)&&c.b===b.id).length:0;let btn;
 if(!user)btn=`<button class="btn sm ghost" data-login>Ingresa para canjear</button>`;
 else if(!me)btn="";
@@ -791,16 +798,16 @@ else if(b.max&&used>=b.max)btn=`<button class="btn sm ghost" disabled>Ya usaste 
 else if(s.av<b.pts)btn=`<button class="btn sm ghost" disabled>Te faltan ${fmt(b.pts-s.av)}</button>`;
 else if(bconfirm===b.id)btn=`<div class="acts"><button class="btn sm sun" data-redeem="${b.id}">Confirmar canje</button><button class="btn sm ghost" data-bcancel>Cancelar</button></div>`;
 else btn=`<button class="btn sm" data-bask="${b.id}">Canjear</button>`;
-return `<article class="bcard"><p class="lbl"><span class="bdot" aria-hidden="true" style="--c:${BCOL[b.cat]}"></span>${b.cat}</p><h3>${b.n}</h3><p class="meta">${b.cond}${b.max&&me?` · usadas ${used} de ${b.max}`:""}</p><div class="bfoot"><span class="pts">${fmt(b.pts)} pts</span>${btn}</div></article>`;}
+return `<article class="bcard" style="--c:${BCOL[b.cat]}"><div class="btop"><span class="bico" aria-hidden="true">${icon(b.ic,24)}</span><p class="lbl">${b.cat}</p></div><h3>${b.n}</h3><p class="meta">${b.cond}${b.max&&me?` · usadas ${used} de ${b.max}`:""}</p><div class="bfoot"><span class="pts">${fmt(b.pts)} pts</span>${btn}</div></article>`;}
 function renderBen(){const me=user?.role==="comunidad",s=me?saldo():null,mc=me?coupons.filter(isMine).sort((a,b)=>b.id-a.id):[],ml=me?ledger.filter(isMine).slice().reverse().sort((a,b)=>b.f.localeCompare(a.f)):[];
 const est=e=>e.st==="disponible"?(addM(e.f,VENCE_MESES)<TODAY?"Vencido":"Disponible · vence "+fd(addM(e.f,VENCE_MESES))):e.st==="pendiente"?"Pendiente de validación":e.st==="canje"?"Canjeado":"Anulado";
-$("#ben").innerHTML=`<h1 class="h1s">Beneficios</h1><p style="color:var(--muted)">Canjea los puntos que ganas al entregar objetos en el punto de entrega nocturno.</p>
+$("#ben").innerHTML=`<h1 class="h1s">Beneficios</h1><p style="color:var(--muted)">Canjea los puntos que ganas al entregar objetos en la máquina cuando cierra la oficina.</p>
 ${me?`<div class="wallet"><div><p class="lbl">Disponibles</p><b class="big">${fmt(s.av)}</b><span class="meta">puntos para canjear</span></div><div><p class="lbl">Pendientes</p><b class="big">${fmt(s.pe)}</b><span class="meta">se confirman cuando la oficina valida</span></div><div><p class="lbl">Esta semana</p><b class="big">${fmt(s.wk)}</b><span class="meta">de ${fmt(LIM_SEM)} permitidos</span></div></div><p class="meta">Los puntos vencen ${VENCE_MESES} meses después de acreditarse.</p>`
 :user?`<p class="note">Estás como personal de la oficina. Los puntos son para estudiantes y docentes.</p>`:`<div class="box" style="max-width:640px;margin-top:16px"><p>Ingresa con tu correo de la Javeriana para ver tus puntos y canjear beneficios.</p><button class="btn sun" data-login>Ingresar</button></div>`}
-<div class="earn"><span><b>+${PTS_DEP}</b> por depósito validado</span><span><b>+${PTS_BONO}</b> cuando el dueño recupera el objeto</span><a href="#punto-nocturno">Cómo ganar puntos →</a></div>
+<div class="earn"><span><b>+${PTS_DEP}</b> por depósito validado</span><span><b>+${PTS_BONO}</b> cuando el dueño recupera el objeto</span><a href="#fuera-de-horario">Cómo ganar puntos →</a></div>
 <h2 class="h2s">Catálogo</h2><div class="chips" role="group" aria-label="Categorías de beneficios">${["",...Object.keys(BCAT)].map(c=>`<button class="chip" aria-pressed="${bcat===c}" data-bcat="${c}">${c||"Todos"}</button>`).join("")}</div>
 <div class="grid">${BEN.filter(b=>!bcat||b.cat===bcat).map(b=>benCard(b,me,s)).join("")}</div>
-${me?`<h2 class="h2s">Mis cupones</h2>${mc.length?`<div class="stack">${mc.map(c=>{const b=BEN.find(x=>x.id===c.b);return `<article class="coupon"><div class="cqr" data-code="${c.code}" role="img" aria-label="Código QR del cupón ${c.code}"></div><div><h3>${b.n}</h3><p class="tok" style="margin:0 0 4px">${c.code}</p><p class="meta" style="margin:0">Válido hasta el ${fd(c.hasta)} · Preséntalo en ${b.en}, que lo marca como usado.</p></div></article>`;}).join("")}</div>`:`<div class="empty">Aún no has canjeado beneficios.</div>`}
+${me?`<h2 class="h2s">Mis cupones</h2>${mc.length?`<div class="stack">${mc.map(c=>{const b=BEN.find(x=>x.id===c.b);return `<article class="coupon"><div class="cqr" data-code="${c.code}" role="img" aria-label="Código QR del cupón ${c.code}"></div><div><h3>${b.n}</h3><p class="tok" style="margin:0 0 4px">${c.code}</p><p class="meta" style="margin:0">Válido hasta el ${fd(c.hasta)} · Dónde usarlo: ${b.en}. Allí lo marcan como usado.</p></div></article>`;}).join("")}</div>`:`<div class="empty">Aún no has canjeado beneficios.</div>`}
 <h2 class="h2s">Historial de puntos</h2><div class="tbl hist"><table><thead><tr><th>Fecha</th><th>Movimiento</th><th>Puntos</th><th>Estado</th></tr></thead><tbody>${ml.map(e=>`<tr><td class="num">${fd(e.f)}</td><td>${esc(e.t)}</td><td class="num ${e.p<0?"neg":e.st==="anulado"?"":"pos"}">${e.p>0?"+":e.p<0?"−":""}${fmt(Math.abs(e.p))}</td><td>${est(e)}</td></tr>`).join("")}</tbody></table></div>`:""}`;
 document.querySelectorAll(".cqr").forEach(d=>qr(d,"OPJC-BEN:"+d.dataset.code,96));}
 function redeem(id){const b=BEN.find(x=>x.id===id),s=saldo();if(s.av<b.pts)return;
@@ -878,11 +885,11 @@ if(!ok){err.textContent=t==="Pasaporte"?"Escribe el número de pasaporte, entre 
 c.doc={t,n:n.toUpperCase()};renderMis();toast("Documento registrado. Ya tienes tu código de retiro.");});
 
 // ---------- rutas ----------
-const VIEWS=["inicio","objetos","objeto","reportar","punto-nocturno","beneficios","mis-solicitudes","panel","ubicaciones","contacto"];
+const VIEWS=["inicio","objetos","objeto","reportar","fuera-de-horario","beneficios","mis-solicitudes","panel","ubicaciones","contacto"];
 function route(){let h=cur,m=h.match(/^objeto-(\d+)$/),v=m?"objeto":VIEWS.includes(h)?h:"inicio";
 VIEWS.forEach(x=>$("#v-"+x).hidden=x!==v);const navv=v==="objeto"?"objetos":v;
 document.querySelectorAll("nav a").forEach(a=>a.dataset.v===navv?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
-if(v==="objeto")renderDetail(+m[1]);if(v==="reportar")renderReport();if(v==="mis-solicitudes")renderMis();if(v==="panel")renderPanel();if(v==="punto-nocturno")renderPN();if(v==="beneficios")renderBen();}
+if(v==="objeto")renderDetail(+m[1]);if(v==="reportar")renderReport();if(v==="mis-solicitudes")renderMis();if(v==="panel")renderPanel();if(v==="fuera-de-horario")renderPN();if(v==="beneficios")renderBen();}
 function closeMenu(){$("#top").classList.remove("open");$("#menu-btn").setAttribute("aria-expanded","false");}
 function go(h){h=h||"inicio";if(dlg.open)dlg.close();closeMenu();const changed=h!==cur;cur=h;
 try{if(location.hash.slice(1)!==h)location.hash=h;}catch(e){}
@@ -897,15 +904,15 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")closeMenu();});
 const ICO={buscar:"M11 4a7 7 0 1 0 0 14a7 7 0 1 0 0-14zM20 20l-4.2-4.2",encontre:"M3 7l9-4 9 4-9 4zM3 7v10l9 4 9-4V7M12 11v10",solicitudes:"M9 3h6v3H9zM7 4.5H5V21h14V4.5h-2M9 14l2 2 4-4",nocturno:"M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z",beneficios:"M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z",ubicaciones:"M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12zM12 11.5a2.5 2.5 0 1 0 0-5a2.5 2.5 0 1 0 0 5z"};
 const SECS=[
 {k:"buscar",short:"Buscar",title:"Buscar mi objeto",kicker:"Quien lo perdió",c:"#2e9c98",d:"#1e6f6c",text:"Revisa lo que llegó a la oficina. Cada publicación muestra solo datos generales; los detalles que tú conoces sirven para demostrar que es tuyo.",steps:["Filtra por categoría o palabra","Abre la publicación","Reclama con tu correo Javeriana"],cta:"Explorar objetos",href:"#objetos"},
-{k:"encontre",short:"Encontré",title:"Encontré algo",kicker:"Quien lo encontró",c:"#6a58c2",d:"#4a3c96",text:"Llévalo a la oficina, en la entrada del Edificio Lagos, y avísanos aquí. Si está cerrada, usa el punto nocturno.",steps:["Describe el objeto","Entrégalo en la oficina","La oficina lo publica"],cta:"Reportar un hallazgo",href:"#reportar",tab:"encontre"},
+{k:"encontre",short:"Encontré",title:"Encontré algo",kicker:"Quien lo encontró",c:"#6a58c2",d:"#4a3c96",text:"Llévalo a la oficina, en la entrada del Edificio Lagos, y avísanos aquí. Si está cerrada, usa la máquina de entrega.",steps:["Describe el objeto","Entrégalo en la oficina","La oficina lo publica"],cta:"Reportar un hallazgo",href:"#reportar",tab:"encontre"},
 {k:"solicitudes",short:"Mis solicitudes",title:"Mis solicitudes",kicker:"Oficina",c:"#d0473f",d:"#a8342e",text:"Sigue tu reclamo y entérate si fue aprobado antes de desplazarte hasta la oficina.",steps:["Solicitud enviada","En revisión","Aprobada o no aprobada, con el motivo"],cta:"Ver mis solicitudes",href:"#mis-solicitudes"},
-{k:"nocturno",short:"Punto nocturno",title:"Punto nocturno",kicker:"Oficina cerrada",c:"#e8862a",d:"#a9570f",text:"Genera un QR, deposita el objeto en la máquina junto a la oficina y gana puntos cuando la oficina lo valide.",steps:["Genera tu QR","Escanéalo en la máquina","Deposita y cierra","Gana 10 puntos"],cta:"Usar el punto nocturno",href:"#punto-nocturno"},
+{k:"nocturno",short:"Fuera de horario",title:"Cuando cierra la oficina",kicker:"Oficina cerrada",c:"#e8862a",d:"#a9570f",text:"Genera un QR, deposita el objeto en la máquina junto a la oficina y gana puntos cuando la oficina lo valide.",steps:["Genera tu QR","Escanéalo en la máquina","Deposita y cierra","Gana 10 puntos"],cta:"Entregar fuera de horario",href:"#fuera-de-horario"},
 {k:"beneficios",short:"Beneficios",title:"Beneficios",kicker:"Comunidad Javeriana",c:"#e2b41c",d:"#7d6200",text:"Canjea tus puntos por entradas culturales, clases de bienestar, espacios de estudio y más.",steps:["Acumula puntos","Elige un beneficio","Recibe tu cupón"],cta:"Ver el catálogo",href:"#beneficios"},
-{k:"ubicaciones",short:"Ubicaciones",title:"Ubicaciones y contacto",kicker:"Dónde y cuándo",c:"#3e9f5f",d:"#2a6e41",text:"Oficina en la entrada del Edificio Lagos. Atención de 7:00 a. m. a 12:00 m. y de 2:00 p. m. a 5:00 p. m.",steps:["Oficina principal","Punto nocturno","Correo y chat de ayuda"],cta:"Ver ubicaciones",href:"#ubicaciones"}];
+{k:"ubicaciones",short:"Ubicaciones",title:"Ubicaciones y contacto",kicker:"Dónde y cuándo",c:"#3e9f5f",d:"#2a6e41",text:"Oficina en la entrada del Edificio Lagos. Atención de 7:00 a. m. a 12:00 m. y de 2:00 p. m. a 5:00 p. m.",steps:["Oficina principal","Máquina de entrega","Correo y chat de ayuda"],cta:"Ver ubicaciones",href:"#ubicaciones"}];
 const CASES=[
 {k:"perdi",label:"Perdí algo",hint:"Quiero encontrarlo",c:"#2e9c98",d:"#1e6f6c",icon:ICO.buscar,sum:"Cuatro pasos para recuperarlo sin ir y volver a preguntar.",cta:"Buscar en la rueda de objetos",href:"#objetos",steps:[["Busca","Revisa la rueda de objetos por categoría."],["Reclama","Describe rasgos que no aparecen publicados."],["Revisión","La oficina compara y te responde."],["Recoge","Ve con tu carné y tu código de retiro."]]},
 {k:"encontre",label:"Encontré algo",hint:"La oficina está abierta",c:"#6a58c2",d:"#4a3c96",icon:ICO.encontre,sum:"Tu ayuda llega más rápido a su dueño.",cta:"Reportar un hallazgo",href:"#reportar",tab:"encontre",steps:[["Describe","Qué es, dónde y cuándo lo encontraste."],["Entrega","Llévalo a la entrada del Edificio Lagos."],["Registro","La oficina lo publica en la web."],["Devolución","Su dueño lo reclama y lo recoge."]]},
-{k:"cerrada",label:"Está cerrado",hint:"Encontré algo fuera de horario",c:"#e8862a",d:"#a9570f",icon:ICO.nocturno,sum:"El punto nocturno recibe el objeto y te da puntos.",cta:"Usar el punto nocturno",href:"#punto-nocturno",steps:[["Tu QR","Llena el formulario y genera el código."],["Escanea","Acércalo al lector de la máquina."],["Deposita","Deja el objeto y cierra la puerta."],["Puntos","10 puntos cuando la oficina lo valida."]]}];
+{k:"cerrada",label:"Está cerrado",hint:"Encontré algo fuera de horario",c:"#e8862a",d:"#a9570f",icon:ICO.nocturno,sum:"La máquina de entrega recibe el objeto y te da puntos.",cta:"Entregar fuera de horario",href:"#fuera-de-horario",steps:[["Tu QR","Llena el formulario y genera el código."],["Escanea","Acércalo al lector de la máquina."],["Deposita","Deja el objeto y cierra la puerta."],["Puntos","10 puntos cuando la oficina lo valida."]]}];
 const icon=(d,sz=22)=>`<svg width="${sz}" height="${sz}" viewBox="0 0 24 24" aria-hidden="true"><path d="${d}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 function initWheel(){const W=780,C=390,R=Math.PI/180,P=(r,d)=>[C+r*Math.cos(d*R),C+r*Math.sin(d*R)],f=n=>n.toFixed(1);
 let rays="";for(let i=0;i<388;i++){const d=i*360/388,a=P(72,d),b=P(106,d);rays+=`M${f(a[0])} ${f(a[1])}L${f(b[0])} ${f(b[1])}`;}
@@ -954,7 +961,7 @@ else if(d.vmode){vmode=d.vmode;document.querySelectorAll("[data-vmode]").forEach
 initWheel();initCases();
 
 // ---------- chat ----------
-const FAQ={"¿Cómo reclamo un objeto?":"Abre la publicación en Objetos encontrados, ingresa con tu correo de la Javeriana y pulsa “Reclamar este objeto”. Describe rasgos que no aparecen en la publicación.","¿Por qué no veo todos los detalles?":"La oficina guarda en privado las marcas, el contenido y los grabados. Así solo el dueño real puede describirlos.","¿Cuánto demora la respuesta?":"El tiempo lo define la oficina. Verás el resultado en Mis solicitudes y te llegará un aviso al correo institucional.","¿Cómo gano puntos?":"Cuando la oficina está cerrada, entrega el objeto en el punto de entrega nocturno. Ganas 10 puntos cuando la oficina valida el depósito y 5 más si el dueño lo recupera.","¿Y si el objeto no cabe en la máquina?":"Llévalo al punto de la entrada principal y entrégaselo a los guardias.","¿Cuál es el horario?":"La oficina atiende de 7:00 a. m. a 12:00 m. y de 2:00 p. m. a 5:00 p. m.","¿Qué llevo a la oficina?":"Tu carné o el documento que registraste al aprobarse tu solicitud, y tu código de retiro.","¿Y si me niegan la solicitud?":"Verás el motivo general. Si crees que hay un error, escribe a dircom@javerianacali.edu.co o dsuarez@javerianacali.edu.co."};
+const FAQ={"¿Cómo reclamo un objeto?":"Abre la publicación en Objetos encontrados, ingresa con tu correo de la Javeriana y pulsa “Reclamar este objeto”. Describe rasgos que no aparecen en la publicación.","¿Por qué no veo todos los detalles?":"La oficina guarda en privado las marcas, el contenido y los grabados. Así solo el dueño real puede describirlos.","¿Cuánto demora la respuesta?":"El tiempo lo define la oficina. Verás el resultado en Mis solicitudes y te llegará un aviso al correo institucional.","¿Cómo gano puntos?":"Cuando la oficina está cerrada, entrega el objeto en la máquina junto a la oficina. Ganas 10 puntos cuando la oficina valida el depósito y 5 más si el dueño lo recupera.","¿Y si el objeto no cabe en la máquina?":"Llévalo al punto de la entrada principal y entrégaselo a los guardias.","¿Cuál es el horario?":"La oficina atiende de 7:00 a. m. a 12:00 m. y de 2:00 p. m. a 5:00 p. m.","¿Qué llevo a la oficina?":"Tu carné o el documento que registraste al aprobarse tu solicitud, y tu código de retiro.","¿Y si me niegan la solicitud?":"Verás el motivo general. Si crees que hay un error, escribe a dircom@javerianacali.edu.co o dsuarez@javerianacali.edu.co."};
 $("#qs").innerHTML=Object.keys(FAQ).map(q=>`<button class="chip">${q}</button>`).join("");
 $("#qs").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;const m=$("#msgs");
 m.insertAdjacentHTML("beforeend",`<div class="m u">${b.textContent}</div><div class="m b">${FAQ[b.textContent]}</div>`);m.scrollTop=m.scrollHeight;};
