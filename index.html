@@ -8,37 +8,37 @@
 <title>Objetos Perdidos · Javeriana Cali</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
-/* Layout: banda azul institucional arriba, contenido en columna de 1080px; tarjetas tipo marketplace; panel del personal como herramienta densa */
-:root{--bg:#f1f3f6;--surface:#fff;--ink:#141c2b;--muted:#4f5a6b;--line:#d4dae3;--blue:#1f3e6c;--blue-ink:#fff;--accent:#2c5697;--sun:#f8cd00;--sun-ink:#141c2b;--ok:#2f6b4f;--warn:#8a5a0b;--bad:#9b2c2c;--done:#5a6372;--soft:#e4e9f0;--onblue:#f8cd00;
---display:"Plus Jakarta Sans",system-ui,sans-serif;--body:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;color-scheme:light}
+/* Layout: sistema radial del gigamap (anillos macro, medio y micro alrededor de la oficina); banda gris carbón arriba; contenido en columna de 1080px */
+:root{--bg:#f2f2f3;--surface:#fff;--ink:#24242a;--muted:#4d4d55;--line:#d2d2d6;--blue:#2b2b30;--blue-ink:#fff;--accent:#a8342e;--red:#c0413b;--sun:#f2b732;--sun-ink:#24242a;--ok:#2a6e41;--warn:#8a5a0b;--bad:#b0283a;--done:#5a5a62;--soft:#ececee;--onblue:#f2b732;--ring:#45454a;--ring-2:#e3e3e6;--ring-3:#b9b9be;
+--display:"Barlow Condensed",system-ui,sans-serif;--body:Barlow,system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;color-scheme:light}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 var(--body)}
-h1,h2,h3{font-family:var(--display);line-height:1.15;margin:0 0 .5em;letter-spacing:-.015em;text-wrap:balance}
-h1{font-size:clamp(2rem,5.5vw,3.4rem);font-weight:800}h2{font-size:clamp(1.5rem,3.5vw,2.1rem);font-weight:700}h3{font-size:1.12rem;font-weight:700}
-.h1s{font-size:clamp(1.8rem,4vw,2.6rem)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body)}
+h1,h2,h3{font-family:var(--display);line-height:1;margin:0 0 .45em;letter-spacing:.005em;text-wrap:balance}
+h1{font-size:clamp(2.6rem,6vw,4.4rem);font-weight:800;text-transform:uppercase}h2{font-size:clamp(1.9rem,3.8vw,2.8rem);font-weight:800;text-transform:uppercase}h3{font-size:1.35rem;font-weight:700}
+.h1s{font-size:clamp(2.4rem,5vw,3.8rem)}
 p{margin:0 0 1em;max-width:64ch}
 a{color:var(--accent)}
 :focus-visible{outline:3px solid var(--sun);outline-offset:2px}
 .wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--blue);color:var(--blue-ink)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--blue);z-index:30}
-header.top .wrap{max-width:1200px}
+header.top .wrap{max-width:1320px}
 .bar{display:flex;align-items:center;gap:12px 14px;min-height:60px;flex-wrap:wrap;padding-block:8px}
 .brand{font:800 1.1rem var(--display);color:inherit;text-decoration:none;margin-right:auto;display:flex;align-items:center;gap:10px}
 .brand i{width:30px;height:30px;border-radius:8px;background:var(--sun);display:grid;place-items:center;font-style:normal}
 nav{display:flex;gap:2px;flex-wrap:wrap}
-nav a{color:inherit;text-decoration:none;padding:7px 10px;border-radius:8px;font-weight:600;font-size:.9rem;white-space:nowrap}
+nav a{color:inherit;text-decoration:none;padding:6px 8px;border-radius:999px;font:700 .98rem var(--display);letter-spacing:.02em;text-transform:uppercase;white-space:nowrap}
 nav a[aria-current="page"]{background:var(--sun);color:var(--sun-ink)}
 nav a:hover:not([aria-current]){background:rgba(255,255,255,.16)}
 .menu-btn{display:none;align-items:center;gap:8px;font:600 .95rem var(--body);color:var(--blue-ink);background:transparent;border:2px solid var(--blue-ink);border-radius:10px;padding:7px 12px;cursor:pointer}
 .burger,.burger::before,.burger::after{display:block;width:16px;height:2px;background:currentColor;border-radius:2px;position:relative}
 .burger::before,.burger::after{content:"";position:absolute;left:0}.burger::before{top:-5px}.burger::after{top:5px}
 #top.open .burger{background:transparent}#top.open .burger::before{top:0;transform:rotate(45deg)}#top.open .burger::after{top:0;transform:rotate(-45deg)}
-#login{max-width:46vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-@media(max-width:1140px){
+#login{flex:none;max-width:40vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(max-width:1299px){
 .bar{flex-wrap:nowrap;gap:10px}
 .brand{font-size:1rem;min-width:0}
 .menu-btn{display:inline-flex;order:2}
@@ -50,8 +50,8 @@ nav a{padding:13px 14px;font-size:1.02rem;border-radius:10px}
 .chips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}.chip{flex:none}
 .hero{padding-block:32px 52px}
 }
-@media(max-width:420px){.brand i{display:none}.menu-btn{padding:7px 10px}}
-.btn{font:600 1rem var(--body);border:2px solid var(--blue);background:var(--blue);color:var(--blue-ink);padding:10px 18px;border-radius:10px;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
+@media(max-width:420px){.brand small{display:none}.brand .bt{font-size:1rem}.brand svg{width:28px;height:28px}.menu-btn{padding:7px 10px}}
+.btn{font:700 1rem var(--body);border:2px solid var(--blue);background:var(--blue);color:var(--blue-ink);padding:11px 20px;border-radius:999px;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
 .btn.sun{background:var(--sun);border-color:var(--sun);color:var(--sun-ink)}
 .btn.ghost{background:transparent;color:var(--blue)}
 .btn.bad{background:transparent;border-color:var(--bad);color:var(--bad)}
@@ -73,14 +73,14 @@ header .btn.sm{border-color:var(--blue-ink);background:transparent;color:var(--b
 .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;color:inherit;text-decoration:none;transition:border-color .15s,transform .15s}
 .card:hover{border-color:var(--blue)}
 @media(prefers-reduced-motion:no-preference){.card:hover{transform:translateY(-2px)}}
-.ph{height:118px;display:grid;place-items:center;font-size:3rem;background:var(--soft)}
-.ph.big{height:auto;aspect-ratio:4/3;font-size:6rem;border-radius:14px;max-width:100%}
-.ph.sm{width:52px;height:52px;font-size:1.6rem;border-radius:10px;flex:none}
+.ph{height:118px;background:radial-gradient(circle closest-side at 50% 50%,var(--c,#7a7a82) 0 30%,#fff 31% 47%,var(--ring-3) 48% 64%,var(--ring-2) 65% 100%);background-color:var(--ring-2)}
+.ph.big{height:auto;aspect-ratio:4/3;border-radius:18px;max-width:100%}
+.ph.sm{width:52px;height:52px;border-radius:50%;flex:none}
 .cb{padding:14px 16px 16px;display:flex;flex-direction:column;gap:5px;flex:1}
 .cb h3{margin:0}.cb p{margin:0;color:var(--muted);font-size:.93rem}
 .cb .go{margin-top:auto;padding-top:6px;font-weight:600;color:var(--blue);font-size:.92rem}
 .meta{font-size:.86rem;color:var(--muted)}
-.pill{display:inline-block;font-size:.8rem;font-weight:700;padding:2px 10px;border-radius:99px;border:1.5px solid currentColor;align-self:flex-start;white-space:nowrap}
+.pill{display:inline-block;font:700 .82rem var(--display);letter-spacing:.06em;text-transform:uppercase;padding:2px 10px;border-radius:99px;border:1.5px solid currentColor;align-self:flex-start;white-space:nowrap}
 .pill.disponible,.pill.aprobada,.pill.alta{color:var(--ok)}
 .pill.porrecoger{color:var(--blue)}
 .pill.revision,.pill.media{color:var(--warn)}
@@ -90,7 +90,7 @@ header .btn.sm{border-color:var(--blue-ink);background:transparent;color:var(--b
 input,select,textarea{font:inherit;padding:10px 12px;border-radius:10px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);width:100%}
 .filters input{flex:1 1 240px;width:auto}.filters select{flex:0 1 220px;width:auto}
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
-.chip{border:1.5px solid var(--line);background:var(--surface);color:var(--ink);padding:6px 14px;border-radius:99px;cursor:pointer;font:500 .9rem var(--body)}
+.chip{border:1.5px solid var(--line);background:var(--surface);color:var(--ink);padding:7px 15px;border-radius:99px;cursor:pointer;font:700 .98rem var(--display);letter-spacing:.04em;text-transform:uppercase}
 .chip[aria-pressed="true"]{background:var(--blue);color:var(--blue-ink);border-color:var(--blue)}
 .empty{padding:32px;text-align:center;border:2px dashed var(--line);border-radius:14px;color:var(--muted);grid-column:1/-1}
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;counter-reset:s;padding:0;list-style:none;margin:0}
@@ -143,7 +143,7 @@ label.chk input{width:auto;margin-top:4px}
 .claim{padding:16px 18px;border-top:1px solid var(--line);display:grid;gap:12px}
 .cmp{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:18px}
 @media(max-width:700px){.cmp{grid-template-columns:1fr}}
-.lbl{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 8px}
+.lbl{font:700 .86rem var(--display);text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin:0 0 8px}
 .ai{border:1.5px dashed var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:8px;align-content:start}
 .fx{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:.9rem}
 .fx li{padding-left:22px;position:relative}
@@ -225,17 +225,151 @@ dialog::backdrop{background:rgba(5,10,25,.6)}
 .m.b{background:var(--soft)}.m.u{background:var(--blue);color:var(--blue-ink);justify-self:end}
 .qs{display:flex;gap:8px;flex-wrap:wrap;padding:10px 14px;border-top:1px solid var(--line)}
 #toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:12px;font-weight:600;z-index:50;max-width:calc(100% - 32px);box-shadow:0 8px 24px rgba(0,0,0,.25)}
-.proto{background:var(--sun);color:var(--sun-ink);font-size:.86rem;font-weight:600;padding-block:8px;text-align:center}
-footer{background:var(--surface);border-top:1px solid var(--line);padding-block:22px;color:var(--muted);font-size:.9rem}
+
+/* ===== Sistema radial ===== */
+.brand .bt{display:flex;flex-direction:column;line-height:1;font:800 1.2rem var(--display);letter-spacing:.05em;text-transform:uppercase}
+.brand small{font:600 .7rem var(--body);letter-spacing:.12em;color:#bdbdc3;margin-top:3px}
+.bgr{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.bgr svg{position:absolute}
+main{position:relative;z-index:1;overflow-x:clip}
+.bdot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--c);margin-right:7px;vertical-align:1px}
+.kick{margin:0;font:700 1.05rem var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.mega{margin:4px 0 10px;font-size:clamp(3.4rem,8vw,7.2rem);line-height:.9;color:var(--blue)}
+.lead{font-size:1.25rem;color:var(--muted);max-width:640px;margin:0 0 18px}
+.home .sbox{margin:0 0 34px}
+.home .sbox input{border:2px solid var(--line)}
+.wrap.home{max-width:1320px}
+.wheelrow{display:flex;flex-wrap:wrap;gap:40px;align-items:center}
+#wheel{position:relative;flex:1 1 520px;max-width:760px;aspect-ratio:1/1;min-width:0}
+#wheel>svg{width:100%;height:100%;display:block}
+.wpill{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;background:#fff;color:var(--ink);border:2px solid #c9c9ce;border-radius:999px;padding:8px 15px 8px 10px;font:700 1.05rem var(--display);letter-spacing:.03em;text-transform:uppercase;white-space:nowrap;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,background .2s}
+.wpill svg{color:var(--d);flex:none}
+.wpill:hover{transform:translate(-50%,-50%) scale(1.07);box-shadow:0 8px 22px rgba(20,20,26,.22)}
+.wpill.on{background:var(--d);border-color:var(--d);color:#fff}.wpill.on svg{color:#fff}
+.wpanel{flex:1 1 340px;max-width:470px;min-width:0;background:#fff;border-radius:20px;padding:28px;border-top:8px solid var(--ring);box-shadow:0 10px 34px rgba(20,20,26,.08)}
+.wp-top{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:.9rem}
+.wp-k{font:700 .92rem var(--display);letter-spacing:.14em;text-transform:uppercase}
+.wpanel h2{font-size:clamp(2.2rem,4vw,2.9rem);margin:8px 0 10px;color:var(--blue)}
+.wsteps{list-style:none;margin:0 0 22px;padding:0 0 0 4px}
+.wsteps li{position:relative;padding:0 0 14px 30px;font-weight:600}
+.wsteps li::before{content:"";position:absolute;left:0;top:5px;width:16px;height:16px;border-radius:50%;border:3px solid var(--c);background:#fff;box-sizing:border-box;z-index:1}
+.wsteps li::after{content:"";position:absolute;left:6.5px;top:20px;bottom:-4px;width:3px;background:var(--c)}
+.wsteps li:last-child{padding-bottom:0}.wsteps li:last-child::after{display:none}
+.round{width:46px;height:46px;padding:0!important;display:inline-grid!important;place-items:center;border-color:#c9c9ce!important;color:var(--blue)!important}
+.wlegend{margin-top:22px;padding-top:16px;border-top:1px solid var(--ring-2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;font-size:.85rem;color:var(--muted)}
+.wlegend b{display:block;font:700 1rem var(--display);letter-spacing:.1em;color:var(--blue)}
+.band-w{background:#fff;padding-block:80px;margin-top:72px}
+.band-d{background:var(--blue);color:#fff;padding-block:72px}
+.band-d h2{color:#fff}.band-d .kick{color:#f0857d}
+.cases{display:flex;gap:14px;flex-wrap:wrap;margin:6px 0 30px}
+.choice{flex:1 1 260px;text-align:left;border:2px solid #d2d2d6;background:#fff;color:var(--ink);border-radius:18px;padding:18px 20px;cursor:pointer;display:flex;gap:14px;align-items:center;font-family:var(--body);transition:transform .2s ease,background .2s}
+.choice:hover{transform:translateY(-3px)}
+.choice svg{color:var(--d);flex:none}.choice.on{background:var(--d);border-color:var(--d);color:#fff}.choice.on svg{color:#fff}
+.choice b{display:block;font:800 1.6rem/1.05 var(--display);text-transform:uppercase}
+.choice span span{font-size:.95rem;opacity:.85}
+.arcwrap{position:relative;width:100%;max-width:1040px;margin:0 auto;aspect-ratio:1000/690}
+.arcwrap svg{position:absolute;inset:0;width:100%;height:100%}
+.arccenter{position:absolute;left:50%;top:57%;transform:translate(-50%,-50%);width:36%;text-align:center}
+.arccenter .t{margin:0;font:800 2.1rem/1 var(--display);text-transform:uppercase}
+.arccenter p{margin:8px auto 14px;font-size:1rem;color:var(--muted)}
+.node{position:absolute;transform:translate(-50%,-32px);width:210px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px}
+.nnum{flex:none;width:64px;height:64px;border-radius:50%;color:#fff;display:grid;place-items:center;font:800 1.9rem var(--display)}
+.node b{display:block;font:700 1.4rem/1.1 var(--display);text-transform:uppercase;color:var(--blue)}
+.node span span{font-size:.95rem;color:var(--muted)}
+.bars{display:flex;flex-direction:column;gap:16px}
+.bars div{display:flex;align-items:center;gap:14px}
+.bars i{height:22px;background:var(--red);border-radius:4px;display:block}
+.bars b,.facts b{font:800 1.7rem var(--display)}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.facts>div{border-left:3px solid var(--sun);padding-left:16px;color:#cfcfd4}
+.facts b{display:block;line-height:1.1;color:#fff}
+.prow{display:flex;flex-wrap:wrap;gap:14px;align-items:stretch}
+.pcard{flex:1 1 340px;border-radius:18px;padding:20px 24px}
+.pcard b{display:block;font:800 1.75rem/1.05 var(--display);text-transform:uppercase;margin-bottom:6px}
+.pcard.p{background:#c8203f;color:#fff}.pcard.s{background:var(--sun);color:var(--ink)}
+.parrow{flex:0 0 56px;display:grid;place-items:center}
+.catl{display:flex;align-items:center;gap:7px;font:700 .85rem var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--cd,var(--muted))}
+.catl::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--c)}
+.vtoggle{display:inline-flex;border:2px solid var(--blue);border-radius:999px;overflow:hidden;margin-bottom:14px}
+.vtoggle button{border:0;background:#fff;color:var(--blue);font:700 1rem var(--display);letter-spacing:.06em;text-transform:uppercase;padding:8px 18px;cursor:pointer}
+.vtoggle button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.radial{position:relative;max-width:940px;margin:6px auto 4px;aspect-ratio:1120/840}
+.radial svg{width:100%;height:100%;display:block}
+.rlab{font:800 17px var(--display);letter-spacing:1px}.rpill{fill:#fff;font:700 12px var(--display);letter-spacing:1px}
+.rnum{fill:#fff;font:800 40px var(--display)}.rsub{fill:#fff;font:600 13px var(--body)}
+.dot{position:absolute;width:24px;height:24px;border-radius:50%;background:var(--c);border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.22);transform:translate(-50%,-50%);transition:transform .2s ease}
+.dot:hover,.dot:focus-visible{transform:translate(-50%,-50%) scale(1.35);z-index:3}
+.dot.off{opacity:.45}
+.dot .tip{display:none;position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);background:var(--blue);color:#fff;font:600 13px/1.2 var(--body);padding:6px 9px;border-radius:6px;white-space:nowrap;pointer-events:none}
+.dot:hover .tip,.dot:focus-visible .tip{display:block}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.06em;margin-bottom:-.06em}
+.w>span{display:inline-block}
+@media(max-width:760px){
+.wpill .wl{display:none}.wpill{padding:9px}
+.node{position:static!important;transform:none!important;width:auto!important;flex-direction:row!important;text-align:left!important;align-items:flex-start!important}
+.arcwrap{aspect-ratio:auto;display:flex;flex-direction:column;gap:18px}
+.arcwrap svg{display:none}.arccenter{position:static;transform:none;width:auto;text-align:left;order:9}
+.facts{grid-template-columns:1fr}.dot{width:20px;height:20px}
+}
+@media(prefers-reduced-motion:no-preference){
+.w>span{animation:wordUp 1s cubic-bezier(.16,1,.3,1) both}
+@keyframes wordUp{from{transform:translateY(105%);filter:blur(6px)}to{transform:none;filter:none}}
+.fade{animation:fadeUp .9s cubic-bezier(.16,1,.3,1) both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.wpill{animation:popIn .7s cubic-bezier(.2,.9,.25,1.25) backwards}
+@keyframes popIn{from{opacity:0;transform:translate(-50%,-50%) scale(.2)}}
+#wheel>svg{animation:wheelIn 1.2s cubic-bezier(.16,1,.3,1) both}
+@keyframes wheelIn{from{opacity:0;transform:scale(.85) rotate(-25deg)}to{opacity:1;transform:none}}
+.spin{transform-box:fill-box;transform-origin:center;animation:spin 90s linear infinite}
+.spin-r{transform-box:fill-box;transform-origin:center;animation:spin 140s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.wpanel.swap{animation:swap .45s cubic-bezier(.16,1,.3,1)}
+@keyframes swap{from{opacity:.3;transform:translateX(16px)}to{opacity:1;transform:none}}
+.node{animation:nodeIn .6s cubic-bezier(.2,.9,.25,1.2) backwards}
+@keyframes nodeIn{from{opacity:0;transform:translate(-50%,0) scale(.6)}}
+.dot{animation:dotIn .6s cubic-bezier(.2,.9,.25,1.3) backwards}
+@keyframes dotIn{from{opacity:0;transform:translate(-50%,-50%) scale(0)}}
+.radar{animation:radar 1.2s cubic-bezier(.16,1,.3,1) both}
+@keyframes radar{from{opacity:0;transform:scale(.6) rotate(-40deg)}to{opacity:1;transform:none}}
+}
+@supports (animation-timeline: view()){
+@media(prefers-reduced-motion:no-preference){
+.bg-a{animation:ringA linear both;animation-timeline:scroll(root)}
+.bg-b{animation:ringB linear both;animation-timeline:scroll(root)}
+.bg-c{animation:ringC linear both;animation-timeline:scroll(root)}
+@keyframes ringA{from{transform:translate(-50%,-50%) rotate(0deg) scale(1)}to{transform:translate(-50%,-50%) rotate(140deg) scale(1.7)}}
+@keyframes ringB{from{transform:translate(-50%,-50%) rotate(0deg) scale(.7)}to{transform:translate(-50%,-50%) rotate(-200deg) scale(1.25)}}
+@keyframes ringC{from{transform:translate(-50%,-50%) scale(.45);opacity:.9}to{transform:translate(-50%,-50%) scale(2.2);opacity:.15}}
+.wheelout{animation:wheelOut linear both;animation-timeline:view();animation-range:exit 0% exit 90%}
+@keyframes wheelOut{to{transform:scale(.82) rotate(18deg);opacity:.25}}
+.rise{animation:rise linear both;animation-timeline:view();animation-range:entry 5% cover 32%}
+@keyframes rise{from{opacity:0;transform:translateY(70px)}to{opacity:1;transform:none}}
+.slideL{animation:slideL linear both;animation-timeline:view();animation-range:entry 0% cover 35%}
+@keyframes slideL{from{opacity:0;transform:translateX(-140px)}to{opacity:1;transform:none}}
+.slideR{animation:slideR linear both;animation-timeline:view();animation-range:entry 0% cover 40%}
+@keyframes slideR{from{opacity:0;transform:translateX(140px)}to{opacity:1;transform:none}}
+.grow{transform-origin:left center;animation:grow linear both;animation-timeline:view();animation-range:entry 10% cover 40%}
+@keyframes grow{from{transform:scaleX(0)}to{transform:none}}
+.spinin{animation:spinin linear both;animation-timeline:view();animation-range:entry 0% cover 40%}
+@keyframes spinin{from{opacity:0;transform:rotate(-90deg) scale(.4)}to{opacity:1;transform:none}}
+}
+}
+.proto{position:relative;z-index:1;background:var(--sun);color:var(--sun-ink);font-size:.86rem;font-weight:600;padding-block:8px;text-align:center}
+footer{background:var(--blue);color:#cfcfd4;padding-block:26px;font-size:.9rem;position:relative;z-index:1}
 @media(prefers-reduced-motion:no-preference){main>section:not([hidden]){animation:in .22s ease-out}@keyframes in{from{opacity:0}to{opacity:1}}}
 </style>
 </head>
 <body>
+<div class="bgr" aria-hidden="true">
+<svg class="bg-a" viewBox="0 0 1000 1000" style="left:80%;top:42%;width:1500px;height:1500px;transform:translate(-50%,-50%)"><circle cx="500" cy="500" r="490" fill="none" stroke="#dadade" stroke-width="2"/><circle cx="500" cy="500" r="430" fill="none" stroke="#dadade" stroke-width="1.5" stroke-dasharray="3 12"/><circle cx="500" cy="10" r="9" fill="#c0413b"/><circle cx="70" cy="500" r="6" fill="#e8862a"/><circle cx="804" cy="804" r="7" fill="#2e9c98"/></svg>
+<svg class="bg-b" viewBox="0 0 1000 1000" style="left:10%;top:88%;width:1100px;height:1100px;transform:translate(-50%,-50%) scale(.7)"><circle cx="500" cy="500" r="480" fill="none" stroke="#e0e0e3" stroke-width="26"/><circle cx="500" cy="500" r="380" fill="none" stroke="#dadade" stroke-width="1.5" stroke-dasharray="2 10"/><circle cx="880" cy="500" r="8" fill="#6a58c2"/><circle cx="500" cy="880" r="6" fill="#e2b41c"/></svg>
+<svg class="bg-c" viewBox="0 0 1000 1000" style="left:50%;top:50%;width:900px;height:900px;transform:translate(-50%,-50%) scale(.45)"><circle cx="500" cy="500" r="495" fill="none" stroke="#e6c9c6" stroke-width="1.5"/><circle cx="500" cy="500" r="420" fill="none" stroke="#ececee" stroke-width="1.5"/></svg>
+</div>
 <header class="top" id="top"><div class="wrap bar">
-<a class="brand" href="#inicio"><i aria-hidden="true">🔎</i>Objetos Perdidos</a>
+<a class="brand" href="#inicio"><svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#45454a" stroke="#6a6a70"/><circle cx="20" cy="20" r="14" fill="#e3e3e6"/><circle cx="20" cy="20" r="9" fill="#fff"/><circle cx="20" cy="20" r="6" fill="#c0413b"/></svg><span class="bt">Objetos Perdidos<small>Javeriana Cali</small></span></a>
 <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="mainnav"><span class="burger" aria-hidden="true"></span>Menú</button>
 <nav aria-label="Principal" id="mainnav">
-<a href="#inicio" data-v="inicio">Inicio</a><a href="#objetos" data-v="objetos">Objetos</a><a href="#reportar" data-v="reportar">Reportar</a><a href="#punto-nocturno" data-v="punto-nocturno">Punto nocturno</a><a href="#beneficios" data-v="beneficios">Beneficios</a><a href="#mis-solicitudes" data-v="mis-solicitudes" id="nav-mis">Mis solicitudes</a><a href="#panel" data-v="panel" id="nav-panel" hidden>Panel del personal</a><a href="#ubicaciones" data-v="ubicaciones">Ubicaciones</a><a href="#contacto" data-v="contacto">Contacto</a>
+<a href="#objetos" data-v="objetos">Objetos</a><a href="#reportar" data-v="reportar">Reportar</a><a href="#punto-nocturno" data-v="punto-nocturno">Punto nocturno</a><a href="#beneficios" data-v="beneficios">Beneficios</a><a href="#mis-solicitudes" data-v="mis-solicitudes" id="nav-mis">Mis solicitudes</a><a href="#panel" data-v="panel" id="nav-panel" hidden>Panel del personal</a><a href="#ubicaciones" data-v="ubicaciones">Ubicaciones</a><a href="#contacto" data-v="contacto">Contacto</a>
 </nav>
 <button class="btn sm" id="login">Ingresar</button>
 </div></header>
@@ -244,41 +378,72 @@ footer{background:var(--surface);border-top:1px solid var(--line);padding-block:
 <main>
 <!-- INICIO -->
 <section class="view" id="v-inicio" hidden>
-<div class="hero"><div class="wrap">
-<h1>¿Perdiste algo en el campus? Empieza a buscarlo aquí.</h1>
-<p>Revisa los objetos que llegaron a la oficina de Objetos Perdidos, reclama el tuyo desde la web y ve a recogerlo solo cuando tu solicitud esté aprobada.</p>
-<form class="sbox" id="hsearch" role="search"><input type="search" id="hq" placeholder="Ej. audífonos, carné, termo" aria-label="Buscar un objeto"><button class="btn sun">Buscar</button></form>
-<div class="hero-cta"><a class="btn sun" href="#reportar" data-tab="encontre">Encontré un objeto</a><a class="btn ghost" href="#reportar" data-tab="perdi">Perdí un objeto</a></div>
-</div></div>
-<div class="wrap">
-<div class="ways">
-<div class="way"><div class="ic" aria-hidden="true">📦</div><h3>Ver objetos encontrados</h3><p>Publicaciones al día con categoría, lugar y estado.</p><a class="btn sm" href="#objetos">Ver listado</a></div>
-<div class="way"><div class="ic" aria-hidden="true">🙋</div><h3>Seguir mis solicitudes</h3><p>Mira si tu reclamo fue aprobado antes de ir a la oficina.</p><a class="btn sm" href="#mis-solicitudes">Mis solicitudes</a></div>
-<div class="way"><div class="ic" aria-hidden="true">📍</div><h3>Entregar lo que encontré</h3><p>Déjalo en un punto de recolección y avísanos aquí.</p><a class="btn sm" href="#ubicaciones">Ver puntos</a></div>
+<div class="wrap home">
+<p class="kick fade">Pontificia Universidad Javeriana Cali · Sistema de servicio</p>
+<h1 class="mega"><span class="w"><span style="animation-delay:150ms">Objetos</span></span> <span class="w"><span style="animation-delay:300ms">perdidos</span></span></h1>
+<p class="lead fade" style="animation-delay:500ms">Todo gira alrededor de la oficina. Toca un sector de la rueda para empezar, o busca directamente lo que perdiste.</p>
+<form class="sbox fade" id="hsearch" role="search" style="animation-delay:600ms"><input type="search" id="hq" placeholder="Ej. audífonos, carné, termo" aria-label="Buscar un objeto"><button class="btn sun">Buscar</button></form>
+<div class="wheelrow">
+<div id="wheel" class="wheelout"></div>
+<aside class="wpanel fade" id="wpanel" aria-live="polite" style="animation-delay:700ms"></aside>
 </div>
-<div class="sec night"><div><p class="lbl">Cuando la oficina está cerrada</p><h2>¿Encontraste algo fuera de horario?</h2><p>Déjalo en el punto de entrega nocturno, junto a la oficina. Generas un QR en la web, la máquina abre un compartimento y ganas puntos cuando la oficina valida el depósito.</p><div class="acts"><a class="btn sun" href="#punto-nocturno">Usar el punto nocturno</a><a class="btn ghost" href="#beneficios">Ver beneficios</a></div></div>
-<div class="night-pts"><b>+10</b><span>puntos por depósito validado</span><b>+5</b><span>si el dueño recupera el objeto</span></div></div>
-<div class="sec"><h2>Llegaron hace poco</h2><div class="grid" id="recent"></div><p style="margin-top:16px"><a href="#objetos">Ver todos los objetos →</a></p></div>
-<div class="sec"><h2>Cómo recuperas tu objeto</h2>
-<ol class="steps">
-<li><b>Busca</b><span>Filtra por categoría o palabra clave y abre la publicación.</span></li>
-<li><b>Reclama</b><span>Ingresa con tu correo de la Javeriana y describe rasgos que no aparecen en la publicación.</span></li>
-<li><b>Revisión</b><span>El sistema compara tu descripción con el registro de la oficina y el personal decide.</span></li>
-<li><b>Recoge</b><span>Con la solicitud aprobada registra tu código estudiantil o documento, y ve a la oficina con él y tu código de retiro.</span></li>
-</ol></div>
 </div>
+
+<section class="band-w" id="que-paso"><div class="wrap">
+<p class="kick rise">Tu recorrido</p>
+<h2 class="rise" style="font-size:clamp(2.6rem,6vw,4.6rem)">¿Qué te pasó hoy?</h2>
+<div class="cases rise" id="cases" role="group" aria-label="Elige tu situación"></div>
+<div class="arcwrap spinin" id="arc"></div>
+</div></section>
+
+<section class="band-d"><div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;align-items:center">
+<div>
+<p class="kick">Datos de la oficina</p>
+<h2 class="rise" style="font-size:clamp(2.4rem,5vw,3.4rem)">Lo que llega cada día</h2>
+<div class="bars">
+<div><i class="grow" style="width:6.4%;min-width:18px"></i><span><b>25</b> objetos al día</span></div>
+<div><i class="grow" style="width:25%"></i><span><b>97</b> por semana</span></div>
+<div><i class="grow" style="width:62%"></i><span><b>388</b> al mes</span></div>
+</div>
+</div>
+<div class="facts rise">
+<div><b style="font-size:2.5rem">30–35</b>personas consultan al día</div>
+<div><b>Entrada del Edificio Lagos</b>dónde queda la oficina</div>
+<div style="grid-column:1/-1"><b>7:00 a. m. – 12:00 m. · 2:00 p. m. – 5:00 p. m.</b>horario de atención; fuera de él funciona el punto nocturno</div>
+</div>
+</div></section>
+
+<section class="wrap" style="padding-block:80px 20px">
+<p class="kick rise">Por qué existe esta página</p>
+<h2 class="rise" style="font-size:clamp(2.4rem,5vw,4rem)">Del problema a la solución</h2>
+<div style="display:flex;flex-direction:column;gap:18px">
+<div class="prow"><div class="pcard p slideL"><b>Hay que volver a preguntar</b>Falta señalización para llegar, hay poca información visible y todo depende de lo que indiquen terceros.</div><div class="parrow spinin"><svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="#2b2b30" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="pcard s slideR"><b>Señalización</b>Ubicación clara de la oficina y carteles de horario, también en esta página.</div></div>
+<div class="prow"><div class="pcard p slideL"><b>Información dispersa</b>Los puntos donde llegan los objetos no se comunican entre sí ni tienen un registro de lo que guardan.</div><div class="parrow spinin"><svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="#2b2b30" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="pcard s slideR"><b>Registro unificado</b>Cada objeto con lugar, fecha, quién lo encontró y foto, en un solo listado.</div></div>
+<div class="prow"><div class="pcard p slideL"><b>Oficina cerrada o sin servicio</b>Cerrada en las mañanas y algunas tardes; sin el encargado no hay quién dé razón.</div><div class="parrow spinin"><svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="#2b2b30" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="pcard s slideR"><b>Web + QR</b>Consultar sin ir a la oficina y entregar en el punto nocturno, con trazabilidad.</div></div>
+</div>
+</section>
+
+<section class="wrap" style="padding-block:60px 10px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:22px">
+<h2 class="rise" style="margin:0;font-size:clamp(2.2rem,4.5vw,3.2rem)">Llegaron hace poco</h2>
+<a class="btn" href="#objetos">Explorar la rueda de objetos</a>
+</div>
+<div class="grid rise" id="recent"></div>
+</section>
 </section>
 
 <!-- LISTADO -->
 <section class="view" id="v-objetos" hidden><div class="wrap">
 <h1 class="h1s">Objetos encontrados</h1>
-<p style="color:var(--muted)">Cada publicación es un objeto que ya está en la oficina. Mostramos solo datos generales: los rasgos distintivos se usan para comprobar quién es el dueño.</p>
+<p style="color:var(--muted)">Cada punto de la rueda es un objeto que ya está en la oficina; entre más cerca del centro, más reciente. Mostramos solo datos generales: los rasgos distintivos se usan para comprobar quién es el dueño.</p>
 <div class="filters">
 <input type="search" id="q" placeholder="Buscar por palabra clave" aria-label="Buscar por palabra clave">
 <select id="st" aria-label="Estado"><option value="">Todos los estados</option><option value="disponible">Disponible</option><option value="porrecoger">Por recoger</option><option value="entregado">Entregado</option></select>
 </div>
+<div class="vtoggle" role="group" aria-label="Cómo ver los objetos"><button type="button" data-vmode="rueda" aria-pressed="true">Rueda</button><button type="button" data-vmode="lista" aria-pressed="false">Lista</button></div>
 <div class="chips" id="chips" role="group" aria-label="Categorías"></div>
 <p class="meta" id="count" aria-live="polite"></p>
+<div id="radial"></div>
 <div class="grid" id="list"></div>
 <p class="meta" style="margin-top:16px">Los objetos entregados salen del listado 7 días después de la entrega.</p>
 </div></section>
@@ -312,10 +477,10 @@ footer{background:var(--surface);border-top:1px solid var(--line);padding-block:
 <section class="view" id="v-ubicaciones" hidden><div class="wrap">
 <h1 class="h1s">Ubicaciones</h1>
 <div class="two">
-<div class="box"><h2 style="font-size:1.35rem">Punto principal de entrega</h2><p><b>Oficina de Objetos Perdidos</b>, ubicación por confirmar.</p><p>Aquí se guardan los objetos y se entregan a quien tenga una solicitud aprobada. Lleva tu carné o documento de identidad y tu código de retiro.</p></div>
+<div class="box"><h2 style="font-size:1.35rem">Punto principal de entrega</h2><p><b>Oficina de Objetos Perdidos</b>, entrada del Edificio Lagos.</p><p>Aquí se guardan los objetos y se entregan a quien tenga una solicitud aprobada. Lleva tu carné o documento de identidad y tu código de retiro.</p></div>
 <div class="box"><h2 style="font-size:1.35rem">Punto de entrega nocturno</h2><p>Máquina con compartimentos de tres tamaños junto a la oficina de Objetos Perdidos, en un lugar con cámara de seguridad y acceso de noche. Recibe objetos cuando la oficina está cerrada.</p><p>Si el objeto no cabe en la máquina, llévalo al punto de la entrada principal y entrégaselo a los guardias.</p><a class="btn sm" href="#punto-nocturno">Cómo usarla</a></div>
 </div>
-<p class="note" style="margin-top:14px">La dirección exacta se completa con los datos oficiales de la oficina.</p>
+
 </div></section>
 
 <!-- CONTACTO -->
@@ -341,6 +506,10 @@ footer{background:var(--surface);border-top:1px solid var(--line);padding-block:
 <script>
 const TODAY="2026-10-28";
 const CATS={"Electrónicos":"🎧","Accesorios":"⌚","Prendas":"🧥","Documentos":"🪪","Útiles académicos":"📓","Otros":"🎒"};
+const CC={"Electrónicos":"#3762a8","Accesorios":"#2e9c98","Prendas":"#6a58c2","Documentos":"#c0413b","Útiles académicos":"#3e9f5f","Otros":"#e2b41c"};
+const CD={"Electrónicos":"#274b85","Accesorios":"#1e6f6c","Prendas":"#4a3c96","Documentos":"#a8342e","Útiles académicos":"#2a6e41","Otros":"#7d6200"};
+const BCOL={"Entretenimiento y cultura":"#6a58c2","Beneficios universitarios":"#c0413b","Bienestar y deporte":"#3e9f5f"};
+let vmode="rueda",wsel=0,caso="perdi";
 const PUB={disponible:"Disponible",porrecoger:"Por recoger",entregado:"Entregado"};
 const CST={revision:"En revisión",aprobada:"Aprobada",denegada:"No aprobada"};
 const MOTIVOS=["La descripción no corresponde al objeto registrado.","La información no es suficiente para comprobar que el objeto es tuyo.","El objeto que describes no está registrado en la oficina."];
@@ -397,10 +566,11 @@ function openDlg(t,h){$("#dt").textContent=t;$("#db").innerHTML=h;if(!dlg.open)d
 
 // ---------- listado ----------
 const visible=o=>!(o.s==="entregado"&&days(o.ent,TODAY)>7);
-const card=o=>`<a class="card" href="#objeto-${o.id}"><div class="ph" aria-hidden="true">${CATS[o.c]}</div><div class="cb"><span class="pill ${o.s}">${PUB[o.s]}</span><h3>${esc(o.n)}</h3><p>${esc(o.d)}</p><span class="meta">${esc(o.l)} · ${fd(o.f)}</span><span class="go">${o.s==="disponible"?"Ver y reclamar →":"Ver publicación →"}</span></div></a>`;
+const card=o=>`<a class="card" href="#objeto-${o.id}"><div class="ph" aria-hidden="true" style="--c:${CC[o.c]||"#7a7a82"}"></div><div class="cb"><span class="catl" style="--c:${CC[o.c]};--cd:${CD[o.c]}">${o.c}</span><span class="pill ${o.s}">${PUB[o.s]}</span><h3>${esc(o.n)}</h3><p>${esc(o.d)}</p><span class="meta">${esc(o.l)} · ${fd(o.f)}</span><span class="go">${o.s==="disponible"?"Ver y reclamar →":"Ver publicación →"}</span></div></a>`;
 function renderList(){const q=norm($("#q").value.trim()),st=$("#st").value;
 const r=objs.filter(o=>visible(o)&&(!cat||o.c===cat)&&(!st||o.s===st)&&(!q||norm(o.n+o.d+o.l+o.c).includes(q)));
 $("#count").textContent=r.length+(r.length===1?" objeto":" objetos");
+$("#radial").hidden=vmode!=="rueda";$("#list").hidden=vmode==="rueda";if(vmode==="rueda")$("#radial").innerHTML=radialHTML(r);
 $("#list").innerHTML=r.length?r.map(card).join(""):`<div class="empty">No hay objetos con esos filtros. Prueba con otra palabra o <a href="#reportar" data-tab="perdi">reporta que perdiste algo</a> y te avisamos si llega uno parecido.</div>`;
 $("#recent").innerHTML=objs.filter(o=>o.s==="disponible").sort((a,b)=>b.f.localeCompare(a.f)).slice(0,4).map(card).join("");}
 function renderChips(){$("#chips").innerHTML=["",...Object.keys(CATS)].map(c=>`<button class="chip" aria-pressed="${cat===c}" data-cat="${c}">${c||"Todas"}</button>`).join("");}
@@ -418,7 +588,7 @@ else if(!user)act=`<button class="btn sun" data-loginfor="${id}">Ingresa para re
 else if(o.dep&&deposits.find(x=>x.id===o.dep)?.owner===user.handle)act=`<p class="note">Tú entregaste este objeto en el punto nocturno. Si en realidad es tuyo, escribe a la oficina: reclamarlo anula los puntos de ese depósito.</p>`;
 else act=`<button class="btn sun" data-claim="${id}">Reclamar este objeto</button>`;
 $("#detail").innerHTML=`<a class="back" href="#objetos">← Volver al listado</a>
-<div class="detail"><div class="ph big" aria-hidden="true">${CATS[o.c]}</div>
+<div class="detail"><div class="ph big" aria-hidden="true" style="--c:${CC[o.c]||"#7a7a82"}"></div>
 <div><span class="pill ${o.s}">${PUB[o.s]}</span><h1 class="h1s" style="margin-top:10px">${esc(o.n)}</h1><p style="font-size:1.08rem">${esc(o.d)}</p>
 <dl class="kv"><dt>Categoría</dt><dd>${o.c}</dd><dt>Encontrado en</dt><dd>${esc(o.l)}</dd><dt>Registrado</dt><dd>${fd(o.f)}</dd><dt>Referencia</dt><dd>OBJ-${String(o.id).padStart(4,"0")}</dd></dl>
 <p class="note"><b>¿Por qué hay tan pocos detalles?</b> No publicamos marcas, contenido, grabados ni stickers. Si el objeto es tuyo, esos rasgos son los que te pediremos para comprobarlo.</p>
@@ -479,9 +649,9 @@ const res=c.st==="aprobada"?(c.doc?`<div class="res"><p><b>Tu objeto te espera e
 <form class="docf" data-docfor="${c.id}" novalidate><div class="row"><label>Tipo<select id="dt-${c.id}">${DOCS.map(x=>`<option>${x}</option>`).join("")}</select></label><label>Número<input id="dn-${c.id}" inputmode="numeric" autocomplete="off" required></label></div><p class="err" id="de-${c.id}" role="alert" hidden></p><button class="btn sun" style="justify-self:start">Confirmar y ver código de retiro</button></form></div>`)
 :c.st==="denegada"?`<div class="res"><p><b>Motivo:</b> ${esc(c.motivo)}</p><p class="meta">Si crees que hay un error, escribe a la oficina desde Contacto.</p></div>`
 :`<div class="res"><p>La oficina está revisando tu descripción. Te avisaremos al correo institucional cuando haya respuesta.</p></div>`;
-return `<article class="req"><div class="req-h"><div class="ph sm" aria-hidden="true">${CATS[o.c]}</div><div><h3><a href="#objeto-${o.id}" style="color:inherit">${esc(o.n)}</a></h3><span class="meta">OBJ-${String(o.id).padStart(4,"0")} · ${esc(o.l)}</span></div><span class="pill ${c.st==="aprobada"&&!c.doc?"revision":c.st}">${c.st==="aprobada"&&!c.doc?"Aprobada · falta tu documento":CST[c.st]}</span></div>${track(c)}${res}</article>`;}).join(""):`<div class="empty">Aún no has reclamado ningún objeto. <a href="#objetos">Busca en el listado</a>.</div>`}</div>
+return `<article class="req"><div class="req-h"><div class="ph sm" aria-hidden="true" style="--c:${CC[o.c]||"#7a7a82"}"></div><div><h3><a href="#objeto-${o.id}" style="color:inherit">${esc(o.n)}</a></h3><span class="meta">OBJ-${String(o.id).padStart(4,"0")} · ${esc(o.l)}</span></div><span class="pill ${c.st==="aprobada"&&!c.doc?"revision":c.st}">${c.st==="aprobada"&&!c.doc?"Aprobada · falta tu documento":CST[c.st]}</span></div>${track(c)}${res}</article>`;}).join(""):`<div class="empty">Aún no has reclamado ningún objeto. <a href="#objetos">Busca en el listado</a>.</div>`}</div>
 <h2 style="font-size:1.35rem;margin-top:32px">Objetos que reporté como perdidos</h2><div class="stack">${ml.length?ml.map(r=>{const m=lostMatches(r);
-return `<article class="req"><div class="req-h"><div class="ph sm" aria-hidden="true">${CATS[r.c]}</div><div><h3>${esc(r.d)}</h3><span class="meta">${r.c} · ${esc(r.l)} · ${fd(r.f)}</span></div></div>${m.length?`<div class="res"><p><b>${m.length===1?"Llegó un objeto parecido":"Llegaron "+m.length+" objetos parecidos"}:</b> ${m.map(o=>`<a href="#objeto-${o.id}">${esc(o.n)}</a>`).join(", ")}</p></div>`:`<div class="res"><p>Sin coincidencias por ahora. Te avisamos si llega algo parecido.</p></div>`}</article>`;}).join(""):`<div class="empty">No tienes reportes de pérdida.</div>`}</div>`;}
+return `<article class="req"><div class="req-h"><div class="ph sm" aria-hidden="true" style="--c:${CC[r.c]||"#7a7a82"}"></div><div><h3>${esc(r.d)}</h3><span class="meta">${r.c} · ${esc(r.l)} · ${fd(r.f)}</span></div></div>${m.length?`<div class="res"><p><b>${m.length===1?"Llegó un objeto parecido":"Llegaron "+m.length+" objetos parecidos"}:</b> ${m.map(o=>`<a href="#objeto-${o.id}">${esc(o.n)}</a>`).join(", ")}</p></div>`:`<div class="res"><p>Sin coincidencias por ahora. Te avisamos si llega algo parecido.</p></div>`}</article>`;}).join(""):`<div class="empty">No tienes reportes de pérdida.</div>`}</div>`;}
 
 // ---------- panel del personal ----------
 function claimRow(c,o){const r=score(c,o);const lv=r.s>=.6?["alta","Coincidencia alta"]:r.s>=.35?["media","Coincidencia media"]:["baja","Coincidencia baja"];
@@ -491,8 +661,8 @@ return `<article class="claim"><div class="cmp"><div><p class="lbl">Describe ${e
 function pSolicitudes(){const pend=claims.filter(c=>c.st==="revision");if(!pend.length)return `<div class="empty">No hay solicitudes pendientes.</div>`;
 const g={};pend.forEach(c=>(g[c.oid]??=[]).push(c));
 return `<p class="meta">Las solicitudes de cada objeto aparecen ordenadas de mayor a menor coincidencia.</p>`+Object.entries(g).map(([id,cs])=>{const o=obj(+id);cs.sort((a,b)=>score(b,o).s-score(a,o).s);
-return `<section class="grp"><div class="grp-h"><div class="ph sm" aria-hidden="true">${CATS[o.c]}</div><div><h3>${esc(o.n)} <span class="meta">OBJ-${String(o.id).padStart(4,"0")}</span></h3><p class="meta" style="margin:0">${cs.length} ${cs.length>1?"solicitudes":"solicitud"} · Encontrado en ${esc(o.l)} · Recibido ${fd(o.f)}</p><p class="priv"><b>Registro privado:</b> ${esc(o.priv)}</p></div></div>${cs.map(c=>claimRow(c,o)).join("")}</section>`;}).join("");}
-function pAvisos(){return avisos.length?`<p class="meta">Avisos de la comunidad sobre objetos que dejaron en puntos de recolección. Al recibir uno, regístralo para publicarlo.</p><div class="stack">${avisos.map(a=>`<article class="aviso"><div class="ph sm" aria-hidden="true">${CATS[a.c]||"🎒"}</div><div><h3 style="margin:0 0 4px">${esc(a.d)}</h3><p class="meta" style="margin:0">Encontrado en ${esc(a.l)} · ${fd(a.f)}<br>Dejado en: ${esc(a.e)} · Avisó ${esc(a.quien)}</p></div><button class="btn sm" data-recv="${a.id}">Recibido: registrar</button></article>`).join("")}</div>`:`<div class="empty">No hay avisos por recibir.</div>`;}
+return `<section class="grp"><div class="grp-h"><div class="ph sm" aria-hidden="true" style="--c:${CC[o.c]||"#7a7a82"}"></div><div><h3>${esc(o.n)} <span class="meta">OBJ-${String(o.id).padStart(4,"0")}</span></h3><p class="meta" style="margin:0">${cs.length} ${cs.length>1?"solicitudes":"solicitud"} · Encontrado en ${esc(o.l)} · Recibido ${fd(o.f)}</p><p class="priv"><b>Registro privado:</b> ${esc(o.priv)}</p></div></div>${cs.map(c=>claimRow(c,o)).join("")}</section>`;}).join("");}
+function pAvisos(){return avisos.length?`<p class="meta">Avisos de la comunidad sobre objetos que dejaron en puntos de recolección. Al recibir uno, regístralo para publicarlo.</p><div class="stack">${avisos.map(a=>`<article class="aviso"><div class="ph sm" aria-hidden="true" style="--c:${CC[a.c]||"#7a7a82"}"></div><div><h3 style="margin:0 0 4px">${esc(a.d)}</h3><p class="meta" style="margin:0">Encontrado en ${esc(a.l)} · ${fd(a.f)}<br>Dejado en: ${esc(a.e)} · Avisó ${esc(a.quien)}</p></div><button class="btn sm" data-recv="${a.id}">Recibido: registrar</button></article>`).join("")}</div>`:`<div class="empty">No hay avisos por recibir.</div>`;}
 function pInventario(){const rows=[...objs].sort((a,b)=>b.f.localeCompare(a.f)).map(o=>{const n=claims.filter(c=>c.oid===o.id&&c.st==="revision").length,ap=claims.find(c=>c.oid===o.id&&c.st==="aprobada");
 return `<tr><td><a href="#objeto-${o.id}">${esc(o.n)}</a><br><span class="meta">OBJ-${String(o.id).padStart(4,"0")}</span></td><td>${o.c}</td><td class="num">${fd(o.f)}</td><td><span class="pill ${o.s}">${PUB[o.s]}</span></td><td class="num">${n||"—"}</td><td>${o.s==="porrecoger"?(ap?.doc?`<span class="meta">Verifica: ${ap.doc.t} ${esc(ap.doc.n)}<br>Código ${ap.code}</span><br><button class="btn sm" data-deliver="${o.id}" style="margin-top:6px">Marcar entregado</button>`:`<span class="meta">Esperando que ${esc(ap?.user||"")} registre su documento</span>`):o.s==="entregado"?`<span class="meta">${fd(o.ent)}</span>`:""}</td></tr>`;}).join("");
 return `<div class="tbl"><table><thead><tr><th>Objeto</th><th>Categoría</th><th>Recibido</th><th>Estado</th><th>Pendientes</th><th>Entrega</th></tr></thead><tbody>${rows}</tbody></table></div>`;}
@@ -596,7 +766,7 @@ deposits.push(x);ledger.push({owner:user.handle,f:TODAY,t:"Depósito · "+x.d,p:
 function renderMyDeps(){const el=$("#pn-mine");if(!el)return;
 if(user?.role!=="comunidad"){el.innerHTML=`<p class="meta">${user?"Los depósitos los hace la comunidad.":"Ingresa para ver tus depósitos."}</p>`;return;}
 const m=deposits.filter(isMine).sort((a,b)=>b.id-a.id);
-el.innerHTML=m.length?`<div class="stack">${m.map(x=>{const [k,t]=DST[x.st],e=ledger.find(l=>l.dep===x.id);return `<article class="aviso"><div class="ph sm" aria-hidden="true">${CATS[x.c]}</div><div><h3 style="margin:0 0 4px">${esc(x.d)}</h3><p class="meta" style="margin:0">Compartimento ${x.comp} · ${esc(x.l)} · ${fd(x.f)}${x.motivo?"<br>Motivo: "+esc(x.motivo):""}</p></div><span class="pill ${k}">${t}${e&&e.p&&x.st!=="rechazado"&&x.st!=="vacio"?" · +"+e.p:""}</span></article>`;}).join("")}</div>`:`<div class="empty">Aún no has depositado objetos.</div>`;}
+el.innerHTML=m.length?`<div class="stack">${m.map(x=>{const [k,t]=DST[x.st],e=ledger.find(l=>l.dep===x.id);return `<article class="aviso"><div class="ph sm" aria-hidden="true" style="--c:${CC[x.c]||"#7a7a82"}"></div><div><h3 style="margin:0 0 4px">${esc(x.d)}</h3><p class="meta" style="margin:0">Compartimento ${x.comp} · ${esc(x.l)} · ${fd(x.f)}${x.motivo?"<br>Motivo: "+esc(x.motivo):""}</p></div><span class="pill ${k}">${t}${e&&e.p&&x.st!=="rechazado"&&x.st!=="vacio"?" · +"+e.p:""}</span></article>`;}).join("")}</div>`:`<div class="empty">Aún no has depositado objetos.</div>`;}
 setInterval(()=>{if(!dep||dep.stage!=="qr")return;
 if(Date.now()>=dep.exp){dep.stage="expired";renderLeft();return;}const t=$("#qrt");if(t)t.textContent=mmss();},1000);
 
@@ -621,7 +791,7 @@ else if(b.max&&used>=b.max)btn=`<button class="btn sm ghost" disabled>Ya usaste 
 else if(s.av<b.pts)btn=`<button class="btn sm ghost" disabled>Te faltan ${fmt(b.pts-s.av)}</button>`;
 else if(bconfirm===b.id)btn=`<div class="acts"><button class="btn sm sun" data-redeem="${b.id}">Confirmar canje</button><button class="btn sm ghost" data-bcancel>Cancelar</button></div>`;
 else btn=`<button class="btn sm" data-bask="${b.id}">Canjear</button>`;
-return `<article class="bcard"><p class="lbl"><span aria-hidden="true">${BCAT[b.cat]}</span> ${b.cat}</p><h3>${b.n}</h3><p class="meta">${b.cond}${b.max&&me?` · usadas ${used} de ${b.max}`:""}</p><div class="bfoot"><span class="pts">${fmt(b.pts)} pts</span>${btn}</div></article>`;}
+return `<article class="bcard"><p class="lbl"><span class="bdot" aria-hidden="true" style="--c:${BCOL[b.cat]}"></span>${b.cat}</p><h3>${b.n}</h3><p class="meta">${b.cond}${b.max&&me?` · usadas ${used} de ${b.max}`:""}</p><div class="bfoot"><span class="pts">${fmt(b.pts)} pts</span>${btn}</div></article>`;}
 function renderBen(){const me=user?.role==="comunidad",s=me?saldo():null,mc=me?coupons.filter(isMine).sort((a,b)=>b.id-a.id):[],ml=me?ledger.filter(isMine).slice().reverse().sort((a,b)=>b.f.localeCompare(a.f)):[];
 const est=e=>e.st==="disponible"?(addM(e.f,VENCE_MESES)<TODAY?"Vencido":"Disponible · vence "+fd(addM(e.f,VENCE_MESES))):e.st==="pendiente"?"Pendiente de validación":e.st==="canje"?"Canjeado":"Anulado";
 $("#ben").innerHTML=`<h1 class="h1s">Beneficios</h1><p style="color:var(--muted)">Canjea los puntos que ganas al entregar objetos en el punto de entrega nocturno.</p>
@@ -638,7 +808,7 @@ const c={id:++seq,owner:user.handle,b:id,code:"BEN-"+rnd(4),f:TODAY,hasta:addD(T
 ledger.push({owner:user.handle,f:TODAY,t:"Canje · "+b.n,p:-b.pts,st:"canje"});bconfirm=null;renderBen();toast(`Canjeaste ${b.n}. Tu cupón es ${c.code}.`);}
 
 function pDepositos(){const pend=deposits.filter(x=>x.st==="pendiente");if(!pend.length)return `<div class="empty">No hay depósitos por validar.</div>`;
-return `<p class="meta">Objetos que llegaron a la máquina con la oficina cerrada. Ábrela con tu credencial y valida cada uno con el objeto en la mano.</p><div class="stack">${pend.map(x=>`<article class="req"><div class="req-h"><div class="ph sm" aria-hidden="true">${CATS[x.c]}</div><div><h3>${esc(x.d)}</h3><span class="meta">Compartimento ${x.comp} · ${x.c} · depositó ${esc(x.user)} el ${fd(x.f)}${x.h?" a las "+esc(x.h):""}</span></div><span class="pill revision">Pendiente</span></div>
+return `<p class="meta">Objetos que llegaron a la máquina con la oficina cerrada. Ábrela con tu credencial y valida cada uno con el objeto en la mano.</p><div class="stack">${pend.map(x=>`<article class="req"><div class="req-h"><div class="ph sm" aria-hidden="true" style="--c:${CC[x.c]||"#7a7a82"}"></div><div><h3>${esc(x.d)}</h3><span class="meta">Compartimento ${x.comp} · ${x.c} · depositó ${esc(x.user)} el ${fd(x.f)}${x.h?" a las "+esc(x.h):""}</span></div><span class="pill revision">Pendiente</span></div>
 <div class="cmp"><div><p class="lbl">Reporte del estudiante</p><dl class="kv" style="margin:0"><dt>Encontrado en</dt><dd>${esc(x.l)}</dd><dt>Descripción</dt><dd>${esc(x.d)}</dd><dt>Foto</dt><dd>Adjunta</dd></dl></div>
 <div class="ai"><p class="lbl" style="margin:0">Evidencia de la máquina</p><ul class="fx"><li class="y">Puerta abierta y cerrada</li><li class="y">Peso: ${x.peso}</li><li class="y">Objeto detectado</li><li class="y">Foto interna tomada</li></ul></div></div>
 <div class="acts" id="dv-${x.id}"><button class="btn sm" data-dval="${x.id}">Válido: registrar objeto</button><button class="btn sm bad" data-drej="${x.id}">Rechazar</button><button class="btn sm ghost" data-dempty="${x.id}">Compartimento vacío</button></div></article>`).join("")}</div>`;}
@@ -722,6 +892,66 @@ document.addEventListener("click",e=>{const a=e.target.closest('a[href^="#"]');i
 $("#menu-btn").onclick=()=>{const o=$("#top").classList.toggle("open");$("#menu-btn").setAttribute("aria-expanded",String(o));};
 document.addEventListener("click",e=>{if(!e.target.closest("#top"))closeMenu();});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeMenu();});
+
+// ---------- inicio radial ----------
+const ICO={buscar:"M11 4a7 7 0 1 0 0 14a7 7 0 1 0 0-14zM20 20l-4.2-4.2",encontre:"M3 7l9-4 9 4-9 4zM3 7v10l9 4 9-4V7M12 11v10",solicitudes:"M9 3h6v3H9zM7 4.5H5V21h14V4.5h-2M9 14l2 2 4-4",nocturno:"M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z",beneficios:"M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z",ubicaciones:"M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12zM12 11.5a2.5 2.5 0 1 0 0-5a2.5 2.5 0 1 0 0 5z"};
+const SECS=[
+{k:"buscar",short:"Buscar",title:"Buscar mi objeto",kicker:"Quien lo perdió",c:"#2e9c98",d:"#1e6f6c",text:"Revisa lo que llegó a la oficina. Cada publicación muestra solo datos generales; los detalles que tú conoces sirven para demostrar que es tuyo.",steps:["Filtra por categoría o palabra","Abre la publicación","Reclama con tu correo Javeriana"],cta:"Explorar objetos",href:"#objetos"},
+{k:"encontre",short:"Encontré",title:"Encontré algo",kicker:"Quien lo encontró",c:"#6a58c2",d:"#4a3c96",text:"Llévalo a la oficina, en la entrada del Edificio Lagos, y avísanos aquí. Si está cerrada, usa el punto nocturno.",steps:["Describe el objeto","Entrégalo en la oficina","La oficina lo publica"],cta:"Reportar un hallazgo",href:"#reportar",tab:"encontre"},
+{k:"solicitudes",short:"Mis solicitudes",title:"Mis solicitudes",kicker:"Oficina",c:"#d0473f",d:"#a8342e",text:"Sigue tu reclamo y entérate si fue aprobado antes de desplazarte hasta la oficina.",steps:["Solicitud enviada","En revisión","Aprobada o no aprobada, con el motivo"],cta:"Ver mis solicitudes",href:"#mis-solicitudes"},
+{k:"nocturno",short:"Punto nocturno",title:"Punto nocturno",kicker:"Oficina cerrada",c:"#e8862a",d:"#a9570f",text:"Genera un QR, deposita el objeto en la máquina junto a la oficina y gana puntos cuando la oficina lo valide.",steps:["Genera tu QR","Escanéalo en la máquina","Deposita y cierra","Gana 10 puntos"],cta:"Usar el punto nocturno",href:"#punto-nocturno"},
+{k:"beneficios",short:"Beneficios",title:"Beneficios",kicker:"Comunidad Javeriana",c:"#e2b41c",d:"#7d6200",text:"Canjea tus puntos por entradas culturales, clases de bienestar, espacios de estudio y más.",steps:["Acumula puntos","Elige un beneficio","Recibe tu cupón"],cta:"Ver el catálogo",href:"#beneficios"},
+{k:"ubicaciones",short:"Ubicaciones",title:"Ubicaciones y contacto",kicker:"Dónde y cuándo",c:"#3e9f5f",d:"#2a6e41",text:"Oficina en la entrada del Edificio Lagos. Atención de 7:00 a. m. a 12:00 m. y de 2:00 p. m. a 5:00 p. m.",steps:["Oficina principal","Punto nocturno","Correo y chat de ayuda"],cta:"Ver ubicaciones",href:"#ubicaciones"}];
+const CASES=[
+{k:"perdi",label:"Perdí algo",hint:"Quiero encontrarlo",c:"#2e9c98",d:"#1e6f6c",icon:ICO.buscar,sum:"Cuatro pasos para recuperarlo sin ir y volver a preguntar.",cta:"Buscar en la rueda de objetos",href:"#objetos",steps:[["Busca","Revisa la rueda de objetos por categoría."],["Reclama","Describe rasgos que no aparecen publicados."],["Revisión","La oficina compara y te responde."],["Recoge","Ve con tu carné y tu código de retiro."]]},
+{k:"encontre",label:"Encontré algo",hint:"La oficina está abierta",c:"#6a58c2",d:"#4a3c96",icon:ICO.encontre,sum:"Tu ayuda llega más rápido a su dueño.",cta:"Reportar un hallazgo",href:"#reportar",tab:"encontre",steps:[["Describe","Qué es, dónde y cuándo lo encontraste."],["Entrega","Llévalo a la entrada del Edificio Lagos."],["Registro","La oficina lo publica en la web."],["Devolución","Su dueño lo reclama y lo recoge."]]},
+{k:"cerrada",label:"Está cerrado",hint:"Encontré algo fuera de horario",c:"#e8862a",d:"#a9570f",icon:ICO.nocturno,sum:"El punto nocturno recibe el objeto y te da puntos.",cta:"Usar el punto nocturno",href:"#punto-nocturno",steps:[["Tu QR","Llena el formulario y genera el código."],["Escanea","Acércalo al lector de la máquina."],["Deposita","Deja el objeto y cierra la puerta."],["Puntos","10 puntos cuando la oficina lo valida."]]}];
+const icon=(d,sz=22)=>`<svg width="${sz}" height="${sz}" viewBox="0 0 24 24" aria-hidden="true"><path d="${d}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+function initWheel(){const W=780,C=390,R=Math.PI/180,P=(r,d)=>[C+r*Math.cos(d*R),C+r*Math.sin(d*R)],f=n=>n.toFixed(1);
+let rays="";for(let i=0;i<388;i++){const d=i*360/388,a=P(72,d),b=P(106,d);rays+=`M${f(a[0])} ${f(a[1])}L${f(b[0])} ${f(b[1])}`;}
+let arrows="";for(let k=0;k<8;k++){const dg=k*45+22.5,c=P(347,dg),t=(dg+90)*R,n=dg*R;arrows+=`M${f(c[0]+7*Math.cos(t))} ${f(c[1]+7*Math.sin(t))}L${f(c[0]-5*Math.cos(t)+6*Math.cos(n))} ${f(c[1]-5*Math.sin(t)+6*Math.sin(n))}L${f(c[0]-5*Math.cos(t)-6*Math.cos(n))} ${f(c[1]-5*Math.sin(t)-6*Math.sin(n))}Z`;}
+let arcs="",dots="",spokes="",pills="";
+SECS.forEach((s,i)=>{const mid=-90+i*60,st=mid-22,en=mid+22,p1=P(206,st),p2=P(206,en);
+arcs+=`<path id="warc-${i}" d="M${f(p1[0])} ${f(p1[1])}A206 206 0 0 1 ${f(p2[0])} ${f(p2[1])}" fill="none" stroke="${s.c}" stroke-width="11" stroke-linecap="round" opacity=".6"/>`;
+const n=s.steps.length;for(let j=0;j<n;j++){const q=P(206,st+6+j*(en-st-12)/(n-1));dots+=`M${f(q[0]-4.5)} ${f(q[1])}a4.5 4.5 0 1 0 9 0a4.5 4.5 0 1 0 -9 0`;}
+const s1=P(118,mid),s2=P(168,mid);spokes+=`M${f(s1[0])} ${f(s1[1])}L${f(s2[0])} ${f(s2[1])}`;
+const pp=P(283,mid);pills+=`<button class="wpill" type="button" data-sec="${i}" aria-pressed="false" style="left:${(pp[0]/W*100).toFixed(2)}%;top:${(pp[1]/W*100).toFixed(2)}%;--d:${s.d};animation-delay:${500+i*110}ms">${icon(ICO[s.k])}<span class="wl">${s.short}</span></button>`;});
+$("#wheel").innerHTML=`<svg viewBox="0 0 780 780" aria-hidden="true"><circle cx="390" cy="390" r="372" fill="#45454a"/><circle class="spin" cx="390" cy="390" r="347" fill="none" stroke="#77777e" stroke-width="1.5" stroke-dasharray="2 11"/><path d="${arrows}" fill="#e3e3e6"/><circle cx="390" cy="390" r="322" fill="#e3e3e6"/><circle cx="390" cy="390" r="244" fill="#b9b9be"/>${arcs}<path d="${dots}" fill="#fff" stroke="#45454a" stroke-width="1.5"/><circle cx="390" cy="390" r="168" fill="#fff"/><path d="${spokes}" fill="none" stroke="#9a9aa0" stroke-dasharray="3 4"/><circle cx="390" cy="390" r="112" fill="#c0413b"/><path class="spin-r" d="${rays}" fill="none" stroke="#f4d2cf" stroke-width=".8"/><circle cx="390" cy="390" r="66" fill="#c0413b"/><text x="390" y="352" text-anchor="middle" fill="#fbe3e1" style="font:600 12px var(--display);letter-spacing:1.5px">OFICINA</text><text x="390" y="392" text-anchor="middle" fill="#fff" style="font:800 54px var(--display)">388</text><text x="390" y="416" text-anchor="middle" fill="#fff" style="font:600 13px var(--body)">objetos al mes</text><rect x="352" y="723" width="76" height="22" rx="3" fill="#2b2b30"/><text x="390" y="739" text-anchor="middle" fill="#fff" style="font:700 13px var(--display);letter-spacing:2px">MACRO</text></svg>${pills}`;
+updateWheel(true);}
+function updateWheel(first){const s=SECS[wsel];
+SECS.forEach((x,i)=>{const a=$("#warc-"+i);if(a){a.setAttribute("stroke-width",i===wsel?18:11);a.setAttribute("opacity",i===wsel?1:.6);}});
+document.querySelectorAll(".wpill").forEach(b=>{const on=+b.dataset.sec===wsel;b.classList.toggle("on",on);b.setAttribute("aria-pressed",on);});
+const el=$("#wpanel");el.style.borderTopColor=s.c;
+el.innerHTML=`<div class="wp-top"><span class="wp-k" style="color:${s.d}">${s.kicker}</span><span class="meta">Sector ${wsel+1} de 6</span></div><h2>${s.title}</h2><p style="color:var(--muted)">${s.text}</p><p class="lbl">Micro · los pasos</p><ol class="wsteps" style="--c:${s.c}">${s.steps.map(t=>`<li>${t}</li>`).join("")}</ol><div class="acts"><a class="btn" href="${s.href}"${s.tab?` data-tab="${s.tab}"`:""} style="background:${s.d};border-color:${s.d}">${s.cta}</a><button class="btn ghost round" type="button" data-wnav="-1" aria-label="Sector anterior">${icon("M15 5l-7 7 7 7",20)}</button><button class="btn ghost round" type="button" data-wnav="1" aria-label="Sector siguiente">${icon("M9 5l7 7-7 7",20)}</button></div><div class="wlegend"><span><b>MACRO</b>El servicio completo</span><span><b>MEDIO</b>Los seis sectores</span><span><b>MICRO</b>Cada paso, un punto</span></div>`;
+if(!first){el.classList.remove("swap");void el.offsetWidth;el.classList.add("swap");}}
+function initCases(){$("#cases").innerHTML=CASES.map(k=>`<button class="choice" type="button" data-case="${k.k}" aria-pressed="false" style="--d:${k.d}">${icon(k.icon,34)}<span><b>${k.label}</b><span>${k.hint}</span></span></button>`).join("");updateCases();}
+function updateCases(){const k=CASES.find(x=>x.k===caso)||CASES[0];
+document.querySelectorAll(".choice").forEach(b=>{const on=b.dataset.case===caso;b.classList.toggle("on",on);b.setAttribute("aria-pressed",on);});
+const ang=[180,240,300,360],R=Math.PI/180;
+$("#arc").innerHTML=`<svg viewBox="0 0 1000 690" aria-hidden="true"><path d="M100 500A400 400 0 0 1 900 500" fill="none" stroke="#e3e3e6" stroke-width="26"/><path d="M100 500A400 400 0 0 1 900 500" fill="none" stroke="${k.c}" stroke-width="6" stroke-dasharray="2 14" stroke-linecap="round"/><path d="M175 500A325 325 0 0 1 825 500" fill="none" stroke="#d2d2d6" stroke-width="1.5"/><path d="M260 500A240 240 0 0 1 740 500" fill="none" stroke="#e3e3e6" stroke-width="1.5"/><line x1="80" y1="500" x2="920" y2="500" stroke="#e3e3e6" stroke-width="1.5"/></svg>
+<div class="arccenter"><p class="t" style="color:${k.d}">${k.label}</p><p>${k.sum}</p><a class="btn" href="${k.href}"${k.tab?` data-tab="${k.tab}"`:""} style="background:${k.d};border-color:${k.d}">${k.cta}</a></div>
+${k.steps.map((st,j)=>{const x=500+400*Math.cos(ang[j]*R),y=500+400*Math.sin(ang[j]*R);return `<div class="node" style="left:${(x/10).toFixed(2)}%;top:${(y/6.9).toFixed(2)}%;animation-delay:${j*120}ms"><span class="nnum" style="background:${k.d};box-shadow:0 0 0 7px #fff,0 0 0 9px ${k.c}">${j+1}</span><span><b>${st[0]}</b><span>${st[1]}</span></span></div>`;}).join("")}`;}
+function radialHTML(r){if(!r.length)return `<div class="empty">No hay objetos con esos filtros. Prueba con otra palabra o <a href="#reportar" data-tab="perdi">reporta que perdiste algo</a> y te avisamos si llega uno parecido.</div>`;
+const K=Object.keys(CATS),W=1120,H=840,OX=150,OY=10,C=410,R=Math.PI/180,P=(rr,d)=>[C+rr*Math.cos(d*R),C+rr*Math.sin(d*R)],f=n=>n.toFixed(1);
+const RINGS=[[70,150],[150,230],[230,300],[300,360]],ringOf=d=>d<=2?0:d<=7?1:d<=15?2:3;
+let wedges="",div="",labels="";
+K.forEach((k,i)=>{const st=-90+i*60,en=st+60,mid=st+30,a1=P(70,st),a2=P(360,st),a3=P(360,en),a4=P(70,en),op=cat===k?.2:(!cat?.09:.03);
+wedges+=`<path d="M${f(a1[0])} ${f(a1[1])}L${f(a2[0])} ${f(a2[1])}A360 360 0 0 1 ${f(a3[0])} ${f(a3[1])}L${f(a4[0])} ${f(a4[1])}A70 70 0 0 0 ${f(a1[0])} ${f(a1[1])}Z" fill="${CC[k]}" opacity="${op}"/>`;
+div+=`M${f(a1[0])} ${f(a1[1])}L${f(a2[0])} ${f(a2[1])}`;
+const lp=P(388,mid),cs=Math.cos(mid*R),an=Math.abs(cs)<.2?"middle":cs>0?"start":"end";
+labels+=`<text x="${f(lp[0])}" y="${f(lp[1]+5)}" text-anchor="${an}" fill="${CD[k]}" opacity="${!cat||cat===k?1:.35}" class="rlab">${k.toUpperCase()}</text>`;});
+const g={};r.forEach(o=>{const key=o.c+"|"+ringOf(days(o.f,TODAY));(g[key]=g[key]||[]).push(o);});
+const dts=r.map(o=>{const ci=K.indexOf(o.c),dd=days(o.f,TODAY),ring=ringOf(dd),grp=g[o.c+"|"+ring],pos=grp.indexOf(o),ang=-90+ci*60+60*(pos+1)/(grp.length+1),sp=RINGS[ring],rr=sp[0]+(sp[1]-sp[0])*(.5+(pos%2?.18:-.12)),p=P(rr,ang);
+const ago=dd<=0?"llegó hoy":dd===1?"hace 1 día":"hace "+dd+" días";
+return `<a class="dot${o.s==="entregado"?" off":""}" href="#objeto-${o.id}" aria-label="${esc(o.n)}, ${o.c}, ${PUB[o.s]}, ${ago}" style="left:${((p[0]+OX)/W*100).toFixed(2)}%;top:${((p[1]+OY)/H*100).toFixed(2)}%;--c:${CC[o.c]};animation-delay:${400+ring*200+pos*60}ms"><span class="tip">${esc(o.n)} · ${ago}</span></a>`;}).join("");
+const rp=(y,t,w)=>`<rect x="${410-w/2}" y="${y-9}" width="${w}" height="18" rx="9" fill="#45454a"/><text x="410" y="${y+4}" text-anchor="middle" class="rpill">${t}</text>`;
+return `<div class="radial"><svg class="radar" viewBox="-150 -10 1120 840" aria-hidden="true"><circle cx="410" cy="410" r="362" fill="#fff"/>${wedges}<circle cx="410" cy="410" r="360" fill="none" stroke="#45454a" stroke-width="4"/><circle cx="410" cy="410" r="300" fill="none" stroke="#c9c9ce" stroke-width="1.2" stroke-dasharray="4 5"/><circle cx="410" cy="410" r="230" fill="none" stroke="#c9c9ce" stroke-width="1.2" stroke-dasharray="4 5"/><circle cx="410" cy="410" r="150" fill="none" stroke="#c9c9ce" stroke-width="1.2" stroke-dasharray="4 5"/><path d="${div}" fill="none" stroke="#fff" stroke-width="3"/><circle cx="410" cy="410" r="70" fill="#c0413b"/><text x="410" y="414" text-anchor="middle" class="rnum">${r.length}</text><text x="410" y="436" text-anchor="middle" class="rsub">en la rueda</text>${rp(300,"0–2 DÍAS",60)}${rp(220,"3–7 DÍAS",60)}${rp(145,"8–15 DÍAS",68)}${rp(80,"+15 DÍAS",72)}${labels}</svg>${dts}</div><p class="meta" style="text-align:center">Más cerca del centro, más reciente. Toca un punto para abrir la publicación.</p>`;}
+document.addEventListener("click",e=>{const t=e.target.closest("[data-sec],[data-wnav],[data-case],[data-vmode]");if(!t)return;const d=t.dataset;
+if(d.sec){wsel=+d.sec;updateWheel();}
+else if(d.wnav){wsel=(wsel+(+d.wnav)+6)%6;updateWheel();}
+else if(d.case){caso=d.case;updateCases();}
+else if(d.vmode){vmode=d.vmode;document.querySelectorAll("[data-vmode]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.vmode===vmode));renderList();}});
+initWheel();initCases();
 
 // ---------- chat ----------
 const FAQ={"¿Cómo reclamo un objeto?":"Abre la publicación en Objetos encontrados, ingresa con tu correo de la Javeriana y pulsa “Reclamar este objeto”. Describe rasgos que no aparecen en la publicación.","¿Por qué no veo todos los detalles?":"La oficina guarda en privado las marcas, el contenido y los grabados. Así solo el dueño real puede describirlos.","¿Cuánto demora la respuesta?":"El tiempo lo define la oficina. Verás el resultado en Mis solicitudes y te llegará un aviso al correo institucional.","¿Cómo gano puntos?":"Cuando la oficina está cerrada, entrega el objeto en el punto de entrega nocturno. Ganas 10 puntos cuando la oficina valida el depósito y 5 más si el dueño lo recupera.","¿Y si el objeto no cabe en la máquina?":"Llévalo al punto de la entrada principal y entrégaselo a los guardias.","¿Cuál es el horario?":"La oficina atiende de 7:00 a. m. a 12:00 m. y de 2:00 p. m. a 5:00 p. m.","¿Qué llevo a la oficina?":"Tu carné o el documento que registraste al aprobarse tu solicitud, y tu código de retiro.","¿Y si me niegan la solicitud?":"Verás el motivo general. Si crees que hay un error, escribe a dircom@javerianacali.edu.co o dsuarez@javerianacali.edu.co."};

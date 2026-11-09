@@ -8,24 +8,24 @@
 <title>Máquina Punto de Entrega</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
 /* Layout: la pantalla de un quiosco físico, una sola columna centrada; diseño oscuro a propósito porque imita el aparato */
-:root{--bg:#0b1422;--shell:#172a46;--shell-2:#263f66;--screen:#0a1220;--ink:#e3e9f2;--muted:#9eabc0;--sun:#f8cd00;--sun-ink:#141c2b;--ok:#6fbf95;--bad:#e59a92;--line:rgba(255,255,255,.14);
---display:"Plus Jakarta Sans",system-ui,sans-serif;--body:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;color-scheme:dark}
+:root{--bg:#1c1c20;--shell:#2b2b30;--shell-2:#45454a;--screen:#141417;--ink:#ededef;--muted:#b5b5bb;--sun:#f2b732;--sun-ink:#24242a;--ok:#6fbf95;--bad:#f0857d;--line:rgba(255,255,255,.14);
+--display:"Barlow Condensed",system-ui,sans-serif;--body:Barlow,system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;color-scheme:dark}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.5 var(--body)}
 .wrap{max-width:560px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 40px;display:grid;gap:16px}
 :focus-visible{outline:3px solid var(--sun);outline-offset:2px}
 .machine{background:var(--shell);border-radius:26px;padding:18px;display:grid;gap:14px;box-shadow:inset 0 -8px 0 rgba(0,0,0,.3),0 20px 40px rgba(0,0,0,.35)}
 .top{display:flex;justify-content:space-between;align-items:center;gap:12px}
-.brand{font:700 .78rem var(--body);letter-spacing:.14em;text-transform:uppercase}
+.brand{font:800 .95rem var(--display);letter-spacing:.14em;text-transform:uppercase}
 .brand small{display:block;font-weight:500;letter-spacing:.06em;color:var(--muted);text-transform:none;font-size:.82rem;margin-top:2px}
 .led{width:12px;height:12px;border-radius:50%;background:var(--shell-2);flex:none}.led.on{background:var(--ok);box-shadow:0 0 12px var(--ok)}
 .hours{font-size:.85rem;color:var(--muted);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .hours b{color:var(--ink);font-weight:600}
 .screen{background:var(--screen);border:4px solid var(--shell-2);border-radius:16px;padding:22px 18px;min-height:300px;display:grid;gap:12px;align-content:center;text-align:center}
-.screen h1{font:700 clamp(1.4rem,5vw,1.8rem)/1.15 var(--display);margin:0;letter-spacing:-.01em;text-wrap:balance}
+.screen h1{font:800 clamp(1.7rem,6vw,2.2rem)/1.05 var(--display);margin:0;letter-spacing:.02em;text-transform:uppercase;text-wrap:balance}
 .screen p{margin:0;color:var(--muted)}
 .screen p b{color:var(--ink)}
 form{display:grid;gap:10px;justify-items:center}
@@ -47,7 +47,7 @@ input::placeholder{color:#55627c}
 .comp.P{grid-column:span 3;height:42px}.comp.M{grid-column:span 4;height:58px}.comp.G{grid-column:span 6;height:78px}
 .comp.busy{background:repeating-linear-gradient(45deg,var(--shell-2) 0 6px,rgba(255,255,255,.1) 6px 12px);color:var(--muted)}
 .comp.open{background:var(--sun);color:var(--sun-ink);border-color:var(--sun)}
-@media(prefers-reduced-motion:no-preference){.comp.open{animation:pulse 1s ease-in-out infinite alternate}@keyframes pulse{to{box-shadow:0 0 0 5px rgba(248,205,0,.35)}}}
+@media(prefers-reduced-motion:no-preference){.comp.open{animation:pulse 1s ease-in-out infinite alternate}@keyframes pulse{to{box-shadow:0 0 0 5px rgba(242,183,50,.35)}}}
 .legend{display:flex;gap:14px;font-size:.78rem;color:var(--muted);margin:0;flex-wrap:wrap}
 .lg{display:inline-block;width:12px;height:12px;border-radius:3px;background:var(--shell-2);border:1px solid var(--line);margin-right:5px;vertical-align:-2px}
 .lg.busy{background:repeating-linear-gradient(45deg,var(--shell-2) 0 3px,rgba(255,255,255,.3) 3px 6px)}.lg.open{background:var(--sun)}
