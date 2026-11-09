@@ -232,6 +232,33 @@ dialog::backdrop{background:rgba(5,10,25,.6)}
 .qs{display:flex;gap:8px;flex-wrap:wrap;padding:10px 14px;border-top:1px solid var(--line)}
 #toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:12px;font-weight:600;z-index:50;max-width:calc(100% - 32px);box-shadow:0 8px 24px rgba(0,0,0,.25)}
 
+/* Ubicaciones: foto de la oficina arriba, mapa del campus abajo */
+.office{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:36px;align-items:center;margin:14px 0 26px}
+@media(max-width:860px){.office{grid-template-columns:1fr;gap:22px}}
+.ophoto{position:relative;margin:0}
+.ophoto::before{content:"";position:absolute;right:-26px;top:-26px;width:180px;height:180px;border-radius:50%;border:2px dashed #c9c9ce;z-index:-1}
+.ophoto::after{content:"";position:absolute;left:-18px;bottom:-18px;width:110px;height:110px;border-radius:50%;background:var(--red);opacity:.9;z-index:-1}
+.ophoto img{display:block;width:100%;height:auto;border-radius:24px;box-shadow:0 18px 44px rgba(20,20,26,.22)}
+.ophoto figcaption{position:absolute;left:16px;top:16px;background:rgba(43,43,48,.88);color:#fff;font:700 .9rem var(--display);letter-spacing:.08em;text-transform:uppercase;padding:7px 12px;border-radius:999px}
+.oinfo h2{font-size:clamp(2.2rem,4.2vw,3.2rem);margin:2px 0 4px;color:var(--blue)}
+.oaddr{font:700 1.25rem var(--display);letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin:0 0 16px}
+.ofacts{margin:0 0 20px;display:grid;gap:12px}
+.ofacts div{display:grid;grid-template-columns:120px 1fr;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.ofacts dt{font:700 .9rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+.ofacts dd{margin:0;font-weight:600}
+.mbox{border-left:6px solid #e8862a}
+.mapsec{margin-top:64px}
+.mapsec h2{font-size:clamp(2.2rem,4.5vw,3.4rem);margin-bottom:18px}
+.campus{outline:10px solid var(--blue);outline-offset:-1px}
+.campus::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 55%,rgba(20,20,26,.28));z-index:1}
+.cphoto{position:absolute;left:-48px;bottom:81px;width:96px;height:96px;border-radius:50%;overflow:hidden;border:4px solid #fff;box-shadow:0 0 0 3px var(--red),0 10px 24px rgba(0,0,0,.35);transform:scale(0);transform-origin:50% 100%;transition:transform .6s cubic-bezier(.2,.9,.25,1.3)}
+.cphoto img{width:100%;height:100%;object-fit:cover;display:block}
+.campus.zoom .cphoto{transform:scale(1);transition-delay:2.5s}
+.clegend{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:16px;font-size:.92rem;color:var(--muted)}
+.clegend span{display:flex;align-items:center;gap:8px}
+.clegend i{display:inline-block;width:14px;height:14px;border-radius:50%}
+.lg-o{background:var(--red);box-shadow:0 0 0 3px #fff,0 0 0 4px var(--red)}.lg-m{background:#e8862a;border-radius:4px!important}
+@media(max-width:600px){.campus{outline-width:6px}.cphoto{left:-26px;bottom:39px;width:52px;height:52px;border-width:3px}.ophoto::before{width:110px;height:110px;right:-10px;top:-14px}.ophoto::after{width:70px;height:70px;left:-8px;bottom:-10px}.ofacts div{grid-template-columns:1fr;gap:2px}}
 /* Mapa del campus: entra completo y se acerca hasta la oficina del Edificio Lagos */
 .campus{position:relative;overflow:hidden;border-radius:22px;aspect-ratio:2400/1428;background:#efe9df;margin:12px 0 26px;box-shadow:0 14px 40px rgba(20,20,26,.12)}
 .cmap{position:absolute;inset:0;transform-origin:0 0;transition:transform 2.4s cubic-bezier(.65,0,.15,1)}
@@ -249,7 +276,7 @@ dialog::backdrop{background:rgba(5,10,25,.6)}
 .ctools{position:absolute;right:16px;top:16px;display:flex;background:#fff;border-radius:999px;padding:4px;gap:4px;box-shadow:0 4px 14px rgba(0,0,0,.18);z-index:3}
 .ctools button{border:0;background:transparent;color:var(--blue);font:700 .95rem var(--display);letter-spacing:.06em;text-transform:uppercase;padding:7px 14px;border-radius:999px;cursor:pointer}
 .ctools button[aria-pressed="true"]{background:var(--blue);color:#fff}
-@media(max-width:600px){.campus{border-radius:16px}.ccard{left:10px;right:10px;bottom:10px;max-width:none;padding:9px 12px;border-radius:12px}.ccard b{font-size:1.15rem}.ccard span{font-size:.78rem}.ccard .lbl{display:none}.ctools{right:8px;top:8px;padding:3px}.ctools button{padding:5px 9px;font-size:.8rem}.campus.zoom .cpin::before{height:40px}}
+@media(max-width:600px){.campus{border-radius:16px}.ccard{left:10px;right:10px;bottom:10px;max-width:none;padding:9px 12px;border-radius:12px}.ccard b{font-size:1.15rem}.ccard span{font-size:.78rem}.ccard .lbl{display:none}.ctools{right:8px;top:8px;padding:3px}.ctools button{padding:5px 9px;font-size:.8rem}.campus.zoom .cpin::before{height:28px}.ccard{display:none}.ctools{top:auto;bottom:8px}}
 @media(prefers-reduced-motion:no-preference){.campus.zoom .cpin::after{animation:pinPulse 1.8s ease-out 2.4s infinite}@keyframes pinPulse{from{transform:scale(.4);opacity:.9}to{transform:scale(1.6);opacity:0}}}
 @media(prefers-reduced-motion:reduce){.cmap,.cpin,.ccard{transition:none!important}}
 /* ===== Sistema radial ===== */
@@ -503,15 +530,32 @@ footer{background:var(--blue);color:#cfcfd4;padding-block:26px;font-size:.9rem;p
 <section class="view" id="v-ubicaciones" hidden><div class="wrap">
 <p class="kick">Pontificia Universidad Javeriana Cali</p>
 <h1 class="h1s">Ubicaciones</h1>
+<div class="office">
+<figure class="ophoto rise"><img src="img/oficina.jpg" alt="Entrada de la Oficina de Objetos Perdidos: puerta oscura con el letrero azul encima, en una fachada de ladrillo" width="1170" height="791"><figcaption>Busca el letrero azul sobre la puerta</figcaption></figure>
+<div class="oinfo">
+<p class="lbl">Punto principal de entrega</p>
+<h2>Oficina de Objetos Perdidos</h2>
+<p class="oaddr">Entrada del Edificio Lagos</p>
+<dl class="ofacts">
+<div><dt>Horario</dt><dd>7:00 a. m. – 12:00 m.<br>2:00 p. m. – 5:00 p. m.</dd></div>
+<div><dt>Qué llevar</dt><dd>Tu carné o documento y el código de retiro de tu solicitud aprobada</dd></div>
+<div><dt>Qué pasa aquí</dt><dd>Se guardan los objetos y se entregan a quien tenga una solicitud aprobada</dd></div>
+</dl>
+<button class="btn" type="button" data-goto-map>Ver en el mapa del campus</button>
+</div>
+</div>
+<div class="box mbox"><p class="lbl">Cuando cierra la oficina</p><h2 style="font-size:1.6rem">Máquina de entrega</h2><p>Máquina con compartimentos de tres tamaños junto a la oficina de Objetos Perdidos, en un lugar con cámara de seguridad y acceso de noche. Recibe objetos cuando la oficina está cerrada.</p><p>Si el objeto no cabe en la máquina, llévalo al punto de la entrada principal y entrégaselo a los guardias.</p><a class="btn sm" href="#fuera-de-horario">Cómo usarla</a></div>
+
+<div class="mapsec">
+<p class="kick rise">Cómo llegar</p>
+<h2 class="rise">La oficina en el campus</h2>
 <div class="campus" id="campus">
-<div class="cmap"><img src="img/campus.jpg" alt="Vista aérea del campus de la Javeriana Cali con la oficina de Objetos Perdidos marcada en la entrada del Edificio Lagos" width="2400" height="1428"></div>
-<span class="cpin" aria-hidden="true"><i></i></span>
-<div class="ccard"><p class="lbl">Aquí estamos</p><b>Oficina de Objetos Perdidos</b><span>Entrada del Edificio Lagos · 7:00 a. m. – 12:00 m. y 2:00 p. m. – 5:00 p. m.</span></div>
+<div class="cmap"><img src="img/campus.jpg" alt="Vista aérea del campus de la Javeriana Cali con la oficina de Objetos Perdidos marcada en la entrada del Edificio Lagos" width="2400" height="1428" loading="lazy"></div>
+<span class="cpin" aria-hidden="true"><span class="cphoto"><img src="img/oficina-mini.jpg" alt=""></span><i></i></span>
+<div class="ccard"><p class="lbl">Aquí estamos</p><b>Oficina de Objetos Perdidos</b><span>Entrada del Edificio Lagos</span></div>
 <div class="ctools" role="group" aria-label="Vista del mapa"><button type="button" data-cz="1" aria-pressed="false">Oficina</button><button type="button" data-cz="0" aria-pressed="true">Todo el campus</button></div>
 </div>
-<div class="two">
-<div class="box"><h2 style="font-size:1.35rem">Punto principal de entrega</h2><p><b>Oficina de Objetos Perdidos</b>, entrada del Edificio Lagos.</p><p>Aquí se guardan los objetos y se entregan a quien tenga una solicitud aprobada. Lleva tu carné o documento de identidad y tu código de retiro.</p></div>
-<div class="box"><h2 style="font-size:1.35rem">Máquina de entrega fuera de horario</h2><p>Máquina con compartimentos de tres tamaños junto a la oficina de Objetos Perdidos, en un lugar con cámara de seguridad y acceso de noche. Recibe objetos cuando la oficina está cerrada.</p><p>Si el objeto no cabe en la máquina, llévalo al punto de la entrada principal y entrégaselo a los guardias.</p><a class="btn sm" href="#fuera-de-horario">Cómo usarla</a></div>
+<div class="clegend"><span><i class="lg-o"></i>Oficina de Objetos Perdidos</span><span><i class="lg-m"></i>Máquina de entrega, junto a la oficina</span><span>Vista aérea del campus · toca “Todo el campus” para alejar</span></div>
 </div>
 
 </div></section>
@@ -990,7 +1034,7 @@ initWheel();initCases();
 // ---------- mapa del campus ----------
 let campusTouched=false;
 function campusZoom(on){const c=$("#campus");if(!c)return;c.classList.toggle("zoom",on);document.querySelectorAll("[data-cz]").forEach(b=>b.setAttribute("aria-pressed",String((b.dataset.cz==="1")===on)));}
-document.addEventListener("click",e=>{const b=e.target.closest("[data-cz]");if(!b)return;campusTouched=true;campusZoom(b.dataset.cz==="1");});
+document.addEventListener("click",e=>{const g=e.target.closest("[data-goto-map]");if(g){$("#campus").scrollIntoView({behavior:"smooth",block:"center"});return;}const b=e.target.closest("[data-cz]");if(!b)return;campusTouched=true;campusZoom(b.dataset.cz==="1");});
 try{new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting&&!campusTouched){setTimeout(()=>{if(!campusTouched)campusZoom(true);},500);}else if(!en.isIntersecting&&!campusTouched){campusZoom(false);}});},{threshold:.45}).observe($("#campus"));}catch(e){campusZoom(true);}
 
 // ---------- chat ----------
