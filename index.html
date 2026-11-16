@@ -889,11 +889,21 @@ footer,.foot{background:#050506}
 #v-inicio.mz .bnav{position:fixed;left:50%;transform:translateX(-50%)}
 #v-inicio.mz .closing{padding:40px 10px 60px}
 
+
+/* icono del detective en la entrada */
+#dark .scene{grid-auto-flow:row;align-content:center;gap:clamp(18px,3vh,34px)}
+#dark .det-ico{width:clamp(110px,15vw,190px);height:auto;border-radius:50%;box-shadow:0 0 0 3px rgba(242,183,50,.6),0 0 46px rgba(242,183,50,.25)}
+@media (prefers-reduced-motion:no-preference){#dark .det-ico{animation:peek 4.5s ease-in-out infinite}@keyframes peek{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg) translateY(-4px)}}}
+/* nombres de los edificios en el mapa */
+.clbl{position:absolute;left:calc(var(--x)*100%);top:calc(var(--y)*100%);transform:translate(-50%,-50%);z-index:2;background:#fff;color:#24242a;font:500 .95rem/1 Arial,Helvetica,sans-serif;padding:7px 11px;border-radius:5px;box-shadow:0 3px 10px rgba(0,0,0,.35);white-space:nowrap;pointer-events:none;transition:left 2.4s cubic-bezier(.65,0,.15,1),top 2.4s cubic-bezier(.65,0,.15,1),font-size .6s}
+.campus:not(.zoom) .clbl{font-size:.68rem;padding:4px 7px}
+.campus.zoom .clbl{left:calc((var(--x)*2.8 - 1.1864)*100%);top:calc((var(--y)*2.8 - .4789)*100%)}
+@media(max-width:760px){.clbl{font-size:.72rem;padding:4px 7px}.campus:not(.zoom) .clbl{font-size:.55rem;padding:3px 5px}}
 </style>
 </head>
 <body>
 <div id="dark" role="dialog" aria-label="Entrada: encuentra el reloj con la linterna">
-<div class="scene"><div class="big"><span>¿Eres capaz</span><span>de <em>encontrarlo</em>?</span></div></div>
+<div class="scene"><div class="big"><span>¿Eres capaz</span><span>de <em>encontrarlo</em>?</span></div><img class="det-ico" src="img/detective.png" alt="" width="420" height="420"></div>
 <span class="clue" style="left:8%;top:22%">Expediente N.º OP-2026-017</span>
 <span class="clue r" style="right:9%;top:16%">Caso abierto</span>
 <span class="clue" style="left:12%;bottom:22%">Última vez visto: Edificio Lagos · 5:40 p. m.</span>
@@ -1072,6 +1082,7 @@ footer,.foot{background:#050506}
 <h2 class="rise">La oficina en el campus</h2>
 <div class="campus" id="campus">
 <div class="cmap"><img src="img/campus.jpg" alt="Vista aérea del campus de la Javeriana Cali con la oficina de Objetos Perdidos marcada en la entrada del Edificio Lagos" width="2400" height="1428" loading="lazy"></div>
+<span class="clbl" style="--x:.6472;--y:.3050">Lagos</span><span class="clbl" style="--x:.5571;--y:.3473">Biblioteca</span><span class="clbl" style="--x:.7125;--y:.4285">Guayacanes</span>
 <span class="cpin" aria-hidden="true"><span class="cphoto"><img src="img/oficina-mini.jpg" alt=""></span><i></i></span>
 <div class="ccard"><p class="lbl">Aquí estamos</p><b>Oficina de Objetos Perdidos</b><span>Entrada del Edificio Lagos</span></div>
 <div class="cdark" aria-hidden="true"></div><button type="button" class="clamp" id="clamp" aria-pressed="true"><span aria-hidden="true">●</span> Linterna</button>
