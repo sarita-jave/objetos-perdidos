@@ -181,7 +181,7 @@ fieldset.tsel legend small{font-weight:400;color:var(--muted)}
 .pn-head{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:24px;align-items:start;margin-bottom:22px}
 @media(max-width:760px){.pn-head{grid-template-columns:1fr}}
 .status{border-radius:14px;padding:16px 18px;display:grid;gap:4px;border:2px solid var(--line);background:var(--surface)}
-.status.off{border-color:var(--blue)}.status.on{border-color:var(--ok)}
+.status.off{border-color:var(--blue)}.status.on{border-color:#BFBFBF}
 .status b{font-family:var(--display);font-size:1.15rem}
 .pn-steps li{padding:14px}
 .pn-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:20px;align-items:start;margin-top:20px}
@@ -678,7 +678,7 @@ footer,.foot{background:#050506}
 .ostat p{margin:8px 0 0;color:var(--muted);font-size:.95rem;max-width:30ch}
 .ostat a{color:var(--sun);font-weight:700}
 .stamp2{display:inline-block;font:800 1.5rem/1 var(--display);text-transform:uppercase;letter-spacing:.05em;border:3px solid currentColor;border-radius:6px;padding:4px 12px;transform:rotate(-3deg)}
-.stamp2.open{color:#8C8C8C;box-shadow:0 0 22px rgba(140,140,140,.25)}
+.stamp2.open{color:#BFBFBF;box-shadow:0 0 22px rgba(191,191,191,.25)}
 .stamp2.closed{color:#ee5a50;box-shadow:0 0 22px rgba(238,90,80,.25)}
 @media (prefers-reduced-motion:no-preference){.stamp2{animation:stampIn2 .6s cubic-bezier(.2,.9,.3,1.4) both}@keyframes stampIn2{from{transform:rotate(-12deg) scale(1.8);opacity:0}}}
 .ofacts div{border-bottom:1px dashed rgba(242,183,50,.25)}
@@ -1727,7 +1727,7 @@ if(D){const H=[[7,12],[14,17]],R=Math.PI/180,P=(h,r)=>{const a=h/24*360-90;retur
   let ticks='';for(let h=0;h<24;h++){const a=P(h,86),b=P(h,h%6?80:74);ticks+=`<line x1="${f(a[0])}" y1="${f(a[1])}" x2="${f(b[0])}" y2="${f(b[1])}" stroke="#6a665e" stroke-width="${h%6?1:2}"/>`}
   const nums=[0,6,12,18].map(h=>{const q=P(h,60);return `<text x="${f(q[0])}" y="${f(q[1]+4)}" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" fill="#b3ab9d">${h}</text>`}).join('');
   const hp=P(t,70);
-  D.innerHTML=`<circle cx="100" cy="100" r="96" fill="#141416" stroke="#2e2e33" stroke-width="2"/><circle cx="100" cy="100" r="88" fill="none" stroke="#24242a" stroke-width="10"/>${H.map(([a,b])=>`<path d="${arc(a,b,88)}" fill="none" stroke="#8C8C8C" stroke-width="10" stroke-linecap="round"/>`).join('')}${ticks}${nums}<line x1="100" y1="100" x2="${f(hp[0])}" y2="${f(hp[1])}" stroke="#8C8C8C" stroke-width="3" stroke-linecap="round"/><circle cx="100" cy="100" r="7" fill="#f2b732" stroke="#24242a" stroke-width="2"/>`;
+  D.innerHTML=`<circle cx="100" cy="100" r="96" fill="#141416" stroke="#2e2e33" stroke-width="2"/><circle cx="100" cy="100" r="88" fill="none" stroke="#24242a" stroke-width="10"/>${H.map(([a,b])=>`<path d="${arc(a,b,88)}" fill="none" stroke="#BFBFBF" stroke-width="10" stroke-linecap="round"/>`).join('')}${ticks}${nums}<line x1="100" y1="100" x2="${f(hp[0])}" y2="${f(hp[1])}" stroke="#BFBFBF" stroke-width="3" stroke-linecap="round"/><circle cx="100" cy="100" r="7" fill="#f2b732" stroke="#24242a" stroke-width="2"/>`;
   const st=document.getElementById('ostat'),nx=document.getElementById('onext');
   st.textContent=open?'Abierta ahora':'Cerrada ahora';st.className='stamp2 '+(open?'open':'closed');
   if(open){const e=H.find(([a,b])=>t>=a&&t<b)[1];nx.innerHTML=`Según el horario de atención, cierra a las ${lab(e)}`}
