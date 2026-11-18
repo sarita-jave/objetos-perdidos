@@ -722,7 +722,7 @@ footer,.foot{background:#050506}
 .pnote::before{content:"";position:absolute;top:-11px;left:50%;width:76px;height:24px;margin-left:-38px;background:rgba(255,255,240,.42);box-shadow:0 1px 3px rgba(0,0,0,.25);transform:rotate(-5deg)}
 .pnote b{color:#1d1d22!important;display:block;font:400 1.15rem/1.05 'Permanent Marker','Comic Sans MS',cursive;text-transform:uppercase;margin-bottom:8px;letter-spacing:.01em}
 .pnote:hover{transform:rotate(0) scale(1.07);box-shadow:0 26px 36px rgba(0,0,0,.6);z-index:9}
-.n-y{--nc:#f6df6e}.n-p{--nc:#f4b5c6}.n-b{--nc:#a9d6ee}
+.n-y{--nc:#F2F2F2}.n-p{--nc:#BFBFBF}.n-b{--nc:#8C8C8C}
 .pnote.nside{float:right;margin:-30px 10px 20px 24px}
 .pnote.mini{position:absolute;right:-34px;top:-30px;width:auto;min-height:0;padding:12px 10px 8px;font-size:1.15rem;z-index:6}
 .pnote.mini::before{width:40px;height:16px;margin-left:-20px;top:-8px}
@@ -899,6 +899,24 @@ footer,.foot{background:#050506}
 .campus:not(.zoom) .clbl{font-size:.68rem;padding:4px 7px}
 .campus.zoom .clbl{left:calc((var(--x)*2.8 - 1.1864)*100%);top:calc((var(--y)*2.8 - .4789)*100%)}
 @media(max-width:760px){.clbl{font-size:.72rem;padding:4px 7px}.campus:not(.zoom) .clbl{font-size:.55rem;padding:3px 5px}}
+
+/* ===== Paleta de grises para papeles, notas y beneficios ===== */
+:root{--card:#F2F2F2;--surface:#F2F2F2;--kraft:#737373}
+:where(.card,.box,.wpanel,.grp,.chat,.bcard,.pcard,.choice,.susp,#v-inicio .facts>div,#v-inicio .bars,#arc .node>span:nth-child(2),#arc .arccenter,.wpill,.chip,.status,.pn-steps>li){--line:#BFBFBF;--soft:#BFBFBF}
+.clip{background:#BFBFBF!important}
+.memo,.notebook{background-color:#F2F2F2!important}
+#recent .card{background:#F2F2F2!important}
+#v-inicio section h2.rise,.zcap,.bindex{background:#F2F2F2!important}
+.zcap em{background:#BFBFBF!important}
+#v-inicio .kick{background:#737373!important;color:#F2F2F2!important}
+#v-inicio .kick::before{background:#595959!important}
+.pcard.s{background:#BFBFBF!important}
+#arc .arccenter{background:#BFBFBF!important}
+.grp-h{background:#737373!important;color:#F2F2F2}
+.grp-h h3,.grp-h .meta{color:#F2F2F2!important}
+.bcard{background:#F2F2F2!important}
+.bcard[style*="#BFBFBF"] .bico,.bcard[style*="#8C8C8C"] .bico{color:#24242a}
+.bcard .lbl{color:#595959!important}
 </style>
 </head>
 <body>
@@ -1119,7 +1137,7 @@ const TODAY="2026-10-28";
 const CATS={"Electrónicos":"🎧","Accesorios":"⌚","Prendas":"🧥","Documentos":"🪪","Útiles académicos":"📓","Otros":"🎒"};
 const CC={"Electrónicos":"#3762a8","Accesorios":"#2e9c98","Prendas":"#6a58c2","Documentos":"#c0413b","Útiles académicos":"#3e9f5f","Otros":"#e2b41c"};
 const CD={"Electrónicos":"#274b85","Accesorios":"#1e6f6c","Prendas":"#4a3c96","Documentos":"#a8342e","Útiles académicos":"#2a6e41","Otros":"#7d6200"};
-const BCOL={"Comida y antojos":"#e8862a","Campus":"#2e9c98","Académico":"#c0413b","Bienestar y cultura":"#6a58c2"};
+const BCOL={"Comida y antojos":"#BFBFBF","Campus":"#8C8C8C","Académico":"#737373","Bienestar y cultura":"#595959"};
 let vmode="rueda",wsel=0,caso="perdi";
 const PUB={disponible:"Disponible",porrecoger:"Por recoger",entregado:"Entregado"};
 const CST={revision:"En revisión",aprobada:"Aprobada",denegada:"No aprobada"};
