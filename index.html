@@ -917,6 +917,14 @@ footer,.foot{background:#050506}
 .bcard{background:#F2F2F2!important}
 .bcard[style*="#BFBFBF"] .bico,.bcard[style*="#8C8C8C"] .bico{color:#24242a}
 .bcard .lbl{color:#595959!important}
+
+/* ===== Celular: aligerar el tablero para que Safari (iPhone) no se quede sin memoria ===== */
+@media (max-width:899px),(max-height:559px){
+ #v-inicio .bcanvas{will-change:auto}
+ #v-inicio .bcanvas.anim{transition:none}
+ #v-inicio:not(.mz) .bcanvas *,#v-inicio:not(.mz) #strings{filter:none!important;-webkit-filter:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;mix-blend-mode:normal!important;will-change:auto!important}
+ .fog{mix-blend-mode:normal;inset:0;animation:none!important;opacity:.4}
+}
 </style>
 </head>
 <body>
