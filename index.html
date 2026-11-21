@@ -968,6 +968,49 @@ footer .fnote{margin-top:30px;padding-top:16px;border-top:1px solid rgba(255,255
 #v-inicio.useimg .ovimg{display:block}
 #v-inicio.useimg .bcanvas{visibility:hidden}
 #v-inicio.useimg #strings{display:none}
+
+/* ===== Celular y tablet: tamaños más contenidos y nada encima de nada (el computador no cambia) ===== */
+@media (max-width:640px){
+ html{font-size:14px}
+ /* entrada */
+ #dark .hud{padding:14px 14px}
+ #dark .hud.top{align-items:flex-start}
+ #dark .hudr{flex-direction:column;align-items:flex-end;gap:6px}
+ #sndi,#skip{padding:6px 11px;font-size:9.5px;letter-spacing:.08em;white-space:nowrap}
+ #dark .hud.top>span:first-child{font-size:10px;letter-spacing:.08em;white-space:nowrap}
+ #dark .intro-uni{top:calc(env(safe-area-inset-top,0px) + 12px)}
+ #dark .intro-uni img{height:66px}
+ #dark .scene{padding-top:96px;padding-bottom:150px;gap:14px}
+ #dark .big{font-size:clamp(44px,14vw,60px)}
+ #dark .sub-id{font-size:10.5px;letter-spacing:.14em;margin-top:0}
+ #dark .det-ico{width:92px}
+ #dark>span.clue{font-size:10px;letter-spacing:.07em;line-height:1.35;top:auto!important;right:auto!important;left:16px!important;max-width:calc(100% - 32px)}
+ #dark>span.clue:nth-of-type(1){bottom:calc(env(safe-area-inset-bottom,0px) + 128px)!important}
+ #dark>span.clue:nth-of-type(2){display:none}
+ #dark>span.clue:nth-of-type(3){bottom:calc(env(safe-area-inset-bottom,0px) + 108px)!important}
+ #dark>span.clue:nth-of-type(4){bottom:calc(env(safe-area-inset-bottom,0px) + 88px)!important}
+ #dark .hud.bot{font-size:10.5px;letter-spacing:.08em;padding-bottom:18px}
+ #memo{left:80%;top:58%}
+ #memo img{width:104px}
+ /* barra de zonas */
+ #v-inicio.mob .bnav{max-width:calc(100% - 24px)}
+}
+@media (hover:none) and (pointer:coarse) and (min-width:641px){
+ html{font-size:15px}
+}
+@media (max-width:640px),(hover:none) and (pointer:coarse){
+ /* zonas abiertas: sin hilos cruzando los textos y con aire entre piezas */
+ #v-inicio.mz #strings{display:none}
+ #v-inicio.mz .zone .pnote{transform:rotate(var(--r,-2deg)) scale(.92);margin-bottom:18px}
+ #v-inicio.mz .zone h2{font-size:clamp(1.6rem,7vw,2.4rem);line-height:1.02}
+ #v-inicio.mz .zlabel span{font-size:1.7rem!important}
+ #v-inicio.mz .zlabel b{width:44px;height:44px;font-size:1.5rem}
+ #v-inicio.mz .zone{padding:16px 12px 24px!important}
+ #v-inicio.mz .zone>*+*{margin-top:14px}
+ .acts{flex-wrap:nowrap!important;gap:8px!important;align-items:center}
+ .acts .btn:not(.round){padding:10px 16px;font-size:.95rem;white-space:nowrap}
+ .acts .btn.round{width:42px;height:42px;padding:0;flex:none}
+}
 </style>
 </head>
 <body>
