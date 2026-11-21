@@ -9,7 +9,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
 /* Layout: sistema radial del gigamap (anillos macro, medio y micro alrededor de la oficina); banda gris carbón arriba; contenido en columna de 1080px */
@@ -925,17 +925,61 @@ footer,.foot{background:#050506}
  #v-inicio:not(.mz) .bcanvas *,#v-inicio:not(.mz) #strings{filter:none!important;-webkit-filter:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;mix-blend-mode:normal!important;will-change:auto!important}
  .fog{mix-blend-mode:normal;inset:0;animation:none!important;opacity:.4}
 }
+
+/* ===== Identidad institucional: Javeriana Cali + Oficina de Objetos Perdidos ===== */
+.unibar{position:relative;z-index:21;background:#050506;border-bottom:1px solid rgba(255,255,255,.08)}
+.unibar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:7px}
+.unibar .ub-l{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;min-width:0}
+.unibar .ub-l img{height:30px;width:auto;flex:none}
+.unibar .ub-l b{font:600 .82rem var(--body);letter-spacing:.06em;text-transform:uppercase;color:#fff}
+.unibar .ub-l small{display:none}
+.unibar .ub-r{font:700 .7rem var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#F2B732;white-space:nowrap}
+#dark .intro-uni{position:absolute;left:50%;top:calc(env(safe-area-inset-top,0px) + 16px);transform:translateX(-50%);z-index:2;pointer-events:none}
+#dark .intro-uni img{height:clamp(84px,13vh,128px);width:auto;display:block;filter:drop-shadow(0 0 18px rgba(0,0,0,.8))}
+#dark .sub-id{font:700 clamp(12px,1.5vw,18px) var(--mono);letter-spacing:.22em;text-transform:uppercase;color:#F2B732;margin-top:calc(-1*clamp(4px,1.4vh,16px))}
+footer{padding-block:44px 26px!important;border-top:3px solid #F2B732}
+footer .fid{display:grid;grid-template-columns:auto 1fr;gap:26px 40px;align-items:center}
+footer .flogo{height:140px;width:auto}
+footer .fsvc{display:flex;flex-direction:column;gap:4px;padding-left:40px;border-left:1px solid rgba(255,255,255,.2)}
+footer .fsvc b{font:800 clamp(1.5rem,2.6vw,2.2rem)/1 var(--display);text-transform:uppercase;letter-spacing:.03em;color:#fff}
+footer .fsvc .fu{font:600 1rem var(--body);color:#bdbdc3}
+footer .fk{display:block;font:600 .68rem var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#F2B732;margin-bottom:6px}
+footer .fcols{grid-column:2;display:grid;grid-template-columns:repeat(3,auto);gap:20px 56px;justify-content:start;padding-left:40px;font-size:.9rem;color:#cfcfd4;line-height:1.5;white-space:nowrap}
+footer .fcols a{color:#fff}
+footer .fnote{margin-top:30px;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);font-size:.8rem;color:#8c8c93}
+@media (max-width:899px){
+ footer .fid{gap:22px}
+ footer .flogo{height:104px}
+ footer .fsvc{padding-left:20px}
+ footer .fcols{grid-column:1/-1;padding-left:0;white-space:normal;grid-template-columns:repeat(2,auto)}
+}
+@media (max-width:640px){
+ .unibar .ub-r{display:none}
+ .unibar .ub-l img{height:28px}
+ .unibar .ub-l span{display:flex;flex-direction:column;line-height:1.2}
+ .unibar .ub-l b{font-size:.68rem;letter-spacing:.04em}
+ .unibar .ub-l small{display:block;font:700 .58rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#F2B732}
+ #dark .intro-uni{top:calc(env(safe-area-inset-top,0px) + 70px)}
+ #dark .intro-uni img{height:78px}
+}
+
+/* tablero como imagen en celular y tablet */
+#v-inicio .ovimg{display:none;position:absolute;z-index:2;cursor:pointer;-webkit-tap-highlight-color:transparent}
+#v-inicio.useimg .ovimg{display:block}
+#v-inicio.useimg .bcanvas{visibility:hidden}
+#v-inicio.useimg #strings{display:none}
 </style>
 </head>
 <body>
 <div id="dark" role="dialog" aria-label="Entrada: encuentra el reloj con la linterna">
-<div class="scene"><div class="big"><span>¿Eres capaz</span><span>de <em>encontrarlo</em>?</span></div><img class="det-ico" src="img/detective.png" alt="" width="420" height="420"></div>
+<div class="scene"><div class="big"><span>¿Eres capaz</span><span>de <em>encontrarlo</em>?</span></div><div class="sub-id">Oficina de Objetos Perdidos · Javeriana Cali</div><img class="det-ico" src="img/detective.png" alt="" width="420" height="420"></div>
 <span class="clue" style="left:8%;top:22%">Expediente N.º OP-2026-017</span>
 <span class="clue r" style="right:9%;top:16%">Caso abierto</span>
 <span class="clue" style="left:12%;bottom:22%">Última vez visto: Edificio Lagos · 5:40 p. m.</span>
 <span class="clue r" style="left:44%;bottom:12%">Se busca: reloj plateado con oro rosa</span>
 <button id="memo" type="button" aria-label="El reloj perdido. Tócalo para encender la luz"><img src="img/reloj.png" alt="" width="640" height="319"></button>
 <div class="shade"></div><div class="beam"></div>
+<div class="intro-uni"><img src="img/javeriana-logo-sin-vigilada.png" alt="Pontificia Universidad Javeriana Cali" width="520" height="554"></div>
 <div class="hud top"><span><span class="rings"></span>Caso abierto</span><span class="hudr"><button id="sndi" type="button" aria-pressed="false">Activar sonido</button><button id="skip" type="button">Encender la luz</button></span></div>
 <div class="hud bot"><span id="hint">Está oscuro. Mueve la linterna y encuentra el reloj.</span></div>
 </div>
@@ -946,6 +990,7 @@ footer,.foot{background:#050506}
 <svg class="bg-b" viewBox="0 0 1000 1000" style="left:10%;top:88%;width:1100px;height:1100px;transform:translate(-50%,-50%) scale(.7)"><circle cx="500" cy="500" r="480" fill="none" stroke="#e0e0e3" stroke-width="26"/><circle cx="500" cy="500" r="380" fill="none" stroke="#dadade" stroke-width="1.5" stroke-dasharray="2 10"/><circle cx="880" cy="500" r="8" fill="#6a58c2"/><circle cx="500" cy="880" r="6" fill="#e2b41c"/></svg>
 <svg class="bg-c" viewBox="0 0 1000 1000" style="left:50%;top:50%;width:900px;height:900px;transform:translate(-50%,-50%) scale(.45)"><circle cx="500" cy="500" r="495" fill="none" stroke="#e6c9c6" stroke-width="1.5"/><circle cx="500" cy="500" r="420" fill="none" stroke="#ececee" stroke-width="1.5"/></svg>
 </div>
+<div class="unibar"><div class="wrap"><a class="ub-l" href="#inicio"><img src="img/javeriana-escudo.png" alt="" width="300" height="300"><span><b>Pontificia Universidad Javeriana Cali</b><small>Oficina de Objetos Perdidos</small></span></a><span class="ub-r">Oficina de Objetos Perdidos</span></div></div>
 <header class="top" id="top"><div class="wrap bar">
 <a class="brand" href="#inicio"><svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#45454a" stroke="#6a6a70"/><circle cx="20" cy="20" r="14" fill="#e3e3e6"/><circle cx="20" cy="20" r="9" fill="#fff"/><circle cx="20" cy="20" r="6" fill="#c0413b"/></svg><span class="bt">¿Eres capaz de encontrarlo?<small>Objetos perdidos · Javeriana Cali</small></span></a>
 <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="mainnav"><span class="burger" aria-hidden="true"></span>Menú</button>
@@ -1135,7 +1180,12 @@ footer,.foot{background:#050506}
 <div class="glowend" aria-hidden="true"></div>
 </main>
 
-<footer><div class="wrap">Plataforma de Objetos Perdidos · Pontificia Universidad Javeriana Cali · Prototipo con datos de ejemplo; el ingreso es simulado.</div></footer>
+<footer><div class="wrap">
+<div class="fid"><img class="flogo" src="img/javeriana-logo.png" alt="Pontificia Universidad Javeriana Cali" width="520" height="642">
+<div class="fsvc"><span class="fk">Un servicio de la universidad</span><b>Oficina de Objetos Perdidos</b><span class="fu">Pontificia Universidad Javeriana Cali</span></div>
+<div class="fcols"><div><span class="fk">Horario</span>7:00 a. m. – 12:00 m.<br>2:00 p. m. – 5:00 p. m.</div><div><span class="fk">Correo</span>dircom@javerianacali.edu.co</div><div><span class="fk">Dónde estamos</span><a href="#ubicaciones">Ver ubicaciones →</a></div></div></div>
+<div class="fnote">Plataforma de Objetos Perdidos · Pontificia Universidad Javeriana Cali · Prototipo con datos de ejemplo; el ingreso es simulado.</div>
+</div></footer>
 
 <dialog id="dlg" aria-labelledby="dt"><div class="dh"><h2 id="dt" style="font-size:1.35rem"></h2><button class="x" id="dx" aria-label="Cerrar">×</button></div><div class="db" id="db"></div></dialog>
 <div id="toast" role="status" hidden></div>
@@ -1787,7 +1837,12 @@ tag();if(document.fonts)document.fonts.ready.then(req);setTimeout(req,300);setTi
 /* ===== Cámara del tablero: vista completa y zonas ===== */
 (function(){const B=document.getElementById('v-inicio'),C=document.getElementById('bcanvas');if(!B||!C)return;
 const Z=[...C.querySelectorAll('.zone')].sort((a,b)=>a.dataset.z-b.dataset.z),N=['Empieza aquí','¿Qué te pasó hoy?','Lo que llega cada día','Los sospechosos','Del problema a la solución','Llegaron hace poco','Cierra el caso'];
-let cur=-1;const big=()=>matchMedia('(min-width:900px) and (min-height:560px)').matches;
+let cur=-1;const big=()=>matchMedia('(min-width:900px) and (min-height:560px)').matches&&!matchMedia('(hover:none) and (pointer:coarse)').matches;
+/* en celular y tablet el tablero completo se muestra como imagen (más liviano para Safari) */
+const TB={"v":{"w":3800,"h":4439,"z":[[0,0.0368,0.0676,0.4737,0.1829],[1,0.5632,0.0676,0.4,0.1613],[2,0.5632,0.3046,0.3316,0.1178],[3,0.1526,0.3046,0.3579,0.1705],[4,0.1789,0.5292,0.3316,0.2769],[5,0.5632,0.5292,0.3316,0.1431],[6,0.3368,0.8601,0.3263,0.1039]]},"h":{"w":5300,"h":2982,"z":[[0,0.0264,0.057,0.3396,0.3159],[1,0.3981,0.057,0.2868,0.2891],[2,0.717,0.1281,0.2377,0.1737],[3,0.717,0.4366,0.2566,0.273],[4,0.3981,0.4366,0.2377,0.2619],[5,0.1283,0.4366,0.2377,0.2183],[6,0.4245,0.7733,0.234,0.1797]]}};let OV=null;
+function ovImg(){if(!OV){OV=document.createElement('img');OV.className='ovimg';OV.alt='Tablero del caso: toca una zona para abrirla';OV.decoding='async';C.parentNode.insertBefore(OV,C.nextSibling);
+ OV.addEventListener('click',e=>{const k=OV.dataset.k,r=OV.getBoundingClientRect(),fx=(e.clientX-r.left)/r.width,fy=(e.clientY-r.top)/r.height;let best=0,bd=1e9;
+  TB[k].z.forEach(([z,x,y,w,h])=>{const inside=fx>=x&&fx<=x+w&&fy>=y&&fy<=y+h,d=inside?-1:Math.hypot(fx-(x+w/2),fy-(y+h/2));if(d<bd){bd=d;best=z}});go(best)})}return OV}
 function fitH(){if(cur>=0&&!big()){B.style.removeProperty('--bh');return}const top=B.getBoundingClientRect().top+scrollY;B.style.setProperty('--bh',Math.max(big()?560:480,innerHeight-Math.min(top,big()?140:130)-(big()?14:8))+'px')}
 function marks(){B.dataset.cur=cur;B.classList.toggle('ov',cur<0);B.classList.toggle('cam',cur>=0);Z.forEach((z,i)=>z.classList.toggle('on',i===cur));
  document.querySelectorAll('[data-goz]').forEach(b=>b.classList.toggle('on',+b.dataset.goz===cur));
@@ -1795,9 +1850,13 @@ function marks(){B.dataset.cur=cur;B.classList.toggle('ov',cur<0);B.classList.to
  document.getElementById('bnPrev').disabled=cur<=0;document.getElementById('bnNext').disabled=cur>=Z.length-1;
  document.getElementById('bnAll').textContent=cur<0?'Empezar por la 1':(m?'Tablero':'Ver tablero completo');}
 function cam(anim){if(B.hidden)return;const m=!big();B.classList.toggle('mob',m);
+ B.classList.remove('useimg');
  if(m&&cur>=0){B.classList.add('mz');C.classList.remove('anim');C.style.transform='';marks();requestAnimationFrame(()=>dispatchEvent(new Event('scroll')));return}
  B.classList.remove('mz');
  const vw=B.clientWidth,vh=B.clientHeight,cw=C.offsetWidth,ch=C.offsetHeight;let s,tx,ty;
+ if(cur<0&&m){const k=vw/vh>1.15?'h':'v',I=ovImg(),iw=TB[k].w,ih=TB[k].h;if(I.dataset.k!==k){I.dataset.k=k;I.src='img/tablero-'+k+'.jpg'}
+  const L=vw>1100?330:0,bot=64,tp=(B.querySelector('.bhead')||{offsetHeight:0}).offsetHeight+6;s=Math.min((vw-L)/iw,(vh-bot-tp)/ih)*.97;tx=L+(vw-L-iw*s)/2;ty=tp+(vh-bot-tp-ih*s)/2;
+  B.classList.add('useimg');Object.assign(I.style,{left:tx.toFixed(1)+'px',top:ty.toFixed(1)+'px',width:(iw*s).toFixed(1)+'px',height:(ih*s).toFixed(1)+'px'});C.classList.remove('anim');C.style.transform='';marks();return}
  if(cur<0){const L=vw>1100?330:0,bot=m?64:90,tp=m?((B.querySelector('.bhead')||{offsetHeight:0}).offsetHeight+6):0;s=Math.min((vw-L)/cw,(vh-bot-tp)/ch)*.97;tx=L+(vw-L-cw*s)/2;ty=tp+(vh-bot-tp-ch*s)/2+(m?0:bot/2)}
  else{const z=Z[cur],x=z.offsetLeft,y=z.offsetTop,w=z.offsetWidth,h=z.offsetHeight,top=56,bot=78;const lft=vw>1100?84:20;s=Math.min((vw-lft-50)/w,(vh-top-bot)/h,1.05);tx=lft+(vw-lft-20)/2-(x+w/2)*s;ty=top+(vh-top-bot)/2-(y+h/2)*s}
  C.classList.toggle('anim',!!anim);C.style.transform=`translate(${tx.toFixed(1)}px,${ty.toFixed(1)}px) scale(${s.toFixed(4)})`;marks();}
