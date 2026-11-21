@@ -8,7 +8,7 @@
 <title>Máquina Punto de Entrega</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 /* Layout: la pantalla de un quiosco físico, una sola columna centrada; diseño oscuro a propósito porque imita el aparato */
 :root{--bg:#1c1c20;--shell:#2b2b30;--shell-2:#45454a;--screen:#141417;--ink:#ededef;--muted:#b5b5bb;--sun:#f2b732;--sun-ink:#24242a;--ok:#6fbf95;--bad:#f0857d;--line:rgba(255,255,255,.14);
@@ -53,9 +53,26 @@ input::placeholder{color:#55627c}
 .lg.busy{background:repeating-linear-gradient(45deg,var(--shell-2) 0 3px,rgba(255,255,255,.3) 3px 6px)}.lg.open{background:var(--sun)}
 .foot{font-size:.85rem;color:var(--muted);display:grid;gap:6px}
 .foot p{margin:0}
+
+/* franja institucional (igual a la página principal) */
+.unibar{position:relative;z-index:5;background:#050506;border-bottom:1px solid rgba(255,255,255,.08)}
+.unibar .ub-in{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:7px max(16px,env(safe-area-inset-right,0px)) 7px max(16px,env(safe-area-inset-left,0px))}
+.unibar .ub-l{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;min-width:0}
+.unibar .ub-l img{height:30px;width:auto;flex:none}
+.unibar .ub-l b{font:600 .82rem var(--body);letter-spacing:.06em;text-transform:uppercase;color:#fff}
+.unibar .ub-l small{display:none}
+.unibar .ub-r{font:700 .7rem var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#F2B732;white-space:nowrap}
+@media (max-width:640px){
+ .unibar .ub-r{display:none}
+ .unibar .ub-l img{height:28px}
+ .unibar .ub-l span{display:flex;flex-direction:column;line-height:1.2}
+ .unibar .ub-l b{font-size:.68rem;letter-spacing:.04em}
+ .unibar .ub-l small{display:block;font:700 .58rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#F2B732}
+}
 </style>
 </head>
 <body>
+<div class="unibar"><div class="ub-in"><a class="ub-l" href="../#inicio"><img src="../img/javeriana-escudo.png" alt="" width="300" height="300"><span><b>Pontificia Universidad Javeriana Cali</b><small>Oficina de Objetos Perdidos</small></span></a><span class="ub-r">Oficina de Objetos Perdidos</span></div></div>
 <div class="wrap">
 <div class="machine" role="group" aria-label="Máquina del punto de entrega">
 <div class="top"><div class="brand">Punto de entrega · Objetos Perdidos<small>Pontificia Universidad Javeriana Cali</small></div><span class="led" id="led" aria-hidden="true"></span></div>
